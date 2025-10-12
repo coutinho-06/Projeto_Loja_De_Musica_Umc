@@ -1,0 +1,90 @@
+:root{
+    --cor-primaria: #6C0A0A;
+    --cor-segundaria: #3f312e;
+    --cor-terciaria: #ffa601;
+}
+
+
+
+nav{
+    display: flex;
+    background-color: var(--cor-primaria);
+    
+    height: 4rem;
+    width: 100%;
+}
+
+.imagemLogo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+
+    img{
+        width: 4.5rem;
+    }
+    &:hover
+        {
+            transform: scale(1.1); 
+            transition: all 0.3s  ease-in-out;
+
+        }
+}
+
+.linksNav{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.2rem;
+    width:60%;
+
+
+    a{
+        text-decoration: none;
+        color: #fff;
+        font-weight: 550;
+        text-transform: uppercase;
+        font-family: "Montserrat", sans-serif;
+        cursor: pointer;
+        transition: all 50ms ease-in-out;
+        
+        &:hover{
+          transform: scale(1.1); 
+          transition: all 50ms ease-in-out;   
+      }
+    }
+}
+
+.btnNav{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 25%;
+    gap: 0.7rem;
+
+    .btndois{width: 5.5rem;}
+
+    button{
+        text-transform: uppercase;
+        font-family: "Montserrat", sans-serif;
+        color: #fff;
+        font-weight: 550;
+
+        border: 1px solid #fff;
+        background-color: var(--cor-primaria);
+        width: 7rem;
+        height: 1.8rem;
+
+        transition: all 0.5s ease-in-out;
+
+        &:hover
+        {
+            transform: scale(1.1); 
+            transition: all 0.3s  ease-in-out;
+            background-color: #fff;
+            color: var(--cor-primaria);
+
+        }
+        
+    }
+}
