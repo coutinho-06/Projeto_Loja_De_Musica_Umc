@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="icon" href="IMG/Logos/logo-branca.png" type="image/x-icon">
+    <link rel="icon" href="IMG/Logos/logo-branca.png" type="image/x-icon">
     <title>Bem-Vindo a Groove Sound!</title>
 
 
@@ -16,6 +16,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montagu+Slab:opsz,wght@16..144,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
 
 </head>
@@ -33,14 +38,36 @@
             <a href="#">Contato</a>
         </div>
         <div class="btnNav">
-            <button><a href="TelaFormularioCadastro.php">Cadastrar</a></button>
-            <button class="btndois"><a href="TelaFormularioLogin.php">Login</a></button>
+            <button><a class="linkbtn" href="TelaFormularioCadastro.php">Cadastrar</a></button>
+            <button class="btndois"><a class="linkbtn" href="TelaFormularioLogin.php">Login</a></button>
         </div>
     </nav>
     <!-- Navbar -->
 
 
     <!-- Primeira Sessão -->
+    <section class="PrimeiraSessao">
+        <div class="parteUmPrimeiraSessao">
+            <p><u>Sinta</u><br>o ritmo<br>
+            <u>Viva</u><br>o som</p>
+        </div>
+        <div class="parteDoisPrimeiraSessao">
+            <img src="IMG/Home/bateriacapa.png">
+        </div>
+    </section>
+    <!-- Primeira Sessão -->
+
+    <!-- Segunda Sessão -->
+    <section class="SegundaSessao">
+        <p>Mais Vendidos</p>
+        <div class="cardsMaisVendidos">
+            <card class="card1"></card>
+            <card class="card2"></card>
+            <card class="card3"></card>
+        </div>
+    </section>
+
+
 
 
 </body>

@@ -87,10 +87,15 @@ nav{
             transition: all 0.3s  ease-in-out;
             background-color: #fff;
             color: var(--cor-primaria);
+            border: 1px solid var(--cor-primaria);
 
+            a.linkbtn{   
+            color: var(--cor-primaria);
+
+            }
         }
-
-        a{
+ 
+        a.linkbtn{
             text-decoration: none;
             color: #fff;}
         

@@ -1,0 +1,79 @@
+:root{
+    --cor-primaria: #6C0A0A;
+    --cor-segundaria: #3f312e;
+    --cor-terciaria: #ffa601;
+}
+
+
+    /* Primeira Sessão */
+
+section.PrimeiraSessao{
+    height: 90vh;
+    width: 100%;
+    background-color: antiquewhite;
+    display: flex;
+    
+}
+
+.parteUmPrimeiraSessao{
+    width: 37%;
+    height: 100%;
+    background-color: var(--cor-primaria);
+
+    display: flex;
+    flex-direction: column;
+     
+
+    p{
+        margin-left: 4rem;
+        margin-top: 3.5rem;
+        flex-wrap: wrap;
+        color: #fff;
+        font-family: "Montagu Slab", serif;
+        font-weight: 450;
+        font-size: 5.5rem;
+        text-transform: uppercase;
+
+        u{
+            text-decoration: underline; /* Habilita o sublinhado */
+            text-decoration-thickness: 3px; /* Define a espessura da linha */
+            text-underline-offset: 10px; /* Define a distância da linha para o texto */
+        }
+    }
+
+}
+
+.parteDoisPrimeiraSessao{
+
+    display: flex;
+    width: 63%;
+    height: 100%;
+
+    img{
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+}
+
+
+
+/* Segunda Sessão */
+
+
+section.SegundaSessao{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    font-family: "Montagu Slab", serif;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-top: 3rem;
+    
+
+}
