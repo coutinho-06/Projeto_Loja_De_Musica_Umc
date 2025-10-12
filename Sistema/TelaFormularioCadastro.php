@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="icon" href="IMG/Logos/logo-branca.png" type="image/x-icon">
-    <title>Bem-Vindo a Groove Sound!</title>
+    <title>Cadastro na Groove Sound!</title>
 
 
     <!-- links de estilo -->
@@ -27,10 +27,8 @@
             <img src="IMG/Logos/logo-branca.png">
         </div>
         <div class="linksNav">
-            <a href="#">Home</a>
-            <a href="#">Sobre</a>
-            <a href="#">+ Produtos</a>
-            <a href="#">Contato</a>
+            <a href="index.php">Home</a>
+            <a href="#footer">Contato</a>
         </div>
         <div class="btnNav">
             <button><a href="TelaFormularioCadastro.php">Cadastrar</a></button>
