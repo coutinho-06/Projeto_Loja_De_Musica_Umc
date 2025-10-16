@@ -32,10 +32,21 @@
             <img src="IMG/Logos/logo-branca.png">
         </div>
         <div class="linksNav">
-            <a href="#">Home</a>
-            <a href="#">Sobre</a>
-            <a href="#">+ Produtos</a>
-            <a href="#">Contato</a>
+            <!-- <a href="#">Home</a>
+            <a href="#">Sobre</a> -->
+
+            <!-- Dropdown -->
+            <div class="caixaDropdown">
+                <a href="#" class="dropbtn">+ Produtos</a>
+                <div class="dropdown">
+                        <a href="#">Baterias</a>
+                        <a href="#">Violões</a>
+                        <a href="#">Teclados</a>
+                        <a href="#">Instrumentos para Crianças</a>
+                </div>
+            </div>
+
+            <!-- <a href="#">Contato</a> -->
         </div>
         <div class="btnNav">
             <button><a class="linkbtn" href="TelaFormularioCadastro.php">Cadastrar</a></button>

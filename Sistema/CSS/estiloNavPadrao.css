@@ -8,6 +8,7 @@
     border: 0;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 nav{
@@ -100,4 +101,33 @@ nav{
             color: #fff;}
         
     }
+}
+
+
+
+/* ===== DROPDOWN ===== */
+
+.caixaDropdown{
+    position: absolute;
+}
+
+.dropdown{
+    position: relative;
+    background-color: #350f0fc0;
+    display: none;
+    top: 4rem;
+
+}
+
+.dropdown a {
+        color: #fff;
+        padding: 0.3rem;
+        border-bottom: 1px solid #fff;
+
+}
+
+.caixaDropdown:hover .dropdown{
+    display: flex;
+    flex-direction: column;
+   
 }
