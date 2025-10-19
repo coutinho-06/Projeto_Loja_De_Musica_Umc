@@ -72,10 +72,42 @@
     <section class="SegundaSessao">
         <p>Mais Vendidos</p>
         <div class="cardsMaisVendidos">
-            <card class="card1"></card>
-            <card class="card2"></card>
-            <card class="card3"></card>
+            <div class="containerCard">
+                <div class="card">
+                    <img src="IMG/Home/tod10nGuitars.png" alt="">
+                </div>
+                <div class="cardText">
+                    <p>Tod 10n</p>
+                    <p>R$ 1560,00</p>
+                </div>
+            </div>
+            <div class="containerCard">
+                <div class="card">
+                    <img src="IMG/Home/tod10nGuitars.png" alt="">
+                </div>
+                <div class="cardText">
+                    <p>Tod 10n</p>
+                    <p>R$ 1560,00</p>
+                </div>
+            </div>
+            <div class="containerCard">
+                <div class="card">
+                    <img src="IMG/Home/tod10nGuitars.png" alt="">
+                </div>
+                <div class="cardText">
+                    <p>Tod 10n</p>
+                    <p>R$ 1560,00</p>
+                </div>
+            </div>
+            
         </div>
+    </section>
+
+
+    <!-- Terceira Sessão -->
+
+    <section class="TerceiraSessao">
+        
     </section>
 
 

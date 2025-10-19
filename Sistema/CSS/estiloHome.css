@@ -67,13 +67,48 @@ section.SegundaSessao{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-
-    font-family: "Montagu Slab", serif;
-    text-transform: uppercase;
-    font-size: 2.5rem;
-    font-weight: 500;
+    width: 100%;
     margin-top: 3rem;
-    
 
+    p{
+        font-family: "Montagu Slab", serif;
+        text-transform: uppercase;
+        font-size: 2.5rem;
+        font-weight: 500;
+    }
+}
+div.cardsMaisVendidos{
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 80%;
+    height: 29rem;
+    gap: 2.5rem;
+}
+.conteinerCard{
+    display: flex;
+    width: 27%;
+}
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--cor-primaria);
+    border-radius: 0.2rem;
+    box-shadow: 2px 2px 3px var(--cor-primaria);
+    height: 60%;
+    width: 100%;
+}
+.card img{
+    height: 80%;
+}
+.cardText{
+    display: flex;
+    flex-direction: column;
+    
+    p{
+        font-family: "Montagu Slab", serif;
+        font-size: 0.3rem;
+    }
 }
