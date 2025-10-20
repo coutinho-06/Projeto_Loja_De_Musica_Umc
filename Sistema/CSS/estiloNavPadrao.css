@@ -108,14 +108,13 @@ nav{
 /* ===== DROPDOWN ===== */
 
 .caixaDropdown{
-    position: absolute;
+    position: relative;
 }
 
 .dropdown{
-    position: relative;
+    position: absolute;
     background-color: #350f0fc0;
     display: none;
-    top: 4rem;
 
 }
 

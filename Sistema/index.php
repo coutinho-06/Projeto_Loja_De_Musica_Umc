@@ -32,8 +32,8 @@
             <img src="IMG/Logos/logo-branca.png">
         </div>
         <div class="linksNav">
-            <!-- <a href="#">Home</a>
-            <a href="#">Sobre</a> -->
+            <a href="#home">Home</a>
+            <a href="#sobre">Sobre</a>
 
             <!-- Dropdown -->
             <div class="caixaDropdown">
@@ -46,7 +46,7 @@
                 </div>
             </div>
 
-            <!-- <a href="#">Contato</a> -->
+            <a href="#">Contato</a>
         </div>
         <div class="btnNav">
             <button><a class="linkbtn" href="TelaFormularioCadastro.php">Cadastrar</a></button>
@@ -57,7 +57,7 @@
 
 
     <!-- Primeira Sessão -->
-    <section class="PrimeiraSessao">
+    <section class="PrimeiraSessao" id="home">
         <div class="parteUmPrimeiraSessao">
             <p><u>Sinta</u><br>o ritmo<br>
             <u>Viva</u><br>o som</p>
@@ -70,7 +70,7 @@
 
     <!-- Segunda Sessão -->
     <section class="SegundaSessao">
-        <p>Mais Vendidos</p>
+        <h1>Mais Vendidos</h1>
         <div class="cardsMaisVendidos">
             <div class="containerCard">
                 <div class="card">
@@ -106,12 +106,59 @@
 
     <!-- Terceira Sessão -->
 
-    <section class="TerceiraSessao">
-        
+    <section class="TerceiraSessao" id="sobre" >
+        <p>Mais que uma loja, somos um espaço feito por quem vive o som com estilo, energia e propósito.</p>
+    </section>
+
+
+    <!-- Quarta Sessão -->
+
+    <section class="QuartaSessao" >
+        <div class="containerPrimeiraParte">
+            <p>Aqui, cada instrumento é escolhido pra inspirar e conectar quem carrega o ritmo no coração.</p>
+        </div>
+        <div class="containerSegundaParte">
+            <img src="IMG/Logos/logo-img-vinho.png" alt="GrooveSound">
+        </div>
     </section>
 
 
 
+    <!-- Quinta Sessão -->
+
+    <section class="SegundaSessao">
+        <h1>Acessórios</h1>
+        <div class="cardsMaisVendidos">
+            <div class="containerCard">
+                <div class="card">
+                    <img src="IMG/Home/tod10nGuitars.png" alt="">
+                </div>
+                <div class="cardText">
+                    <p>Tod 10n</p>
+                    <p>R$ 1560,00</p>
+                </div>
+            </div>
+            <div class="containerCard">
+                <div class="card">
+                    <img src="IMG/Home/tod10nGuitars.png" alt="">
+                </div>
+                <div class="cardText">
+                    <p>Tod 10n</p>
+                    <p>R$ 1560,00</p>
+                </div>
+            </div>
+            <div class="containerCard">
+                <div class="card">
+                    <img src="IMG/Home/tod10nGuitars.png" alt="">
+                </div>
+                <div class="cardText">
+                    <p>Tod 10n</p>
+                    <p>R$ 1560,00</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
 
 </body>
 </html>
