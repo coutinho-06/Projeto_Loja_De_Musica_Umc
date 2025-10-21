@@ -99,6 +99,15 @@
                     <p>R$ 1560,00</p>
                 </div>
             </div>
+            <div class="containerCard">
+                <div class="card">
+                    <img src="IMG/Home/tod10nGuitars.png" alt="">
+                </div>
+                <div class="cardText">
+                    <p>Tod 10n</p>
+                    <p>R$ 1560,00</p>
+                </div>
+            </div>
             
         </div>
     </section>
@@ -156,36 +165,67 @@
                     <p>R$ 1560,00</p>
                 </div>
             </div>
+            <div class="containerCard">
+                <div class="card">
+                    <img src="IMG/Home/tod10nGuitars.png" alt="">
+                </div>
+                <div class="cardText">
+                    <p>Tod 10n</p>
+                    <p>R$ 1560,00</p>
+                </div>
+            </div>
             
+        </div>
+    </section>
+
+
+    <!-- Sexta Sessão -->
+
+    <section class="SextaSessao">
+        <h1>Visite nossas categorias!</h1>
+        <div class="carrosselCardCategoria">
+            <div class="containerCardCategoria">
+                <div class="cardCategoria">
+                    <p>Cordas</p>
+                </div>
+            </div>
+            <div class="containerCardCategoria">
+                <div class="cardCategoria">
+                    <p>Sopro</p>
+                </div>
+            </div>
+            <div class="containerCardCategoria">
+                <div class="cardCategoria">
+                    <p>Percussão</p>
+                </div>
+            </div>
         </div>
     </section>
 
 
     <footer>
         <div class="titFooter">
-            <img src="IMG/Logos/logo-branca.png" alt="">
             <h2>GrooveSound</h2>
         </div>
         <div class="containerInfo">
-            <div class="atendimento">
-                <p>Entre em contato conosco</p>
-                <ul>
-                    <li>E-mail: groovesound@gmail.com.br</li>
-                    <li>Telefone: (11) 95991-1839</li>
-                </ul>
-            </div>
             <div class="pagamento">
-                <p>Aceitamos as seguintes formas de pagamento</p>
+                <h3>Aceitamos as seguintes formas de pagamento</h3>
                 <ul>
                     <li class="iconPagamento"><img src="IMG/Footer/visa.png" alt=""></li>
-                    <li class="iconPagamento"><img src="IMG/Footer/elo.png" alt=""></li>
-                    <li class="iconPagamento"><img src="IMG/Footer/master.png" alt=""></li>
                     <li class="iconPagamento"><img src="IMG/Footer/boleto.png" alt=""></li>
                     <li class="iconPagamento"><img src="IMG/Footer/pix.png" alt=""></li>
                 </ul>
             </div>
+            <div class="atendimento">
+                <h3>Entre em contato conosco</h3>
+                <ul>
+                    <li><p>E-mail: groovesound@gmail.com.br</p></li>
+                    <li><p>Telefone: +55 (11) 95991-1839</p></li>
+                </ul>
+                <a href="">ADM</a>
+            </div>
             <div class="redes">
-                <p>Siga nossas redes</p>
+                <h3>Siga nossas redes</h3>
                 <ul>
                     <li><i class="fa-brands fa-facebook"></i></li>
                     <li><i class="fa-brands fa-instagram"></i></li>
