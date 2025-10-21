@@ -78,7 +78,7 @@ h1{
         font-weight: 500;
 }
 
-div.cardsMaisVendidos{
+div.carrosselCard{
     margin-top: 5rem;
     display: flex;
     flex-direction: row;

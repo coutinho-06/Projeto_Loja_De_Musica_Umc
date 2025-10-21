@@ -71,7 +71,7 @@
     <!-- Segunda Sessão -->
     <section class="SegundaSessao">
         <h1>Mais Vendidos</h1>
-        <div class="cardsMaisVendidos">
+        <div class="carrosselCard">
             <div class="containerCard">
                 <div class="card">
                     <img src="IMG/Home/tod10nGuitars.png" alt="">
@@ -128,7 +128,7 @@
 
     <section class="SegundaSessao">
         <h1>Acessórios</h1>
-        <div class="cardsMaisVendidos">
+        <div class="carrosselCard">
             <div class="containerCard">
                 <div class="card">
                     <img src="IMG/Home/tod10nGuitars.png" alt="">
@@ -160,5 +160,52 @@
         </div>
     </section>
 
+
+    <footer>
+        <div class="titFooter">
+            <img src="IMG/Logos/logo-branca.png" alt="">
+            <h2>GrooveSound</h2>
+        </div>
+        <div class="containerInfo">
+            <div class="atendimento">
+                <p>Entre em contato conosco</p>
+                <ul>
+                    <li>E-mail: groovesound@gmail.com.br</li>
+                    <li>Telefone: (11) 95991-1839</li>
+                </ul>
+            </div>
+            <div class="pagamento">
+                <p>Aceitamos as seguintes formas de pagamento</p>
+                <ul>
+                    <li class="iconPagamento"><img src="IMG/Footer/visa.png" alt=""></li>
+                    <li class="iconPagamento"><img src="IMG/Footer/elo.png" alt=""></li>
+                    <li class="iconPagamento"><img src="IMG/Footer/master.png" alt=""></li>
+                    <li class="iconPagamento"><img src="IMG/Footer/boleto.png" alt=""></li>
+                    <li class="iconPagamento"><img src="IMG/Footer/pix.png" alt=""></li>
+                </ul>
+            </div>
+            <div class="redes">
+                <p>Siga nossas redes</p>
+                <ul>
+                    <li><i class="fa-brands fa-facebook"></i></li>
+                    <li><i class="fa-brands fa-instagram"></i></li>
+                    <li><i class="fa-brands fa-whatsapp"></i></li>
+                    <li><i class="fa-brands fa-youtube"></i></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="autoriaECopy">
+           <p> &copy GrooveSound 2025 <br>
+            Todos os direitos reservados!</p>
+        </div>
+
+    </footer>
+
+
+
+
+
+<script src="https://kit.fontawesome.com/ef7e10212e.js" crossorigin="anonymous"></script>
 </body>
 </html>
