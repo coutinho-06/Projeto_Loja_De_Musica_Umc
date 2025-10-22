@@ -208,6 +208,14 @@
             <h2>GrooveSound</h2>
         </div>
         <div class="containerInfo">
+            <div class="atendimento">
+                <h3>Entre em contato conosco</h3>
+                <ul>
+                    <li><p>E-mail: groovesound@gmail.com.br</p></li>
+                    <li><p>Telefone: +55 (11) 95991-1839</p></li>
+                </ul>
+            </div>
+
             <div class="pagamento">
                 <h3>Aceitamos as seguintes formas de pagamento</h3>
                 <ul>
@@ -216,14 +224,7 @@
                     <li class="iconPagamento"><img src="IMG/Footer/pix.png" alt=""></li>
                 </ul>
             </div>
-            <div class="atendimento">
-                <h3>Entre em contato conosco</h3>
-                <ul>
-                    <li><p>E-mail: groovesound@gmail.com.br</p></li>
-                    <li><p>Telefone: +55 (11) 95991-1839</p></li>
-                </ul>
-                <a href="">ADM</a>
-            </div>
+            
             <div class="redes">
                 <h3>Siga nossas redes</h3>
                 <ul>
@@ -236,8 +237,16 @@
         </div>
 
         <div class="autoriaECopy">
-           <p> &copy GrooveSound 2025 <br>
-            Todos os direitos reservados!</p>
+            <div class="espaco">
+
+            </div>
+            <div class="textCopy">
+                <p> &copy GrooveSound 2025 <br>
+                Todos os direitos reservados!</p>
+            </div>
+            <div class="linkAdm">
+                <a href="TelaLoginAdm.php">ADM</a>
+            </div>
         </div>
 
     </footer>

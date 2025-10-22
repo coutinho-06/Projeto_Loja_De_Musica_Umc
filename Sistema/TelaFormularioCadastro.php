@@ -31,8 +31,8 @@
             <a href="#footer">Contato</a>
         </div>
         <div class="btnNav">
-            <button><a href="TelaFormularioCadastro.php">Cadastrar</a></button>
-            <button class="btndois"><a href="TelaFormularioLogin.php">Login</a></button>
+            <button><a class="linkbtn" href="TelaFormularioCadastro.php">Cadastrar</a></button>
+            <button class="btndois"><a class="linkbtn" href="TelaFormularioLogin.php">Login</a></button>
         </div>
     </nav>
     <!-- Navbar -->
@@ -48,16 +48,20 @@
             </div>
             <div class="caixaForm">
                 <label for="">Nome:</label>
-                <input type="text">
+                <input type="text" id="" name="">
                 <label for="">Sobrenome:</label>
-                <input type="text">
+                <input type="text" id="" name="">
+                <label for="">Telefone:</label>
+                <input type="text" id="" name="">
+                <label for="">Cpf:</label>
+                <input type="text" id="" name="">
                 <label for="">cep:</label>
-                <input type="text">
+                <input type="text" id="" name="">
                 <label for="">Número:</label>
-                <input type="Number">
+                <input type="Number" class="num" id="" name="">
                 <label for="">Estado:</label>
                 <select name="" id="">
-                    <option value="#">Estados</option>
+                    <option value="#">Escolha o estado</option>
                     <option value=""></option>
                     <option value=""></option>
                     <option value=""></option>
@@ -88,17 +92,18 @@
                 </select>
 
                 <label for="">Data de Nascimento:</label>
-                <input type="date">
+                <input type="date" id="" name="">
                 <label for="">E-mail:</label>
-                <input type="text">
+                <input type="text" id="" name="">
                 <label for="">Senha:</label>
-                <input type="password">
+                <input type="password" id="" name="">
             </div>
 
             <div class="caixabtn"></div>
                 <button type="submit">CADASTRAR-ME</button>
-                <a href="TelaFormularioLogin.php">Já tem conta? Entre!</a>
+                <a href="#">Já tem conta? Entre!</a>
             </div>
+
         </form>
     </section>
 
@@ -106,11 +111,19 @@
 
 
 
-    <footer>
+     <footer>
         <div class="titFooter">
             <h2>GrooveSound</h2>
         </div>
         <div class="containerInfo">
+            <div class="atendimento">
+                <h3>Entre em contato conosco</h3>
+                <ul>
+                    <li><p>E-mail: groovesound@gmail.com.br</p></li>
+                    <li><p>Telefone: +55 (11) 95991-1839</p></li>
+                </ul>
+            </div>
+
             <div class="pagamento">
                 <h3>Aceitamos as seguintes formas de pagamento</h3>
                 <ul>
@@ -119,13 +132,7 @@
                     <li class="iconPagamento"><img src="IMG/Footer/pix.png" alt=""></li>
                 </ul>
             </div>
-            <div class="atendimento">
-                <h3>Entre em contato conosco</h3>
-                <ul>
-                    <li><p>E-mail: groovesound@gmail.com.br</p></li>
-                    <li><p>Telefone: +55 (11) 95991-1839</p></li>
-                </ul>
-            </div>
+            
             <div class="redes">
                 <h3>Siga nossas redes</h3>
                 <ul>
@@ -138,13 +145,22 @@
         </div>
 
         <div class="autoriaECopy">
-           <p> &copy GrooveSound 2025 <br>
-            Todos os direitos reservados!</p>
+            <div class="espaco">
+
+            </div>
+            <div class="textCopy">
+                <p> &copy GrooveSound 2025 <br>
+                Todos os direitos reservados!</p>
+            </div>
+            <div class="linkAdm">
+                <a href="TelaLoginAdm.php">ADM</a>
+            </div>
         </div>
 
     </footer>
 
 
 
+    <script src="https://kit.fontawesome.com/ef7e10212e.js" crossorigin="anonymous"></script>
 </body>
 </html>
