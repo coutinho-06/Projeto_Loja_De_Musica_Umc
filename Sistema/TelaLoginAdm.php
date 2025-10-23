@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="IMG/Logos/logo-branca.png" type="image/x-icon">
-    <title>Login na Groove Sound!</title>
+    <title>Bem-vindo Administrador na Groove Sound!</title>
 
 
     <!-- links de estilo -->
     <link rel="stylesheet" href="CSS/estiloNavPadrao.css">
     <link rel="stylesheet" href="CSS/estiloTelaFormularioLogin.css">
-    <link rel="stylesheet" href="CSS/estiloFooterPadrao.css">
+    <link rel="stylesheet" href="CSS/estiloTelaLoginAdm.css">
 
      <!-- link de font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,8 +42,8 @@
 <section>
         <form method="" action="">
             <div class="caixaTexto">
-                <h1>Login</h1>
-                <p>Esteja sempre ligado com a gente!</p>
+                <h1>Área do ADM</h1>
+                <p>Seja Bem-vindo Administrador!</p>
             </div>
             <div class="caixaForm">
                 <label for="">E-mail:</label>
@@ -54,7 +54,6 @@
 
             <div class="caixabtn">
                 <button type="submit">ENTRAR</button>
-                <a href="TelaFormularioLogin.php">Sem conta? Crie uma!</a>
             </div>
         </form>
     </section>
@@ -64,48 +63,10 @@
 
 
      <footer>
-        <div class="titFooter">
-            <h2>GrooveSound</h2>
-        </div>
-        <div class="containerInfo">
-            <div class="atendimento">
-                <h3>Entre em contato conosco</h3>
-                <ul>
-                    <li><p>E-mail: groovesound@gmail.com.br</p></li>
-                    <li><p>Telefone: +55 (11) 95991-1839</p></li>
-                </ul>
-            </div>
-
-            <div class="pagamento">
-                <h3>Aceitamos as seguintes formas de pagamento</h3>
-                <ul>
-                    <li class="iconPagamento"><img src="IMG/Footer/visa.png" alt=""></li>
-                    <li class="iconPagamento"><img src="IMG/Footer/boleto.png" alt=""></li>
-                    <li class="iconPagamento"><img src="IMG/Footer/pix.png" alt=""></li>
-                </ul>
-            </div>
-            
-            <div class="redes">
-                <h3>Siga nossas redes</h3>
-                <ul>
-                    <li><i class="fa-brands fa-facebook"></i></li>
-                    <li><i class="fa-brands fa-instagram"></i></li>
-                    <li><i class="fa-brands fa-whatsapp"></i></li>
-                    <li><i class="fa-brands fa-youtube"></i></li>
-                </ul>
-            </div>
-        </div>
-
         <div class="autoriaECopy">
-            <div class="espaco">
-
-            </div>
             <div class="textCopy">
                 <p> &copy GrooveSound 2025 <br>
                 Todos os direitos reservados!</p>
-            </div>
-            <div class="linkAdm">
-                <a href="TelaLoginAdm.php">ADM</a>
             </div>
         </div>
 

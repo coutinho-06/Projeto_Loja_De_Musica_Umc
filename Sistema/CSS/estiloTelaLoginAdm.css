@@ -1,0 +1,41 @@
+:root{
+    --cor-primaria: #6C0A0A;
+    --cor-segundaria: #3f312e;
+    --cor-terciaria: #ffa601;
+}
+
+footer{
+    background-color: var(--cor-segundaria);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 15vh;
+    padding: 1rem 2rem;
+}
+
+
+.autoriaECopy{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.8rem;
+    width: 100%;
+    
+}
+.textCopy{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+
+    p{
+        padding-top: 1rem;
+        text-align: center;
+        color: #fff;
+        font-size: 1rem;
+        font-family: "Montserrat", sans-serif;
+
+    }
+}
+

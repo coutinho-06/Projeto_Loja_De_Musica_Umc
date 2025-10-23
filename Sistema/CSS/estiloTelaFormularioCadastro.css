@@ -205,11 +205,7 @@ form{
     align-items: center;
     gap: 0.8rem;
 }
-input[type=number]::-webkit-outer-spin-button,
-input[type=number]::-webkit-inner-spin-button {
-    background-color:var(--cor-primaria);
 
-}
 
 .caixabtn{
     height: 25%;
