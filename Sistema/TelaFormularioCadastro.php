@@ -28,7 +28,6 @@
         </div>
         <div class="linksNav">
             <a href="index.php">Home</a>
-            <a href="#footer">Contato</a>
         </div>
         <div class="btnNav">
             <button><a class="linkbtn" href="TelaFormularioCadastro.php">Cadastrar</a></button>
@@ -57,49 +56,56 @@
                 <input type="text" id="" name="">
                 <label for="">cep:</label>
                 <input type="text" id="" name="">
-                <label for="">Número:</label>
-                <input type="Number" class="num" id="" name="">
-                <label for="">Estado:</label>
-                <select name="" id="">
-                    <option value="#">Escolha o estado</option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                </select>
+                <div class="caixaInputNum">
+                    <label for="">Número:</label>
+                    <input type="Number" min="0" class="num" id="" name="">
+                </div>
+                
+                <div class="custom-select">
+                    <label class="select-btn" id="selectBtn">Selecione</label>
+                    <div class="options" id="optionsList">
+                        <div class="#">Selecione</div>
+                        <div class="option">AC</div>
+                        <div class="option">AL</div>
+                        <div class="option">AP</div>
+                        <div class="option">AM</div>
+                        <div class="option">BA</div>
+                        <div class="option">CE</div>
+                        <div class="option">DF</div>
+                        <div class="option">ES</div>
+                        <div class="option">GO</div>
+                        <div class="option">MA</div>
+                        <div class="option">MT</div>
+                        <div class="option">MS</div>
+                        <div class="option">MG</div>
+                        <div class="option">PA</div>
+                        <div class="option">PB</div>
+                        <div class="option">PR</div>
+                        <div class="option">PE</div>
+                        <div class="option">PI</div>
+                        <div class="option">RJ</div>
+                        <div class="option">RN</div>
+                        <div class="option">RS</div>
+                        <div class="option">RO</div>
+                        <div class="option">RR</div>
+                        <div class="option">SC</div>
+                        <div class="option">SP</div>
+                        <div class="option">SE</div>
+                        <div class="option">TO</div>
+                    </div>
+                </div>
 
                 <label for="">Data de Nascimento:</label>
-                <input type="date" id="" name="">
+                <input type="date" class="dt" id="" name="">
                 <label for="">E-mail:</label>
                 <input type="text" id="" name="">
                 <label for="">Senha:</label>
                 <input type="password" id="" name="">
+                <label for="">Confirmar Senha:</label>
+                <input type="password" id="" name="">
             </div>
 
-            <div class="caixabtn"></div>
+            <div class="caixabtn">
                 <button type="submit">CADASTRAR-ME</button>
                 <a href="#">Já tem conta? Entre!</a>
             </div>
@@ -159,6 +165,31 @@
 
     </footer>
 
+
+
+    <script>
+        
+        const selectBtn = document.getElementById('selectBtn');
+        const optionsList = document.getElementById('optionsList');
+        const options = document.querySelectorAll('.option');
+
+        selectBtn.addEventListener('click', () => {
+        optionsList.style.display = optionsList.style.display === 'block' ? 'none' : 'block';
+        });
+
+        options.forEach(option => {
+        option.addEventListener('click', () => {
+            selectBtn.textContent = option.textContent;
+            optionsList.style.display = 'none';
+        });
+        });
+
+        window.addEventListener('click', (e) => {
+        if (!e.target.closest('.custom-select')) {
+            optionsList.style.display = 'none';
+        }
+        });
+</script>
 
 
     <script src="https://kit.fontawesome.com/ef7e10212e.js" crossorigin="anonymous"></script>
