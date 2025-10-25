@@ -42,8 +42,7 @@
 <section>
         <form method="" action="">
             <div class="caixaTexto">
-                <h1>Área do ADM</h1>
-                <p>Seja Bem-vindo Administrador!</p>
+                <p>Seja Bem-vindo<br>Administrador!</p>
             </div>
             <div class="caixaForm">
                 <label for="">E-mail:</label>

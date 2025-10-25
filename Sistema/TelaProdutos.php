@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="IMG/Logos/logo-branca.png" type="image/x-icon">
-    <title>Bem-Vindo a Groove Sound!</title>
+    <title>Produtos da Groove Sound!</title>
 
 
     <!-- links de estilo -->
@@ -56,86 +56,8 @@
     <!-- Navbar -->
 
 
-    <!-- Primeira Sessão -->
-    <section class="PrimeiraSessao" id="home">
-        <div class="parteUmPrimeiraSessao">
-            <p><u>Sinta</u><br>o ritmo<br>
-            <u>Viva</u><br>o som</p>
-        </div>
-        <div class="parteDoisPrimeiraSessao">
-            <img src="IMG/Home/bateriacapa.png">
-        </div>
-    </section>
-    <!-- Primeira Sessão -->
 
-    <!-- Segunda Sessão -->
-    <section class="SegundaSessao">
-        <h1>Mais Vendidos</h1>
-        <div class="carrosselCard">
-            <div class="containerCard">
-                <div class="card">
-                    <img src="IMG/Home/tod10nGuitars.png" alt="">
-                </div>
-                <div class="cardText">
-                    <p>Tod 10n</p>
-                    <p>R$ 1560,00</p>
-                </div>
-            </div>
-            <div class="containerCard">
-                <div class="card">
-                    <img src="IMG/Home/tod10nGuitars.png" alt="">
-                </div>
-                <div class="cardText">
-                    <p>Tod 10n</p>
-                    <p>R$ 1560,00</p>
-                </div>
-            </div>
-            <div class="containerCard">
-                <div class="card">
-                    <img src="IMG/Home/tod10nGuitars.png" alt="">
-                </div>
-                <div class="cardText">
-                    <p>Tod 10n</p>
-                    <p>R$ 1560,00</p>
-                </div>
-            </div>
-            <div class="containerCard">
-                <div class="card">
-                    <img src="IMG/Home/tod10nGuitars.png" alt="">
-                </div>
-                <div class="cardText">
-                    <p>Tod 10n</p>
-                    <p>R$ 1560,00</p>
-                </div>
-            </div>
-            
-        </div>
-    </section>
-
-
-    <!-- Terceira Sessão -->
-
-    <section class="TerceiraSessao" id="sobre" >
-        <p>Mais que uma loja, somos um espaço feito por quem vive o som com estilo, energia e propósito.</p>
-    </section>
-
-
-    <!-- Quarta Sessão -->
-
-    <section class="QuartaSessao" >
-        <div class="containerPrimeiraParte">
-            <p>Aqui, cada instrumento é escolhido pra inspirar e conectar quem carrega o ritmo no coração.</p>
-        </div>
-        <div class="containerSegundaParte">
-            <img src="IMG/Logos/logo-img-vinho.png" alt="GrooveSound">
-        </div>
-    </section>
-
-
-
-    <!-- Quinta Sessão -->
-
-    <section class="SegundaSessao">
+<section class="SegundaSessao">
         <h1>Acessórios</h1>
         <div class="carrosselCard">
             <div class="containerCard">
@@ -179,28 +101,18 @@
     </section>
 
 
-    <!-- Sexta Sessão -->
 
-    <section class="SextaSessao">
-        <h1>Visite nossas categorias!</h1>
-        <div class="carrosselCardCategoria">
-            <div class="containerCardCategoria">
-                <div class="cardCategoria">
-                    <p>Cordas</p>
-                </div>
-            </div>
-            <div class="containerCardCategoria">
-                <div class="cardCategoria">
-                    <p>Sopro</p>
-                </div>
-            </div>
-            <div class="containerCardCategoria">
-                <div class="cardCategoria">
-                    <p>Percussão</p>
-                </div>
-            </div>
-        </div>
-    </section>
+
+
+
+
+
+
+
+
+
+
+
 
 
     <footer>

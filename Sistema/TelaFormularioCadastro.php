@@ -61,8 +61,9 @@
                     <input type="Number" min="0" class="num" id="" name="">
                 </div>
                 
+                <label for="">Estados:</label>
                 <div class="custom-select">
-                    <label class="select-btn" id="selectBtn">Selecione</label>
+                    <div class="select-btn" id="selectBtn">Selecione</div>
                     <div class="options" id="optionsList">
                         <div class="#">Selecione</div>
                         <div class="option">AC</div>
