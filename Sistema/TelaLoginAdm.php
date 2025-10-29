@@ -52,11 +52,16 @@
             </div>
 
             <div class="caixabtn">
-                <button type="submit">ENTRAR</button>
+                <button onclick="irParaPagina()">ENTRAR</button>
             </div>
         </form>
     </section>
 
+    <!-- <script>
+        function irParaPagina() {
+            window.location.;
+        }
+    </script> -->
 
 
 

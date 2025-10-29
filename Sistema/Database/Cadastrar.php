@@ -11,7 +11,7 @@
     $Senha = $_POST['senha'];
     $Confir_Senha = $_POST['confirSenha'];
 
-    $sql = "INSERT INTO Cliente(nome,sobrenome,telefone,cpf,dt_Nasc,emial,senha) VALUES ('$nome','$Sobrenome','$Telefone','$Cpf','$Dt_Nasc','$Email','$Senha')";
+    $sql = "INSERT INTO Cliente(nome,sobrenome,telefone,cpf,dt_Nasc,email,senha) VALUES ('$nome','$Sobrenome','$Telefone','$Cpf','$Dt_Nasc','$Email','$Senha')";
 
     if (mysqli_query($conn,$sql)) {
 
