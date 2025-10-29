@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="CSS/estiloTelaFormularioCadastro.css">
     <link rel="stylesheet" href="CSS/estiloFooterPadrao.css">
 
+   
+
      <!-- link de font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,32 +42,32 @@
     <!-- Primeira Sessão -->
 
     <section>
-        <form method="post" action="Cadastrar.php">
+        <form method="post" action="Database/Cadastrar.php">
             <div class="caixaTexto">
                 <h1>CADASTRO</h1>
                 <p>Esteja sempre ligado com a gente!</p>
             </div>
             <div class="caixaForm">
                 <label for="">Nome:</label>
-                <input type="text" id="nome" name="">
+                <input type="text" id="nome" name="nome">
                 <label for="">Sobrenome:</label>
-                <input type="text" id="Sobrenome" name="">
+                <input type="text" id="Sobrenome" name="Sobrenome">
                 <label for="">Telefone:</label>
-                <input type="text" id="telefone" name="">
+                <input type="text" id="telefone" name="telefone">
                 <label for="">Cpf:</label>
-                <input type="text" max="15" id="cpf" name="">
+                <input type="text" max="15" id="cpf" name="cpf">
                 <label for="">Nascimento:</label>
-                <input type="date" class="dt" id="Nasc" name="">
+                <input type="date" class="dt" id="Nasc" name="Nasc">
                 <label for="">E-mail:</label>
-                <input type="text" id="email" name="">
+                <input type="text" id="email" name="email">
                 <label for="">Senha:</label>
-                <input type="password" id="senha" name="">
+                <input type="password" id="senha" name="senha">
                 <label for="">Confirmar Senha:</label>
-                <input type="password" id="confirSenha" name="">
+                <input type="password" id="confirSenha" name="confirSenha">
             </div>
 
             <div class="caixabtn">
-                <button type="submit">CADASTRAR-ME</button>
+                <button type="submit" href="TelaFormularioLogin.php">CADASTRAR-ME</button>
                 <a href="TelaFormularioLogin.php">Já tem conta? Entre!</a>
             </div>
 
