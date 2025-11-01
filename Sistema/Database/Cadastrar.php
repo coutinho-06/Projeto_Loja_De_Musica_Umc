@@ -49,9 +49,9 @@
         die("Senhas não coincidentes! " . mysqli_connect_error());
     }
     
-    $sql = "INSERT INTO cliente(primeiro_nome,segundo_nome,data_nascimento,cpf,email,senha,telefone) VALUES ('$Nome','$Sobrenome','$Dt_Nasc','$Cpf','$Email','$Senha','$Telefone')";
+    $sql = "INSERT INTO cliente(nome,sobrenome,data_nascimento,cpf,email,senha,telefone) VALUES ('$Nome','$Sobrenome','$Dt_Nasc','$Cpf','$Email','$Senha','$Telefone')";
     if (mysqli_query($conn,$sql)) {
-        print_r("Registro inserido com sucesso!! <a href='../index.php'>Voltar</a>");
+        print_r("Registro inserido com sucesso!! <br> <a href='../TelaFormularioLogin.php'>Voltar</a>");
 
     }else {
         print_r("Erro ao inserir o registro!!" . mysqli_error($conn));
