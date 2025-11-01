@@ -42,7 +42,7 @@
                 </ul>
             </div>
             <div class="saidaAdm">
-                <a href="">SAIR</a>
+                <a href="../TelaLoginAdm.php">SAIR</a>
             </div>
         </nav>
     </section>
