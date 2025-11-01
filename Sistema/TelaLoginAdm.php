@@ -40,30 +40,22 @@
     <!-- Primeira Sessão -->
 
 <section>
-        <form method="" action="">
+        <form method="POST" action="Database/verificacaoadm.php">
             <div class="caixaTexto">
                 <p>Seja Bem-vindo<br>Administrador!</p>
             </div>
             <div class="caixaForm">
                 <label for="">E-mail:</label>
-                <input type="text">
+                <input type="email" name="email_adm" id="email_adm">
                 <label for="">Senha:</label>
-                <input type="password">
+                <input type="password" name="senha_adm" id="senha_adm">
             </div>
 
             <div class="caixabtn">
-                <button onclick="irParaPagina()">ENTRAR</button>
+                <button>ENTRAR</button>
             </div>
         </form>
     </section>
-
-    <!-- <script>
-        function irParaPagina() {
-            window.location.;
-        }
-    </script> -->
-
-
 
 
      <footer>

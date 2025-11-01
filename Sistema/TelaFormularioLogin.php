@@ -40,16 +40,23 @@
     <!-- Primeira Sessão -->
 
 <section>
-        <form method="" action="">
+        <form method="POST" action="Database/verificacao.php">
             <div class="caixaTexto">
                 <h1>Login</h1>
                 <p>Esteja sempre ligado com a gente!</p>
             </div>
             <div class="caixaForm">
                 <label for="">E-mail:</label>
-                <input type="text">
+                <input type="text" name="email">
                 <label for="">Senha:</label>
-                <input type="password">
+                <input type="password" name="senha">
+
+                <?php if(isset($_GET['error']) && !empty($_GET['error'])){
+
+                    $mensagem = $_GET['error'];
+                    print_r("<span>$mensagem</span>");
+
+                }?>
             </div>
 
             <div class="caixabtn">
