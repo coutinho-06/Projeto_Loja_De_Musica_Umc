@@ -8,7 +8,7 @@
     /* Primeira Sessão */
 
 section.PrimeiraSessao{
-    height: 90vh;
+    height: 93vh;
     width: 100%;
     background-color: antiquewhite;
     display: flex;
@@ -22,6 +22,7 @@ section.PrimeiraSessao{
 
     display: flex;
     flex-direction: column;
+    justify-content: center;
      
 
     p{

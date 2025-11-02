@@ -36,16 +36,34 @@
             <a href="#sobre">Sobre</a>
 
             <!-- Dropdown -->
-            <div class="caixaDropdown">
-                <a href="#" class="dropbtn">+ Produtos</a>
-                <div class="dropdown">
-                        <a href="#">Baterias</a>
-                        <a href="#">Violões</a>
-                        <a href="#">Teclados</a>
-                        <a href="#">Instrumentos para Crianças</a>
-                </div>
-            </div>
+            <ul>
+                <li>
+                    <a href="TelaProdutos.php"> LOJA </a>
+                    <div class="sub-menu">
+                        <ul class="sub-menu-ul">
+                            <li class="sub-menu-ul-li">
+                                <p> Violões & Guitarras </p>                                    
+                            </li>
 
+                            <li class="sub-menu-ul-li">
+                                <p> Baterias </p> 
+                            </li>
+
+                            <li class="sub-menu-ul-li">
+                                <p> Teclados & Pianos</p> 
+                            </li>
+
+                            <li class="sub-menu-ul-li">
+                                <p> Instrumentos p/ Crianças </p> 
+                            </li>
+
+                            <li class="sub-menu-ul-li">
+                                <p> Flautas & Gaitas </p> 
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
             <a href="#">Contato</a>
         </div>
         <div class="btnNav">

@@ -14,7 +14,8 @@
 nav{
     display: flex;
     background-color: var(--cor-primaria);
-    
+    overflow: hidden;
+    position: fixed;
     height: 4rem;
     width: 100%;
 }
@@ -42,6 +43,8 @@ nav{
     justify-content: flex-start;
     gap: 1.2rem;
     width:60%;
+    cursor: pointer;
+    list-style-type: none;
 
 
     a{
@@ -50,7 +53,6 @@ nav{
         font-weight: 550;
         text-transform: uppercase;
         font-family: "Montserrat", sans-serif;
-        cursor: pointer;
         transition: all 50ms ease-in-out;
         
         &:hover{
@@ -107,26 +109,69 @@ nav{
 
 /* ===== DROPDOWN ===== */
 
-.caixaDropdown{
-    position: relative;
+nav ul li
+{
+    list-style-type: none;
 }
-
-.dropdown{
-    position: absolute;
-    background-color: #350f0fc0;
-    display: none;
-
-}
-
-.dropdown a {
-        color: #fff;
-        padding: 0.3rem;
-        border-bottom: 1px solid #fff;
-
-}
-
-.caixaDropdown:hover .dropdown{
+.sub-menu-ul-li p
+{
     display: flex;
-    flex-direction: column;
-   
+    margin-top: 10px;
+    cursor: default;
+
+    transition: 0.3s;
+    color: #2e2e2e;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+}
+.sub-menu
+{
+    display: none;
+}
+
+nav ul li:hover .sub-menu-ul
+{
+    display: block;
+}
+
+.sub-menu-ul-li
+{
+    display: flex;
+    padding-left: 1rem;
+    align-items: center;
+    height: 50px;
+    width: 200px;
+    transition: 0.5s;
+    
+}
+
+.sub-menu-ul-li:first-child
+{
+    margin-top: 8px;
+}
+
+.sub-menu-ul-li:hover
+{
+    p{color: #fff;}
+    background-color: var(--cor-primaria);
+    
+}
+
+nav ul li:hover .sub-menu
+{
+    display: flex;
+    position: absolute;
+    background-color: white;
+    padding-top: 0.8rem;
+    margin-left: -30px; 
+    
+
+    width: 200px;
+    height: 280px; 
+
+
+    /* ACOMPANHAR NAV FIXA*/
+    overflow: hidden;
+    position: fixed;
+    
 }
