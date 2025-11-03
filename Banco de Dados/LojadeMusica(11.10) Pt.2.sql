@@ -15,6 +15,7 @@ create table categoria (
 
 create table instrumento (
 	id_instrumento int primary key auto_increment,
+    imagem_instrumento mediumblob,
     nome_instrumento varchar(100),
     valor decimal(10,2),
     id_categoria int,
@@ -23,12 +24,13 @@ create table instrumento (
 
 create table cliente (
 	id_cliente int primary key auto_increment,
-    nome varchar(50) not null,
-    sobrenome varchar (100) not null,
+    imagem_cliente mediumblob,
+    primeiro_nome varchar(100) not null,
+    segundo_nome varchar(100) not null,
     data_nascimento date not null,
     cpf char(11) not null unique,
     email varchar(50) not null unique,
-    senha varchar(20) not null unique,
+    senha char(8) not null unique,
     telefone char(11) not null unique
 );
 
