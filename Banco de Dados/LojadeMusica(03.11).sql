@@ -23,10 +23,12 @@ create table instrumento (
 
 create table cliente (
 	id_cliente int primary key auto_increment,
-    nome_completo varchar(100) not null,
+    nome varchar(50) not null,
+    sobrenome varchar (100) not null,
     data_nascimento date not null,
     cpf char(11) not null unique,
     email varchar(50) not null unique,
+    senha varchar(20) not null unique,
     telefone char(11) not null unique
 );
 
