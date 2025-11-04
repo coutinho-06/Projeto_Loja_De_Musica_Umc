@@ -86,10 +86,18 @@
 }
 .caixa{
     display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 0.1rem;
     border: 1px solid var(--cor-primaria);
     width: 97%;
     height:85%;
     box-shadow: 2px 2px 3px 2px var(--cor-primaria);
+}
+h2{
+
+    font-weight: 700;
+    font-family: "Montserrat", sans-serif;
+    font-size: 3rem;
 }
 

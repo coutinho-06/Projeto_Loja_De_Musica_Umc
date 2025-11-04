@@ -30,15 +30,15 @@
     <section>
         <nav>
             <div class="saudacaoAdm">
-                <h1>Olá, Adm!</h1>
+                <h1>Olá, Adm!</h1> 
             </div>
             <div class="containerLinksNavegacao">
                 <ul>
                     <li>
-                        <a href="http://"></a>Dashboard
-                        <a href="http://"></a>Produtos
-                        <a href="http://"></a>Categorias
-                        <a href="http://"></a>Pedidos
+                        <a href="AdmDashboard.php">Dashboard</a>
+                        <a href="Categorias.php">Categorias</a>
+                        <a href="http://">Produtos</a>
+                        <a href="http://">Pedidos</a>
                     </li>
                 </ul>
             </div>
@@ -66,7 +66,7 @@
                             <p>Total de Produtos</p>
                         </div>
                         <div class="caixa">
-
+                             <h2>NUM</h2>  <!--colocar o dados aqui !! -->
                         </div>
                     </div>
                     <div class="cards">
@@ -74,7 +74,7 @@
                             <p>Total de Vendidos</p>
                         </div>
                         <div class="caixa">
-                            
+                            <h2>NUM</h2>  <!--colocar o dados aqui !! -->
                         </div>
                     </div>
                     <div class="cards">
@@ -82,7 +82,7 @@
                             <p>Total de Pedidos</p>
                         </div>
                         <div class="caixa">
-                            
+                            <h2>NUM</h2>  <!--colocar o dados aqui !! -->
                         </div>
                     </div>
                 </div>
