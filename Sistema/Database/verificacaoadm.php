@@ -3,16 +3,17 @@
 
     $vddEmail = "verdadeiroadm@gmail.com";
     $vddSenha = 123;
+
     if (isset($_POST['email_adm']) && !empty($_POST['email_adm'])){
         $emailAdm = $_POST['email_adm'];
     }else {
-        echo("Campo 'email' não preenchido!<br>");
+        Header("Location: ../TelaLoginAdm.php?errorEmail=Campo 'email' não preenchido!!");
     }
 
     if (isset($_POST['senha_adm']) && !empty($_POST['senha_adm'])){
         $senhaAdm = $_POST['senha_adm'];
     } else {
-        echo("Campo 'senha' não preenchido!<br>");
+        Header("Location: ../TelaLoginAdm.php?errorSenha=Campo 'senha' não preenchido!!");
     }
     
     if(isset($emailAdm) && isset($senhaAdm)) {
@@ -20,8 +21,8 @@
             header("Location: ../AreaAdm/AdmDashboard.php");
             exit;
         } else {
-            echo "Email ou senha incorretos!";
-        }
-    }
+           Header("Location: ../TelaLoginAdm.php?errorAdm=ADM não encontrado!!");
+    }}
+    
     
 ?>

@@ -51,6 +51,20 @@
                 <label for="">Senha:</label>
                 <input type="password" name="senha">
 
+                <?php if(isset($_GET['errorEmail']) && !empty($_GET['errorEmail'])){
+
+                    $mensagem = $_GET['errorEmail'];
+                    print_r("<span>$mensagem</span>");
+
+                }?>
+
+                <?php if(isset($_GET['errorSenha']) && !empty($_GET['errorSenha'])){
+
+                    $mensagem = $_GET['errorSenha'];
+                    print_r("<span>$mensagem</span>");
+
+                }?>
+
                 <?php if(isset($_GET['error']) && !empty($_GET['error'])){
 
                     $mensagem = $_GET['error'];

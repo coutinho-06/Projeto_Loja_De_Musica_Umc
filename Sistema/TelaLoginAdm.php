@@ -47,9 +47,33 @@
             <div class="caixaForm">
                 <label for="">E-mail:</label>
                 <input type="email" name="email_adm" id="email_adm">
+                
                 <label for="">Senha:</label>
                 <input type="password" name="senha_adm" id="senha_adm">
+
+                <?php if(isset($_GET['errorEmail']) && !empty($_GET['errorEmail'])){
+
+                    $mensagem = $_GET['errorEmail'];
+                    print_r("<span>$mensagem</span>");
+
+                }?>
+
+                <?php if(isset($_GET['errorSenha']) && !empty($_GET['errorSenha'])){
+
+                    $mensagem = $_GET['errorSenha'];
+                    print_r("<span>$mensagem</span>");
+
+                }?>
+  
+                <?php if(isset($_GET['errorAdm']) && !empty($_GET['errorAdm'])){
+
+                    $mensagem = $_GET['errorAdm'];
+                    print_r("<span>$mensagem</span>");
+
+                }?>
+
             </div>
+            
 
             <div class="caixabtn">
                 <button>ENTRAR</button>

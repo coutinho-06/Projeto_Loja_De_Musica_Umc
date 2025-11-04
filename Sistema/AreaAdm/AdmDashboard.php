@@ -9,6 +9,7 @@
 
     <!-- links de estilo -->
     <link rel="stylesheet" href="../CSS/estiloMenuAdm.css">
+    <link rel="stylesheet" href="../CSS/estiloDashboard.css">
     
 
      <!-- link de font -->
@@ -45,6 +46,48 @@
                 <a href="../TelaLoginAdm.php">SAIR</a>
             </div>
         </nav>
+
+        <div class="containerParteDados">
+            <div class="containerSuperior">
+                <h1>Dashboard da Groove Sound</h1>
+            </div>
+            <div class="containerInferior">
+                <div class="caixaGrafico">
+                        <div class="titulo">
+                            <p>Categoria Mais Procurada </p>
+                        </div>
+                        <div class="grafico">
+
+                        </div>
+                </div>
+                <div class="caixaCards">
+                    <div class="cards">
+                        <div class="titulo">
+                            <p>Total de Produtos</p>
+                        </div>
+                        <div class="caixa">
+
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="titulo">
+                            <p>Total de Vendidos</p>
+                        </div>
+                        <div class="caixa">
+                            
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="titulo">
+                            <p>Total de Pedidos</p>
+                        </div>
+                        <div class="caixa">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
 

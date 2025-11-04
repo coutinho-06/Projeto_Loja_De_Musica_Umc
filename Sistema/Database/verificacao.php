@@ -22,14 +22,6 @@
     }
 
 
-    //está entrando sem a senha correta
-
-
-
-
-
-
-
 
 
 ?>
