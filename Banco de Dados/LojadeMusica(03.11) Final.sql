@@ -1,20 +1,15 @@
 create database groovesound;
 use groovesound;
 
-create table tipo_instrumento (
-	id_tipo_instrumento int primary key auto_increment,
-    tipo_instrumento varchar(50)
-);
-
 create table categoria (
 	id_categoria int primary key auto_increment,
     categoria varchar(50),
-    id_tipo_instrumento int,
-    constraint fk_id_tipo_instrumento foreign key (id_tipo_instrumento) references tipo_instrumento (id_tipo_instrumento)
+    id_tipo_instrumento int
 );
 
 create table instrumento (
 	id_instrumento int primary key auto_increment,
+    imagem_instrumento mediumblob,
     nome_instrumento varchar(100),
     valor decimal(10,2),
     id_categoria int,
@@ -23,10 +18,13 @@ create table instrumento (
 
 create table cliente (
 	id_cliente int primary key auto_increment,
-    nome_completo varchar(100) not null,
+    imagem_cliente mediumblob,
+    primeiro_nome varchar(100) not null,
+    segundo_nome varchar(100) not null,
     data_nascimento date not null,
     cpf char(11) not null unique,
     email varchar(50) not null unique,
+    senha char(8) not null unique,
     telefone char(11) not null unique
 );
 
