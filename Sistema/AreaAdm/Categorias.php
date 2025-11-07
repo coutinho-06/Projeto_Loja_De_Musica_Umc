@@ -9,7 +9,7 @@
 
     <!-- links de estilo -->
     <link rel="stylesheet" href="../CSS/estiloMenuAdm.css">
-    <link rel="stylesheet" href="../CSS/estiloDashboard.css">
+    <link rel="stylesheet" href="../CSS/estiloCategoriaAdm.css">
     
 
      <!-- link de font -->
@@ -49,3 +49,21 @@
                 <a href="../TelaLoginAdm.php">SAIR</a>
             </div>
         </nav>
+
+        <div class="containerParteDados">
+            <div class="containerSuperior">
+                <h1>Cadastrar Categorias</h1>
+            </div>
+            <div class="containerInferior">
+                <div class="caixaForm">
+                    <form action="">
+                        <label for="">Nome da Categoria:</label>
+                        <input type="text">
+
+                    </form>
+                </div>
+                <div class="caixaSelect">
+
+                </div>
+            </div>
+
