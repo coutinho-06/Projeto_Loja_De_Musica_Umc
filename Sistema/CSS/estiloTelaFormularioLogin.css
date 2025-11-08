@@ -218,7 +218,7 @@ form{
 /* 1600px — tela da Gabriella */
 @media (max-width: 1600px) {
     form {
-        width: 35%;
+        width: 30%;
         height: 70%;
     }
 
@@ -280,8 +280,10 @@ form{
 @media (max-width: 890px) {
     form { width: 65%; }
 
-    span { font-size: 0.5rem; 
-    text-align: center;}
+    span {
+        font-size: 0.5rem; 
+        text-align: center;
+    }
     button { width: 58%; }
 }
 
