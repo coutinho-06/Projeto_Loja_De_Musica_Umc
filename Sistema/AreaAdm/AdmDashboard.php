@@ -36,9 +36,13 @@
                 <ul>
                     <li>
                         <a href="AdmDashboard.php">Dashboard</a>
+                  
                         <a href="Categorias.php">Categorias</a>
-                        <a href="http://">Produtos</a>
-                        <a href="http://">Pedidos</a>
+                    
+                        <a href="CadastroProdutos.php
+                        ">Produtos</a>
+                    
+                        <a href="Pedidos.php">Pedidos</a>
                     </li>
                 </ul>
             </div>

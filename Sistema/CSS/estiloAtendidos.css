@@ -1,0 +1,91 @@
+:root{
+    --cor-primaria: #6C0A0A;
+    --cor-segundaria: #3f312e;
+    --cor-terciaria: #ffa601;
+}
+
+
+.containerParteDados{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    gap: 2rem;
+    
+
+}
+
+.containerSuperior{
+    display: flex;
+    align-items: center;
+    width: 85%;
+    height: 20%;
+
+    h1{
+        font-weight: 600;
+        font-family: "Montserrat", sans-serif;
+        font-size: 4rem;  
+    }
+
+}
+
+.containerInferior{
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    height: 80%;
+    
+}
+
+
+.caixaSelect{
+    width: 95%;
+
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+table{
+    font-family: "Montserrat", sans-serif;
+    background-color: #FFF;
+    box-shadow: 2px 2px 2px var(--cor-primaria);
+    border-radius: 0.1rem;
+    border: 1px solid var(--cor-primaria); 
+    height: 70%;
+    width: 100%;
+    
+}
+th.colId{
+    width: 8%;
+    height: 2.5rem;
+    
+}
+
+th,td{
+    border: 1px solid var(--cor-primaria); 
+}
+td{
+    height: 2.5rem;
+    padding-left: 0.5rem;
+    
+}
+
+td button{
+    border: 1px solid #fff;
+    background-color: #235329;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.6rem;
+    border: 1px solid var(--cor-terciaria); 
+    height: 50%;
+    width: 80%;
+    font-weight: 500;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+
+    transition: all 0.5s ease-in-out;
+
+}

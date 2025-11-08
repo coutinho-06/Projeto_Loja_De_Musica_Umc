@@ -1,8 +1,3 @@
-<?php
-    include "../Database/conexao.php";
-
-    
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,7 +9,7 @@
 
     <!-- links de estilo -->
     <link rel="stylesheet" href="../CSS/estiloMenuAdm.css">
-    <link rel="stylesheet" href="../CSS/estiloCadastroProduto.css">
+    <link rel="stylesheet" href="../CSS/estiloAtendidos.css">
     
 
      <!-- link de font -->
@@ -47,7 +42,9 @@
                         <a href="CadastroProdutos.php
                         ">Produtos</a>
                     
-                        <a href="Pedidos.php">Pedidos</a>
+                        <a href="Pedidos.php">Pedidos </a>
+
+                        <a href="Atendidos.php">Atendidos</a>
                     </li>
                 </ul>
             </div>
@@ -58,34 +55,21 @@
 
         <div class="containerParteDados">
             <div class="containerSuperior">
-                <h1>Cadastrar Produtos</h1>
+                <h1>Pedidos Atendidos</h1>
             </div>
             <div class="containerInferior">
-                <div class="caixaForm">
-                    <form action="">
-                        <label for="">Nome do Produto:</label>
-                        <input type="text">
-                        <label for="">Categoria:</label>
-                        <input type="text">
-                        <label for="">Valor do Produto:</label>
-                        <input type="text" class="inpValor">
-                        <label for="">Imagem do Produto:</label>
-                        <input type="file" class="inpImg">
-                        
-                        <button type="submit">Cadastrar</button>
-                            
-                    </form>
-
-                </div>
                 <div class="caixaSelect">
                     <table>
                         <thead>
                             <tr>
                                 <th class="colId">Id</th>
+                                <th>Cliente</th>
                                 <th>Nome do Produto</th>
                                 <th>Categoria</th>
                                 <th>Valor do Produto</th>
+                                <th class="colId">Qntd</th>
                                 <th>Imagem do Produto</th>
+                                <th class="colId">Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -94,7 +78,10 @@
                                 <td>hihi</td>
                                 <td>1</td>
                                 <td>hihi</td>
+                                <td>1</td>
                                 <td>hihi</td>
+                                <td>hihi</td>
+                                <td><button>ok</button></td>
                             </tr>
                             <tr>
                                 <td>1</td>
@@ -102,24 +89,31 @@
                                 <td>1</td>
                                 <td>hihi</td>
                                 <td>1</td>
-                                
+                                <td>hihi</td>
+                                <td>hihi</td>
+                                <td><button>ok</button></td>
                             </tr>
                             <tr>
                                 <td>1</td>
                                 <td>hihi</td>
                                 <td>1</td>
                                 <td>hihi</td>
+                                <td>1</td>
                                 <td>hihi</td>
+                                <td>hihi</td>
+                                <td><button>ok</button></td>
                             </tr>
                             <tr>
                                 <td>1</td>
                                 <td>hihi</td>
                                 <td>1</td>
                                 <td>hihi</td>
+                                <td>1</td>
                                 <td>hihi</td>
+                                <td>hihi</td>
+                                <td><button>ok</button></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-

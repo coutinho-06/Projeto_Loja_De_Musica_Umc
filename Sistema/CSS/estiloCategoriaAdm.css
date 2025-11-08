@@ -18,7 +18,7 @@
     display: flex;
     align-items: center;
     width: 80%;
-    height: 25%;
+    height: 20%;
     margin-left: 5rem;
 
     h1{
@@ -31,7 +31,7 @@
 .containerInferior{
     display: flex;
     width: 95%;
-    height: 75%;
+    height: 80%;
     margin-left: 2rem;
     
 }
@@ -58,7 +58,7 @@ form{
     label{
         font-weight: 500;
         font: 550 1.2rem "Montserrat", sans-serif;
-        width: 48%;
+        width: 58%;
         text-align: left;
         margin-top: 0.5rem;
 
@@ -113,7 +113,6 @@ button{
 
 
 .caixaSelect{
-    background-color: #cfcdc9;
     width: 50%;
 
     display: flex;
