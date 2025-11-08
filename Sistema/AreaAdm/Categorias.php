@@ -59,7 +59,7 @@
                 <div class="caixaForm">
                     <form action="">
                         <label for="">Nome da Categoria:</label>
-                        <input type="text">
+                        <input type="text" name="categoria" id="categoria">
                         
                         <button type="submit">ENTRAR</button>
                             
