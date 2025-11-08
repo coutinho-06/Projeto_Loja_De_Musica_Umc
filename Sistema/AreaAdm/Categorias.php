@@ -39,7 +39,7 @@
                   
                         <a href="">Categorias</a>
                     
-                        <a href="CadatroProddutos.css
+                        <a href="CadastroProdutos.php
                         ">Produtos</a>
                     
                         <a href="http://">Pedidos</a>
@@ -61,7 +61,7 @@
                         <label for="">Nome da Categoria:</label>
                         <input type="text">
                         
-                        <button type="submit">ENTRAR</button>
+                        <button type="submit">Cadastrar</button>
                             
                     </form>
 
