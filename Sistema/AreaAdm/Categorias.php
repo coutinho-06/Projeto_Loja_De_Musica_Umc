@@ -39,7 +39,8 @@
                   
                         <a href="">Categorias</a>
                     
-                        <a href="http://">Produtos</a>
+                        <a href="CadatroProddutos.css
+                        ">Produtos</a>
                     
                         <a href="http://">Pedidos</a>
                     </li>
@@ -59,11 +60,31 @@
                     <form action="">
                         <label for="">Nome da Categoria:</label>
                         <input type="text">
-
+                        
+                        <button type="submit">ENTRAR</button>
+                            
                     </form>
+
                 </div>
                 <div class="caixaSelect">
-
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="colId">Id</th>
+                                <th>Nome Categoria</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>hihi</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>hihi</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
