@@ -8,8 +8,8 @@
 
 
     <!-- links de estilo -->
-    <link rel="stylesheet" href="../CSS/estiloMenuAdm.css">
-    <link rel="stylesheet" href="../CSS/estiloPedidos.css">
+    <link rel="stylesheet" href="../CSS/adm/estiloMenuAdm.css">
+    <link rel="stylesheet" href="../CSS/adm/estiloPedidos.css">
     
     
 

@@ -8,8 +8,8 @@
 
 
     <!-- links de estilo -->
-    <link rel="stylesheet" href="../CSS/estiloMenuAdm.css">
-    <link rel="stylesheet" href="../CSS/estiloDashboard.css">
+    <link rel="stylesheet" href="../CSS/adm/estiloMenuAdm.css">
+    <link rel="stylesheet" href="../CSS/adm/estiloDashboard.css">
     
 
      <!-- link de font -->
@@ -43,6 +43,8 @@
                         ">Produtos</a>
                     
                         <a href="Pedidos.php">Pedidos</a>
+
+                        <a href="Atendidos.php">Atendidos</a>
                     </li>
                 </ul>
             </div>
