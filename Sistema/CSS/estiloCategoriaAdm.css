@@ -33,26 +33,114 @@
     width: 95%;
     height: 75%;
     margin-left: 2rem;
-    background-color: #3f312e;
+    
 }
 
 .caixaForm{
     display: flex;
-    
-    background-color: #ffa601;
+    justify-content:center;
+    align-items: center;
     width: 50%;
 }
 form{
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: #FFF;
     height: 55%;
     width: 80%;
-    box-shadow: 2px 2px 3px 2px var(--cor-primaria);
+    box-shadow: 2px 2px 2px var(--cor-primaria);
     border-radius: 0.1rem;
     border: 1px solid var(--cor-primaria);
 
+
+    label{
+        font-weight: 500;
+        font: 550 1.2rem "Montserrat", sans-serif;
+        width: 48%;
+        text-align: left;
+        margin-top: 0.5rem;
+
+    }
+
+    input{
+        border: 1px solid var(--cor-primaria);
+        border-radius: 0.2rem;
+        box-shadow: 2px 2px 3px #6c0a0a9f;
+        background-color: #F7F6F3;
+        height: 1.6rem;
+        color: var(--cor-primaria);
+        width: 18rem;
+        padding-left: 0.3rem;
+        margin-top: 0.5rem;
+        outline: none; /* tirar borda padrão do input */
+    
+    }
 }
+
+
+button{
+    margin-top: 2.5rem;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 0.3rem;
+    cursor: pointer;
+
+    border: 1px solid #fff;
+    background-color: var(--cor-primaria);
+    width: 40%;
+    height: 2.3rem;
+    font-size: 1.1rem;
+
+    transition: all 0.5s ease-in-out;
+
+    &:hover
+    {
+        
+        transition: all 0.3s  ease-in-out;
+        background-color: #fff;
+        color: var(--cor-primaria);
+        border: 1px solid var(--cor-primaria);
+
+    }
+
+}
+
+
+
+
 .caixaSelect{
     background-color: #cfcdc9;
     width: 50%;
+
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+table{
+    font-family: "Montserrat", sans-serif;
+    background-color: #FFF;
+    box-shadow: 2px 2px 2px var(--cor-primaria);
+    border-radius: 0.1rem;
+    border: 1px solid var(--cor-primaria); 
+    height: 55%;
+    width: 80%;
+    
+}
+th.colId{
+    width: 30%;
+    height: 2.5rem;
+    
+}
+
+th,td{
+    border: 1px solid var(--cor-primaria); 
+}
+td{
+    height: 2.5rem;
+    padding-left: 0.5rem;
+    
 }

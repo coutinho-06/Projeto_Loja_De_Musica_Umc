@@ -56,7 +56,7 @@
     border: 1px solid var(--cor-primaria);
     width: 50%;
     height: 85%;
-    box-shadow: 2px 2px 3px 2px var(--cor-primaria);
+    box-shadow: 2px 2px 2px var(--cor-primaria);
     margin-left: 12rem;
 }
 
@@ -92,7 +92,7 @@
     border: 1px solid var(--cor-primaria);
     width: 97%;
     height:85%;
-    box-shadow: 2px 2px 3px 2px var(--cor-primaria);
+    box-shadow: 2px 2px 2px var(--cor-primaria);
 }
 h2{
 
