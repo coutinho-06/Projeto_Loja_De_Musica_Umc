@@ -1,10 +1,7 @@
 <?php
-    include "conexao.php";
+    include "../Database/conexao.php";
 
-    if (condition) {
-        # code...
-    }
-
+    
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -66,16 +63,14 @@
             <div class="containerInferior">
                 <div class="caixaForm">
                     <form action="">
-                        <label for="">Nome da Categoria:</label>
+                        <label for="">Nome do Produto:</label>
                         <input type="text">
-                        <label for="">Nome da Categoria:</label>
+                        <label for="">Categoria:</label>
                         <input type="text">
-                        <label for="">Nome da Categoria:</label>
-                        <input type="text">
-                        <label for="">Nome da Categoria:</label>
-                        <input type="text">
-                        <label for="">Nome da Categoria:</label>
-                        <input type="text">
+                        <label for="">Valor do Produto:</label>
+                        <input type="text" class="inpValor">
+                        <label for="">Imagem do Produto:</label>
+                        <input type="file" class="inpImg">
                         
                         <button type="submit">Cadastrar</button>
                             
@@ -87,16 +82,40 @@
                         <thead>
                             <tr>
                                 <th class="colId">Id</th>
-                                <th>Nome Categoria</th>
+                                <th>Nome do Produto</th>
+                                <th>Categoria</th>
+                                <th>Valor do Produto</th>
+                                <th>Imagem do Produto</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1</td>
                                 <td>hihi</td>
+                                <td>1</td>
+                                <td>hihi</td>
+                                <td>hihi</td>
                             </tr>
                             <tr>
                                 <td>1</td>
+                                <td>hihi</td>
+                                <td>1</td>
+                                <td>hihi</td>
+                                <td>1</td>
+                                
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>hihi</td>
+                                <td>1</td>
+                                <td>hihi</td>
+                                <td>hihi</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>hihi</td>
+                                <td>1</td>
+                                <td>hihi</td>
                                 <td>hihi</td>
                             </tr>
                         </tbody>

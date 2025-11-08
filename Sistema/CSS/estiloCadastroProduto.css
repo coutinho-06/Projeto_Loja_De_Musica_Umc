@@ -15,8 +15,6 @@ section{
 }
 
 
-
-
 .containerParteDados{
     display: flex;
     flex-direction: column;
@@ -30,7 +28,7 @@ section{
     display: flex;
     align-items: center;
     width: 80%;
-    height: 25%;
+    height: 20%;
     margin-left: 5rem;
 
     h1{
@@ -43,7 +41,7 @@ section{
 .containerInferior{
     display: flex;
     width: 95%;
-    height: 75%;
+    height: 80%;
     margin-left: 2rem;
     
 }
@@ -58,8 +56,8 @@ section{
 form{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-top: 3rem;
+    align-items: left;
+    justify-content: center;
     background-color: #fff;
     border: 1px solid var(--cor-primaria);
     border-radius: 0.3rem;
@@ -68,15 +66,16 @@ form{
     font-family:  "Montserrat", sans-serif;
     color: var(--cor-primaria);
 
-    width: 30%;
-    height: 70%;
+    height: 80%;
+    width: 80%;
 
     label{
         font-weight: 500;
         font: 550 1.2rem "Montserrat", sans-serif;
-        width: 48%;
+        width: 60%;
         text-align: left;
-        margin-top: 0.5rem;
+        margin-top: 0.8rem;
+        margin-left: 6rem;
 
     }
 
@@ -89,15 +88,25 @@ form{
         color: var(--cor-primaria);
         width: 18rem;
         padding-left: 0.3rem;
-        margin-top: 0.5rem;
+        margin-top: 0.8rem;
         outline: none; /* tirar borda padrão do input */
+        margin-left: 6rem;
     
     }
+}
+
+input.inpValor{
+    width: 12rem;
+}
+input.inpImg{
+    width: 7.9rem;
+    
 }
 
 
 button{
     margin-top: 2.5rem;
+    margin-left: 8.8rem;
     text-transform: uppercase;
     font-family: "Montserrat", sans-serif;
     color: #fff;
@@ -129,7 +138,6 @@ button{
 
 
 .caixaSelect{
-    background-color: #cfcdc9;
     width: 50%;
 
     display: flex;
@@ -142,15 +150,16 @@ table{
     box-shadow: 2px 2px 2px var(--cor-primaria);
     border-radius: 0.1rem;
     border: 1px solid var(--cor-primaria); 
-    height: 55%;
-    width: 80%;
+    height: 80%;
+    width: 95%;
     
 }
 th.colId{
-    width: 30%;
+    width: 8%;
     height: 2.5rem;
     
 }
+
 
 th,td{
     border: 1px solid var(--cor-primaria); 
