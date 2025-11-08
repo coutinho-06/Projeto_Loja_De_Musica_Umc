@@ -8,41 +8,49 @@
         $Nome = $_POST['nome'];
     } else {
         echo("Campo 'nome' não preenchido!");
+        die;
     }
     if (isset($_POST['Sobrenome']) && !empty($_POST['Sobrenome'])){
         $Sobrenome = $_POST['Sobrenome'];
     } else {
         echo("Campo 'Sobrenome' não preenchido!");
+        die;
     }
     if (isset($_POST['telefone']) && !empty($_POST['telefone'])){
         $Telefone = $_POST['telefone'];
     } else {
         echo("Campo 'Telefone' não preenchido!");
+        die;
     }
     if (isset($_POST['cpf']) && !empty($_POST['cpf'])){
         $Cpf = $_POST['cpf'];
     } else {
         echo("Campo 'CPF' não preenchido!");
+        die;
     }
     if (isset($_POST['Nasc']) && !empty($_POST['Nasc'])){
         $Dt_Nasc = $_POST['Nasc'];
     } else {
         echo("Campo 'Data de Nascimento' não preenchido!");
+        die;
     }
     if (isset($_POST['email']) && !empty($_POST['email'])){
         $Email = $_POST['email'];
     } else {
         echo("Campo 'email' não preenchido!");
+        die;
     }
     if (isset($_POST['senha']) && !empty($_POST['senha'])){
         $Senha = $_POST['senha'];
     } else {
         echo("Campo 'senha' não preenchido!");
+        die;
     }
     if (isset($_POST['confirSenha']) && !empty($_POST['confirSenha'])){
         $Confir_Senha = $_POST['confirSenha'];
     } else {
         echo("Campo 'Confirmar Senha' não preenchido!");
+        die;
     }
 
     if ($Senha != $Confir_Senha) {
