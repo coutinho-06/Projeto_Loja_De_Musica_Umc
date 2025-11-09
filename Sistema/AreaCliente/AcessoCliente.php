@@ -9,7 +9,7 @@
 
     <!-- links de estilo -->
     <link rel="stylesheet" href="../CSS/estiloNavPadrao.css">
-    <link rel="stylesheet" href="../CSS/estiloHome.css">
+    <link rel="stylesheet" href="../CSS/cliente/estiloPerfilCliente.css">
     <link rel="stylesheet" href="../CSS/estiloFooterPadrao.css">
 
      <!-- link de font -->
@@ -32,13 +32,12 @@
             <img src="../IMG/Logos/logo-branca.png">
         </div>
         <div class="linksNav">
-            <a href="#home">Home</a>
-            <a href="#sobre">Sobre</a>
+            <a href="../index.php">Home</a>
 
             <!-- Dropdown -->
             <ul>
                 <li>
-                    <a href="TelaProdutos.php"> LOJA </a>
+                    <a href="../TelaProdutos.php"> LOJA </a>
                     <div class="sub-menu">
                         <ul class="sub-menu-ul">
                             <li class="sub-menu-ul-li">
@@ -64,7 +63,7 @@
                     </div>
                 </li>
             </ul>
-            <a href="#">Contato</a>
+            <a href="../index.php">Contato</a>
         </div>
         <div class="btnNav">
             <button class="btndois"><a class="linkbtn" href="../index.php">Sair</a></button>
@@ -73,4 +72,81 @@
     <!-- Navbar -->
 
 
+
+
+    <section>
+
+        <div class="containerSuperior">
+            <div class="espaco">
+
+            </div>
+            <div class="imgPerfil">
+                <img src="../IMG/Logos/logo-img-vinho.png" alt="">
+            </div>
+            <div class="nomeCliente">
+                <h2>Gabriella Ferreira Alves</h2>
+            </div>
+        </div>
+
+        <div class="containerMeio">
+            <div class="caixaInfo">
+                <div class="infosClientes">
+                    <ul>
+                        <li>Data de Nascimento: {trazer do banco de dados}</li>
+                        <li>CPF: {trazer do banco de dados}</li>
+                        <li>E-mail: {trazer do banco de dados}</li>
+                        <li>Telefone: {trazer do banco de dados}</li>
+                    </ul>
+                </div>
+                <div class="espacoendereco">
+                    <button></button>
+                    <p>Ver Endereço</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="containerInferior">
+            <div class="linhaBtns">
+                <div class="btn">
+                    <button>
+                        <i class="fa-solid fa-user" style="color: #6c0a0a;"></i>
+                    </button>
+                    <p>EditarPerfil</p>
+                </div>
+                <div class="btn">
+                    <button>
+                        <i class="fa-solid fa-house" style="color: #6c0a0a;"></i>
+                    </button>
+                    <p>EditarEndereço</p>
+                </div>
+                <div class="btn">
+                    <button>
+                        <i class="fa-solid fa-truck" style="color: #6c0a0a;"></i>
+                    </button>
+                    <p>VerPedidos</p>
+                </div>
+                <div class="btn">
+                    <button>
+                        <i class="fa-solid fa-xmark" style="color: #6c0a0a;"></i>
+                    </button>
+                    <p>DeletarConta</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     
+    
+
+
+
+
+
+
+
+
+
+    <script src="https://kit.fontawesome.com/ef7e10212e.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

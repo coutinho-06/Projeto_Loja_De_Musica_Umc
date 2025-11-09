@@ -48,21 +48,21 @@
                 <p>Esteja sempre ligado com a gente!</p>
             </div>
             <div class="caixaForm">
-                <label for="">Nome:</label>
+                <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome">
-                <label for="">Sobrenome:</label>
+                <label for="Sobrenome">Sobrenome:</label>
                 <input type="text" id="Sobrenome" name="Sobrenome">
-                <label for="">Telefone:</label>
+                <label for="telefone">Telefone:</label>
                 <input type="text" id="telefone" name="telefone">
-                <label for="">Cpf:</label>
+                <label for="cpf">Cpf:</label>
                 <input type="text" max="15" id="cpf" name="cpf">
-                <label for="">Nascimento:</label>
+                <label for="Nasc">Nascimento:</label>
                 <input type="date" class="dt" id="Nasc" name="Nasc">
-                <label for="">E-mail:</label>
+                <label for="email">E-mail:</label>
                 <input type="text" id="email" name="email">
-                <label for="">Senha:</label>
+                <label for="senha">Senha:</label>
                 <input type="password" id="senha" name="senha">
-                <label for="">Confirmar Senha:</label>
+                <label for="confirSenha">Confirmar Senha:</label>
                 <input type="password" id="confirSenha" name="confirSenha">
             </div>
 
@@ -72,17 +72,6 @@
             </div>
 
         </form>
-
-        <!-- ===== MODAL DE SUCESSO ===== -->
-        <!-- <div class="modal" id="modalSucesso">
-            <div class="modal-content">
-                <h3>Cadastro realizado com sucesso!</h3>
-                <p style="color:#6C0A0A;">Seja bem-vindo(a)! Você já pode fazer login.</p>
-                <a href="TelaFormularioLogin.php">
-                    <button>Ir para login</button>
-                </a>
-            </div>
-        </div> -->
 
 
     </section>

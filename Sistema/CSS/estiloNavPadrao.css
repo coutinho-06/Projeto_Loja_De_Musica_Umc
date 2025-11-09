@@ -18,6 +18,7 @@ nav{
     position: fixed;
     height: 4rem;
     width: 100%;
+    z-index: 3;
 }
 
 .imagemLogo{
