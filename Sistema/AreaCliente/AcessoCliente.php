@@ -81,7 +81,7 @@
 
             </div>
             <div class="imgPerfil">
-                <img src="../IMG/Logos/logo-img-vinho.png" alt="">
+                <img src="../IMG/cleinte.png" alt="">
             </div>
             <div class="nomeCliente">
                 <h2>Gabriella Ferreira Alves</h2>
@@ -99,8 +99,13 @@
                     </ul>
                 </div>
                 <div class="espacoendereco">
-                    <button></button>
-                    <p>Ver Endereço</p>
+                    <div class="btn">
+                        <button>
+                            <i class="fa-solid fa-house" style="color: #6c0a0a;"></i>
+                        </button>
+                        <p>Ver Endereço</p>
+                        
+                    </div>
                 </div>
             </div>
         </div>
@@ -111,25 +116,25 @@
                     <button>
                         <i class="fa-solid fa-user" style="color: #6c0a0a;"></i>
                     </button>
-                    <p>EditarPerfil</p>
+                    <p>Editar Perfil</p>
                 </div>
                 <div class="btn">
                     <button>
-                        <i class="fa-solid fa-house" style="color: #6c0a0a;"></i>
+                        <i class="fa-solid fa-location-dot" style="color: #6c0a0a;"></i>
                     </button>
-                    <p>EditarEndereço</p>
+                    <p>Editar Endereço</p>
                 </div>
                 <div class="btn">
                     <button>
                         <i class="fa-solid fa-truck" style="color: #6c0a0a;"></i>
                     </button>
-                    <p>VerPedidos</p>
+                    <p>Ver Pedidos</p>
                 </div>
                 <div class="btn">
                     <button>
                         <i class="fa-solid fa-xmark" style="color: #6c0a0a;"></i>
                     </button>
-                    <p>DeletarConta</p>
+                    <p>Deletar Conta</p>
                 </div>
             </div>
         </div>
