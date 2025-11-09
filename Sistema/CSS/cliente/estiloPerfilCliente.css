@@ -11,6 +11,7 @@ section{
     justify-content: center;
     width: 100%;
     height: 100vh;
+    background-color: #F7F6F3;
 
 }
  .containerSuperior{
@@ -83,7 +84,7 @@ section{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 60%;
+    width: 55%;
     height: 95%;
     background-color: #fff;
     border: 2px solid var(--cor-primaria);
@@ -156,6 +157,8 @@ section{
         border-radius: 0.5rem;
         border: 2px solid var(--cor-primaria);
         box-shadow: 2px 2px 2px #6c0a0a9f;
+        background-color: #fff;
+        cursor: pointer;
 
     }
     i{
@@ -171,3 +174,73 @@ section{
         
     }
 }
+
+
+
+
+
+
+
+/* MODAL */
+/* MODAL */
+/* MODAL */
+#modal
+{
+    display: none;
+    background-color: #F7F6F3;
+    padding: 2.5rem;
+	border-radius: 0.5rem;
+    border: 2px solid var(--cor-primaria);
+    box-shadow: 2px 2px 2px #6c0a0a9f;
+    position: fixed;
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Centraliza o modal */
+    z-index: 1001; /* Z-index maior que o fundo escuro para garantir que fique na frente */
+    transition: opacity 0.3s, transform 0.3s; /* Transições suaves para opacidade e transformação */
+    
+    #titulo-modal {
+        font-size: 1.5rem;
+        color: var(--cor-primaria);
+        padding: 1rem;
+        font-weight: 500;
+        text-align: center;
+    
+    }
+} 
+
+
+#modal-content
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 40rem;
+    justify-content: center;
+    align-items: center;
+
+    p{
+    
+    font-size: 1.4rem;
+    color: #4c6880;
+    font-variant: small-caps;
+    text-align: center ;
+    padding: 1rem;
+    }
+
+}
+
+
+#overlay 
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000080; /* Cor do fundo com transparência */
+    z-index: 1000; /* Z-index alto para garantir que cubra todo o conteúdo */
+    display: none; /* Inicialmente oculto */
+    transition: opacity 0.3s; /* Transição suave para a opacidade */
+}
+

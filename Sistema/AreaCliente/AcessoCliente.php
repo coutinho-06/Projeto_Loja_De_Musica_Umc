@@ -100,11 +100,11 @@
                 </div>
                 <div class="espacoendereco">
                     <div class="btn">
-                        <button>
+                        <button onclick="VerEndereco()">
                             <i class="fa-solid fa-house" style="color: #6c0a0a;"></i>
                         </button>
                         <p>Ver Endereço</p>
-                        
+
                     </div>
                 </div>
             </div>
@@ -144,9 +144,39 @@
     
 
 
+<!-- Modal -->
+            <div id="overlay">
+                <div id="modal" class="modal">
+                    <p id="titulo-modal"> Veja Seu Endereço Cadastrado!</p>
+
+                    <span class="close" onclick="fecharModal()">&times;</span>
+                    <div id="modal-content">
+
+                        
+                            
+                            <button type="button" onclick="enviarFormulario()">Cadastrar</button>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
 
 
 
+
+            <script>
+
+                function VerEndereco(){
+                        document.getElementById('overlay').style.display = 'block';
+                        document.getElementById('modal').style.display = 'block';
+                }
+
+                function fecharModal() {
+                        document.getElementById('overlay').style.display = 'none';
+                        document.getElementById('modal').style.display = 'none';
+                    }
+
+            </script>
 
 
 
