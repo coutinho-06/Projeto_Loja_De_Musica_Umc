@@ -205,28 +205,48 @@ section{
         padding: 1rem;
         font-weight: 500;
         text-align: center;
+        font-family: "Montserrat", sans-serif;
     
     }
+
+    
+    ul {
+        list-style-type: none;
+    }
+    li{
+        margin-top: 1.5rem;
+    }
+    
 } 
 
 
 #modal-content
 {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     width: 40rem;
     justify-content: center;
     align-items: center;
+    gap: 4rem;
+
+    color: var(--cor-primaria);
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
 
     p{
     
-    font-size: 1.4rem;
-    color: #4c6880;
-    font-variant: small-caps;
-    text-align: center ;
-    padding: 1rem;
+        font-size: 1.4rem;
+        color: var(--cor-primaria);
+        font-variant: small-caps;
+        text-align: center ;
+        padding: 1rem;
+        font-family: "Montserrat", sans-serif;
     }
+
+
+
+
 
 }
 
@@ -244,3 +264,21 @@ section{
     transition: opacity 0.3s; /* Transição suave para a opacidade */
 }
 
+.btnModalFechar{
+    border-radius: 0.2rem;
+    border: 2px solid var(--cor-primaria);
+    background-color: var(--cor-primaria);
+    cursor: pointer;
+    text-transform: uppercase;
+    color: #fff;
+    width: 5rem;
+    height: 2rem;
+    font-weight: 600;
+
+    &:hover{
+        background-color: #fff;
+        color: var(--cor-primaria);
+
+    }
+
+}

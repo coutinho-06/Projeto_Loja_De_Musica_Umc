@@ -149,12 +149,14 @@
                 <div id="modal" class="modal">
                     <p id="titulo-modal"> Veja Seu Endereço Cadastrado!</p>
 
-                    <span class="close" onclick="fecharModal()">&times;</span>
                     <div id="modal-content">
-
+                        <ul>
+                            <li>Número da residência: {trazer do banco de dados}</li>
+                            <li>CEP: {trazer do banco de dados}</li>
+                        </ul>
                         
                             
-                            <button type="button" onclick="enviarFormulario()">Cadastrar</button>
+                            <button type="button" class="btnModalFechar" onclick="fecharModal()">Fechar</button>
                         </form>
                         
                     </div>
