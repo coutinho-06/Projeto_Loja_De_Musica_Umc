@@ -111,7 +111,7 @@
         </div>
 
         <div class="containerInferior">
-            <div class="linhaBtns">
+            <!-- <div class="linhaBtns">
                 <div class="btn">
                     <button>
                         <i class="fa-solid fa-user" style="color: #6c0a0a;"></i>
@@ -136,15 +136,152 @@
                     </button>
                     <p>Deletar Conta</p>
                 </div>
+            </div> -->
+
+
+
+
+            
+
+
+
+            <!-- BOTÕES -->
+            <div class="linhaBtns">
+                <div class="btn">
+                    <button onclick="abrirModal('perfil')"><i class="fa-solid fa-user" style="color: #6c0a0a;"></i></button>
+                    <p>Editar Perfil</p>
+                </div>
+                <div class="btn">
+                    <button onclick="abrirModal('endereco')"><i class="fa-solid fa-location-dot" style="color: #6c0a0a;"></i></button>
+                    <p>Editar Endereço</p>
+                </div>
+                <div class="btn">
+                    <button onclick="abrirModal('pedidos')"><i class="fa-solid fa-truck" style="color: #6c0a0a;"></i></button>
+                    <p>Ver Pedidos</p>
+                </div>
+                <div class="btn">
+                    <button onclick="abrirModal('deletar')"><i class="fa-solid fa-xmark" style="color: #6c0a0a;"></i></button>
+                    <p>Deletar Conta</p>
+                </div>
             </div>
+
+            <!-- MODAL ÚNICO -->
+            <div id="overlay">
+                <div id="modal">
+                    <h2 id="titulo-modal"></h2>
+                    <div id="modal-content">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                function abrirModal(tipo) {
+                const titulo = document.getElementById('titulo-modal');
+                const conteudo = document.getElementById('modal-content');
+
+                // altera o conteúdo conforme o tipo do modal
+                switch(tipo) {
+                    case 'perfil':
+                    titulo.textContent = 'Editar Perfil';
+                    conteudo.innerHTML = `
+                        <p>Aqui você poderá editar seus dados pessoais!</p>
+                        <form method="post" action="">
+
+                            <div class="caixaForm">
+                                <label for="nome">Nome:</label>
+                                <input type="text" id="nome" name="nome">
+                                <label for="Sobrenome">Sobrenome:</label>
+                                <input type="text" id="Sobrenome" name="Sobrenome">
+                                <label for="telefone">Telefone:</label>
+                                <input type="text" id="telefone" name="telefone">
+                                <label for="cpf">Cpf:</label>
+                                <input type="text" max="15" id="cpf" name="cpf">
+                                <label for="Nasc">Nascimento:</label>
+                                <input type="date" class="dt" id="Nasc" name="Nasc">
+                                <label for="email">E-mail:</label>
+                                <input type="text" id="email" name="email">
+                                <label for="senha">Senha:</label>
+                                <input type="password" id="senha" name="senha">
+                                <label for="confirSenha">Confirmar Senha:</label>
+                                <input type="password" id="confirSenha" name="confirSenha">
+                            </div>
+
+                            <div class="caixabtn">
+                                <button type="submit" href="">ATUALIZAR</button>
+                            </div>
+                        </form>
+
+                        <button class="btnModalFechar" onclick="fecharModal()">Fechar</button>
+                    `;
+                    break;
+
+                    case 'endereco':
+                    titulo.textContent = 'Cadastre seu novo endereço!';
+                    conteudo.innerHTML = `
+                        <ul>
+                            <li>Número da Residência: {trazer do banco de dados}</li>
+                            <li>CEP: {trazer do banco de dados}</li>
+                        </ul>
+                        <button class="btnModalFechar" onclick="fecharModal()">Fechar</button>
+                    `;
+                    break;
+
+                    case 'pedidos':
+                    titulo.textContent = 'Seus Pedidos';
+                    conteudo.innerHTML = `
+                        <p>Histórico de compras do cliente...</p>
+                        <button class="btnModalFechar" onclick="fecharModal()">Fechar</button>
+                    `;
+                    break;
+
+                    case 'deletar':
+                    titulo.textContent = 'Deletar Conta';
+                    conteudo.innerHTML = `
+                        <p>Tem certeza que deseja excluir sua conta???</p>
+                        <button class="btnExcluirConta" onclick="confirmarExclusao()">Confirmar</button>
+                        <button class="btnModalFechar" onclick="fecharModal()">Fechar</button>
+                    `;
+                    break;
+
+                    default:
+                    titulo.textContent = 'Informação';
+                    conteudo.textContent = 'Nenhum conteúdo disponível.';
+                }
+
+                // mostrar modal
+                document.getElementById('overlay').style.display = 'flex';
+                document.getElementById('modal').style.display = 'block';
+                
+                }
+
+                function fecharModal() {
+                document.getElementById('overlay').style.display = 'none';
+                }
+
+                function confirmarExclusao() {
+                alert("Conta excluída com sucesso!");
+                fecharModal();
+                }
+            </script>
+
+
+
+
+
+
+
+
+
+
         </div>
     </section>
 
     
     
+<!-- 
 
-
-<!-- Modal -->
+ Modal 
             <div id="overlay">
                 <div id="modal" class="modal">
                     <p id="titulo-modal"> Veja Seu Endereço Cadastrado!</p>
@@ -178,7 +315,24 @@
                         document.getElementById('modal').style.display = 'none';
                     }
 
-            </script>
+            </script> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

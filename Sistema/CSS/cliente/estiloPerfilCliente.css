@@ -184,6 +184,20 @@ section{
 /* MODAL */
 /* MODAL */
 /* MODAL */
+
+
+#overlay 
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000080; /* Cor do fundo com transparência */
+    z-index: 1000; /* Z-index alto para garantir que cubra todo o conteúdo */
+    display: none; /* Inicialmente oculto */
+    transition: opacity 0.3s; /* Transição suave para a opacidade */
+}
 #modal
 {
     display: none;
@@ -199,7 +213,7 @@ section{
     z-index: 1001; /* Z-index maior que o fundo escuro para garantir que fique na frente */
     transition: opacity 0.3s, transform 0.3s; /* Transições suaves para opacidade e transformação */
     
-    #titulo-modal {
+    #titulo-modal{
         font-size: 1.5rem;
         color: var(--cor-primaria);
         padding: 1rem;
@@ -224,7 +238,7 @@ section{
 {
     display: flex;
     flex-direction: column;
-    width: 40rem;
+    width: 50rem;
     justify-content: center;
     align-items: center;
     gap: 4rem;
@@ -246,23 +260,9 @@ section{
 
 
 
-
-
 }
 
 
-#overlay 
-{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #00000080; /* Cor do fundo com transparência */
-    z-index: 1000; /* Z-index alto para garantir que cubra todo o conteúdo */
-    display: none; /* Inicialmente oculto */
-    transition: opacity 0.3s; /* Transição suave para a opacidade */
-}
 
 .btnModalFechar{
     border-radius: 0.2rem;
@@ -274,6 +274,7 @@ section{
     width: 5rem;
     height: 2rem;
     font-weight: 600;
+    
 
     &:hover{
         background-color: #fff;
@@ -281,4 +282,90 @@ section{
 
     }
 
+}
+
+.btnExcluirConta{
+    border-radius: 0.2rem;
+    border: 2px solid var(--cor-primaria);
+    background-color: var(--cor-primaria);
+    cursor: pointer;
+    text-transform: uppercase;
+    width: 9rem;
+    height: 2.8rem;
+    font-weight: 600;
+    color: #fff;
+    font-size: 1rem;
+    
+
+    &:hover{
+        background-color: #fff;
+        color: var(--cor-primaria);
+
+    }
+}
+
+
+
+form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    align-items: center;
+    font-family:  "Montserrat", sans-serif;
+    color: var(--cor-primaria);
+    background-color: #3f312e;
+    width: 80%;
+    height: 78%;
+
+
+}
+
+.caixaForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 90%;
+    gap: 1.5rem;
+
+    
+    label{
+        font-weight: 500;
+        text-transform: uppercase;
+        width: 30%;
+        text-align: left;
+        height: 0.5rem;
+
+    }
+    input{
+        border: 1px solid var(--cor-primaria);
+        border-radius: 0.2rem;
+        box-shadow: 2px 2px 3px #6c0a0a9f;
+        background-color: #F7F6F3;
+        height: 1.4rem;
+        color: var(--cor-primaria);
+        width: 11rem;
+        padding-left: 0.3rem;
+        outline: none; /* tirar borda padrão do input */
+    
+    }
+
+    .caixaInputNum{
+      width: 40%;
+    }
+    input.num{
+        width: 3rem;
+    }
+    input.dt{
+        width: 7rem;
+    }
+
+}
+
+
+.caixaInputNum{
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
 }
