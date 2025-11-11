@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="IMG/Logos/logo-branca.png" type="image/x-icon">
+    <link rel="icon" href="../IMG/Logos/logo-vinho-sem-fundo.png" type="image/x-icon">
     <title>Bem-Vindo a Groove Sound!</title>
 
 
@@ -100,7 +100,7 @@
                 </div>
                 <div class="espacoendereco">
                     <div class="btn">
-                        <button onclick="VerEndereco()">
+                        <button onclick="abrirModal('meuEndereco')">
                             <i class="fa-solid fa-house" style="color: #6c0a0a;"></i>
                         </button>
                         <p>Ver Endereço</p>
@@ -111,39 +111,6 @@
         </div>
 
         <div class="containerInferior">
-            <!-- <div class="linhaBtns">
-                <div class="btn">
-                    <button>
-                        <i class="fa-solid fa-user" style="color: #6c0a0a;"></i>
-                    </button>
-                    <p>Editar Perfil</p>
-                </div>
-                <div class="btn">
-                    <button>
-                        <i class="fa-solid fa-location-dot" style="color: #6c0a0a;"></i>
-                    </button>
-                    <p>Editar Endereço</p>
-                </div>
-                <div class="btn">
-                    <button>
-                        <i class="fa-solid fa-truck" style="color: #6c0a0a;"></i>
-                    </button>
-                    <p>Ver Pedidos</p>
-                </div>
-                <div class="btn">
-                    <button>
-                        <i class="fa-solid fa-xmark" style="color: #6c0a0a;"></i>
-                    </button>
-                    <p>Deletar Conta</p>
-                </div>
-            </div> -->
-
-
-
-
-            
-
-
 
             <!-- BOTÕES -->
             <div class="linhaBtns">
@@ -208,7 +175,7 @@
                             </div>
 
                             <div class="caixabtn">
-                                <button type="submit" href="">ATUALIZAR</button>
+                                <button class="btnModalAtualizar" type="submit" onclick="" href="">ATUALIZAR</button>
                             </div>
                         </form>
 
@@ -219,10 +186,24 @@
                     case 'endereco':
                     titulo.textContent = 'Cadastre seu novo endereço!';
                     conteudo.innerHTML = `
-                        <ul>
-                            <li>Número da Residência: {trazer do banco de dados}</li>
-                            <li>CEP: {trazer do banco de dados}</li>
-                        </ul>
+                        <form method="post" action="">
+
+                            <div class="caixaForm">
+                                <label class="LnumR for="numR">Número da Residência:</label>
+                                <input type="number" class="numR" id="numR" name="numR">
+
+                                <label  class="Lcep" for="cep">CEP:</label>
+                                <input type="text"  max="15" id="cep" name="cep">
+
+                            </div>
+
+                            <div class="caixabtn">
+                                <button class="btnModalAtualizar" type="submit" onclick="" href="">ATUALIZAR</button>
+                            </div>
+                        </form>
+
+
+
                         <button class="btnModalFechar" onclick="fecharModal()">Fechar</button>
                     `;
                     break;
@@ -240,6 +221,20 @@
                     conteudo.innerHTML = `
                         <p>Tem certeza que deseja excluir sua conta???</p>
                         <button class="btnExcluirConta" onclick="confirmarExclusao()">Confirmar</button>
+                        <button class="btnModalFechar" onclick="fecharModal()">Fechar</button>
+                    `;
+                    break;
+
+                    case 'meuEndereco':
+                    titulo.textContent = 'Veja Seu Endereço Cadastrado!';
+                    conteudo.innerHTML = `
+                        <div id="modal-content">
+                            <ul>
+                                <li>Número da residência: {trazer do banco de dados}</li>
+                                <li>CEP: {trazer do banco de dados}</li>
+                            </ul>
+                        </div>
+
                         <button class="btnModalFechar" onclick="fecharModal()">Fechar</button>
                     `;
                     break;
@@ -270,68 +265,11 @@
 
 
 
-
-
-
-
         </div>
     </section>
 
     
     
-<!-- 
-
- Modal 
-            <div id="overlay">
-                <div id="modal" class="modal">
-                    <p id="titulo-modal"> Veja Seu Endereço Cadastrado!</p>
-
-                    <div id="modal-content">
-                        <ul>
-                            <li>Número da residência: {trazer do banco de dados}</li>
-                            <li>CEP: {trazer do banco de dados}</li>
-                        </ul>
-                        
-                            
-                            <button type="button" class="btnModalFechar" onclick="fecharModal()">Fechar</button>
-                        </form>
-                        
-                    </div>
-                </div>
-            </div>
-
-
-
-
-            <script>
-
-                function VerEndereco(){
-                        document.getElementById('overlay').style.display = 'block';
-                        document.getElementById('modal').style.display = 'block';
-                }
-
-                function fecharModal() {
-                        document.getElementById('overlay').style.display = 'none';
-                        document.getElementById('modal').style.display = 'none';
-                    }
-
-            </script> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
