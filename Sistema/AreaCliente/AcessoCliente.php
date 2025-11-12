@@ -186,7 +186,7 @@
                     case 'endereco':
                     titulo.textContent = 'Cadastre seu novo endereço!';
                     conteudo.innerHTML = `
-                        <form method="post" action="">
+                        <form method="post" action="../Database/CrudeCliente.php">
 
                             <div class="caixaForm">
                                 <label class="LnumR for="numR">Número da Residência:</label>
@@ -194,6 +194,38 @@
 
                                 <label  class="Lcep" for="cep">CEP:</label>
                                 <input type="text"  max="15" id="cep" name="cep">
+
+                                <label for="estado">Estado (sigla):</label>
+                                <select id="estado" name="estado" required>
+                                    <option value="" disabled selected>Selecione</option>
+                                    <option value="AC">AC</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AP">AP</option>
+                                    <option value="AM">AM</option>
+                                    <option value="BA">BA</option>
+                                    <option value="CE">CE</option>
+                                    <option value="DF">DF</option>
+                                    <option value="ES">ES</option>
+                                    <option value="GO">GO</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MT">MT</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MG">MG</option>
+                                    <option value="PA">PA</option>
+                                    <option value="PB">PB</option>
+                                    <option value="PR">PR</option>
+                                    <option value="PE">PE</option>
+                                    <option value="PI">PI</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="RN">RN</option>
+                                    <option value="RS">RS</option>
+                                    <option value="RO">RO</option>
+                                    <option value="RR">RR</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SP">SP</option>
+                                    <option value="SE">SE</option>
+                                    <option value="TO">TO</option>
+                                </select>
 
                             </div>
 
@@ -259,10 +291,6 @@
                 fecharModal();
                 }
             </script>
-
-
-
-B
 
 
         </div>
