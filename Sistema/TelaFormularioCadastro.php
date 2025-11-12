@@ -53,7 +53,7 @@
                 <label for="Sobrenome">Sobrenome:</label>
                 <input type="text" id="Sobrenome" name="Sobrenome">
                 <label for="telefone">Telefone:</label>
-                <input type="text" id="telefone" name="telefone">
+                <input type="number" max="11" id="telefone" name="telefone">
                 <label for="cpf">Cpf:</label>
                 <input type="text" max="15" id="cpf" name="cpf">
                 <label for="Nasc">Nascimento:</label>

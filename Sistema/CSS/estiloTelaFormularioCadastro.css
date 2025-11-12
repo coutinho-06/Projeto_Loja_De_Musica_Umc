@@ -188,11 +188,12 @@ form{
 /* ========================================================== */
 @media screen and (max-width: 1920px) and (max-height: 1080px) {
 
-  .caixaTexto p { font-size: 2rem; }
+  .caixaTexto p { font-size: 1.1rem; }
 
-
-
-
+  .caixaForm{
+        height: 45%;
+        margin-top: 1.5rem;
+    }
   .caixaForm span {
           margin-top: 2rem;
           font: 550 1.3rem "Montserrat", sans-serif;
@@ -204,10 +205,60 @@ form{
       }
 
       .caixabtn button {
-          width: 45%;
+          width: 30%;
           height: 3rem;
           font-size: 1.3rem;
       }
 
       .caixabtn a { font-size: 0.9rem; }
+}
+
+/* 1750px */
+@media (max-width: 1750px) {
+    form { width: 40%; }
+}
+
+/* 1600px — tela da Gabriella */
+@media (max-width: 1600px) {
+    form {
+        width: 30%;
+        height: 70%;
+    }
+
+    .caixaTexto h1 { font-size: 3rem; }
+    .caixaTexto p { font-size: 0.8rem; }
+
+    .caixaForm {
+        height: 52%;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .caixaForm label {
+        width: 65%;
+        font-size: 1rem;
+    }
+
+    .caixaForm input {
+        height: 1.5rem;
+        width: 17rem;
+    }
+
+    .caixaForm span {
+        margin-top: 2rem;
+        font: 550 1rem "Montserrat", sans-serif;
+    }
+
+    .caixabtn {
+        gap: 0.5rem;
+        height: 28%;
+    }
+
+    .caixabtn button {
+        width: 40%;
+        height: 2.5rem;
+        font-size: 1rem;
+    }
+
+    .caixabtn a { font-size: 0.7rem; }
 }
