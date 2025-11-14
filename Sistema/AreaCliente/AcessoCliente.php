@@ -103,7 +103,7 @@
                         <button onclick="abrirModal('meuEndereco')">
                             <i class="fa-solid fa-house" style="color: #6c0a0a;"></i>
                         </button>
-                        <p>Ver Endereço</p>
+                        <p>Ver Endereços</p>
 
                     </div>
                 </div>
@@ -186,16 +186,27 @@
                     case 'endereco':
                     titulo.textContent = 'Cadastre seu novo endereço!';
                     conteudo.innerHTML = `
-                        <form method="post" action="../Database/CrudeCliente.php">
+                        <form method="post" action="../Database/CadastrarEnderecoCliente.php">
+
+                        <label for="estado">Estado:</label>
+                            <select id="enderecosCad" name="enderecosCad" required>
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="primeiro_endereco">1° Endereço</option>
+                                <option value="segundo_endereco">2° Endereço</option>
+                                <option value="terceiro_endereco">3° Endereço</option>
+                            </select>
+
+
 
                             <div class="caixaForm">
+                                
                                 <label class="LnumR for="numR">Número da Residência:</label>
                                 <input type="number" class="numR" id="numR" name="numR">
 
                                 <label  class="Lcep" for="cep">CEP:</label>
                                 <input type="text"  max="15" id="cep" name="cep">
 
-                                <label for="estado">Estado (sigla):</label>
+                                <label for="estado">Estado:</label>
                                 <select id="estado" name="estado" required>
                                     <option value="" disabled selected>Selecione</option>
                                     <option value="AC">AC</option>
@@ -227,7 +238,18 @@
                                     <option value="TO">TO</option>
                                 </select>
 
+
+
+
+                                <?php if(isset($_GET['errorR']) && !empty($_GET['errorR'])){
+
+                                    $mensagem = $_GET['errorR'];
+                                    print_r("<span>$mensagem</span>");
+
+                                }?>
                             </div>
+
+                            
 
                             <div class="caixabtn">
                                 <button class="btnModalAtualizar" type="submit" onclick="" href="">ATUALIZAR</button>
