@@ -57,15 +57,16 @@ form{
 }
 
 .caixaForm{
-    height: 55%;
+    height: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     width: 75%;
-    gap: 1.5rem;
+    gap: 1.4rem;
     margin-top: 1rem;
+
 
     
     label{
@@ -73,7 +74,7 @@ form{
         text-transform: uppercase;
         width: 30%;
         text-align: left;
-        height: 0.5rem;
+       
 
     }
     input{
@@ -98,9 +99,8 @@ form{
     input.dt{
         width: 7rem;
     }
-
+    
 }
-
 
 .caixaInputNum{
     display: flex;
@@ -191,12 +191,16 @@ form{
   .caixaTexto p { font-size: 1.1rem; }
 
   .caixaForm{
-        height: 45%;
-        margin-top: 1.5rem;
+        height: 49%;
+        margin-top: 1rem;
+
+        label{
+            width: 25%;
+        }
     }
   .caixaForm span {
-          margin-top: 2rem;
-          font: 550 1.3rem "Montserrat", sans-serif;
+          
+          font: 550 0.7rem "Montserrat", sans-serif;
       }
 
       .caixabtn {
@@ -215,38 +219,39 @@ form{
 
 /* 1750px */
 @media (max-width: 1750px) {
-    form { width: 40%; }
+    form { width: 50%; }
+    .caixaForm {
+        width: 75%;
+    }
 }
 
 /* 1600px — tela da Gabriella */
 @media (max-width: 1600px) {
     form {
-        width: 30%;
-        height: 70%;
+        width: 55%;
+       
     }
 
     .caixaTexto h1 { font-size: 3rem; }
     .caixaTexto p { font-size: 0.8rem; }
 
     .caixaForm {
-        height: 52%;
-        gap: 1rem;
-        margin-top: 1rem;
+        height: 60%;
+
     }
 
     .caixaForm label {
-        width: 65%;
+        width: 35%;
         font-size: 1rem;
     }
 
     .caixaForm input {
-        height: 1.5rem;
-        width: 17rem;
+        
+        width: 13rem;
     }
 
     .caixaForm span {
-        margin-top: 2rem;
-        font: 550 1rem "Montserrat", sans-serif;
+        font: 550 0.8rem "Montserrat", sans-serif;
     }
 
     .caixabtn {
