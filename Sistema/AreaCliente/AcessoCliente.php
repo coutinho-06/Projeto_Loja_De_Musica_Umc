@@ -1,3 +1,7 @@
+<?php
+    include "../Database/conexao.php";
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -75,6 +79,25 @@
 
 
     <section>
+        <?php
+                $sql = "SELECT 
+                cl.id_cliente as IdCLiente,
+                cl.primeiro_nome AS Cliente,
+                cl.segundo_nome AS Sobrenome,
+                cl.data_nascimento AS data_nascimento,
+                cl.cpf AS CPF,
+                cl.email as Email,
+                cl.telefone AS telefone,
+                en.cep AS Cep,
+                en.numero AS Numero
+                FROM 
+                    cliente AS cl
+                INNER JOIN
+                    endereco AS en ON cl.id_cliente = en.id_cliente
+                WHERE email = 'gabriella.ferreira@gmail.com';";
+                $result = mysqli_query($conn, $sql);
+                $result = mysqli_fetch_assoc($result);
+            ?> 
 
         <div class="containerSuperior">
             <div class="espaco">
@@ -84,18 +107,19 @@
                 <img src="../IMG/cleinte.png" alt="">
             </div>
             <div class="nomeCliente">
-                <h2>Gabriella Ferreira Alves</h2>
+                <h2><?php print_r($result['Cliente'] . " " . $result['Sobrenome']); ?></h2>
             </div>
         </div>
+
 
         <div class="containerMeio">
             <div class="caixaInfo">
                 <div class="infosClientes">
                     <ul>
-                        <li>Data de Nascimento: {trazer do banco de dados}</li>
-                        <li>CPF: {trazer do banco de dados}</li>
-                        <li>E-mail: {trazer do banco de dados}</li>
-                        <li>Telefone: {trazer do banco de dados}</li>
+                        <li>Data de Nascimento: <?php print_r($result['data_nascimento']); ?></li>
+                        <li>CPF: <?php print_r($result['CPF']); ?></li>
+                        <li>E-mail: <?php print_r($result['Email']); ?></li>
+                        <li>Telefone: <?php print_r($result['telefone']); ?></li>
                     </ul>
                 </div>
                 <div class="espacoendereco">
@@ -284,8 +308,8 @@
                     conteudo.innerHTML = `
                         <div id="modal-content">
                             <ul>
-                                <li>Número da residência: {trazer do banco de dados}</li>
-                                <li>CEP: {trazer do banco de dados}</li>
+                                <li>Número da residência: <?php print_r($result['Numero']); ?></li>
+                                <li>CEP: <?php print_r($result['Cep']); ?></li>
                             </ul>
                         </div>
 

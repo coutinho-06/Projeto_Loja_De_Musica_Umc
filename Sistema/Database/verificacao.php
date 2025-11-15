@@ -14,6 +14,8 @@
         //Essa função serve para transformar o objeto de banco de dados em um objeto PHP para que possamos acessar os dados que estão dentro do Array.
         $result = mysqli_fetch_assoc($result);
 
+        setcookie("email", $email); 
+
         # verificação de senha com base no que retornou
         Header("Location: ../AreaCliente/AcessoCliente.php");
     }else {

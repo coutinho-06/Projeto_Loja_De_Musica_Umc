@@ -103,5 +103,12 @@
 
 
  <script src="https://kit.fontawesome.com/ef7e10212e.js" crossorigin="anonymous"></script>
+
+
+    <?php
+        $sql = "SELECT primeiro_nome FROM cliente";
+        $result = mysqli_query($conn, $sql);
+
+    
 </body>
 </html>
