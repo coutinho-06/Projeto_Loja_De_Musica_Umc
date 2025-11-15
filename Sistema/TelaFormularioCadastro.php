@@ -50,16 +50,49 @@
             <div class="caixaForm">
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome">
+                
+                <?php if(isset($_GET['errorN']) && !empty($_GET['errorN'])){
+
+                    $mensagem = $_GET['errorN'];
+                    print_r("<span>$mensagem</span>");
+
+                }?>
+
                 <label for="Sobrenome">Sobrenome:</label>
                 <input type="text" id="Sobrenome" name="Sobrenome">
+                <?php if(isset($_GET['errorSN']) && !empty($_GET['errorSN'])){
+
+                    $mensagem = $_GET['errorSN'];
+                    print_r("<span>$mensagem</span>");
+
+                }?>
+
+
                 <label for="telefone">Telefone:</label>
                 <input type="number" id="telefone" name="telefone">
+                <?php if(isset($_GET['errorT']) && !empty($_GET['errorT'])){
+
+                    $mensagem = $_GET['errorT'];
+                    print_r("<span>$mensagem</span>");
+
+                }?>
+
                 <label for="cpf">Cpf:</label>
                 <input type="text" max="15" id="cpf" name="cpf">
+                <?php if(isset($_GET['errorC']) && !empty($_GET['errorC'])){
+
+                    $mensagem = $_GET['errorC'];
+                    print_r("<span>$mensagem</span>");
+
+                }?>
+
                 <label for="Nasc">Nascimento:</label>
                 <input type="date" class="dt" id="Nasc" name="Nasc">
                 <label for="email">E-mail:</label>
                 <input type="text" id="email" name="email">
+               
+
+
                 <label for="senha">Senha:</label>
                 <input type="password" id="senha" name="senha">
                 <label for="confirSenha">Confirmar Senha:</label>

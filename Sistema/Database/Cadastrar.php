@@ -7,19 +7,21 @@
     if (isset($_POST['nome']) && !empty($_POST['nome'])){
         $Nome = $_POST['nome'];
     } else {
-        echo("Campo 'nome' não preenchido!");
+        Header("Location: ../TelaFormularioCadastro.php?errorN=Campo 'nome' não preenchido!!");
         die;
     }
     if (isset($_POST['Sobrenome']) && !empty($_POST['Sobrenome'])){
         $Sobrenome = $_POST['Sobrenome'];
     } else {
-        echo("Campo 'Sobrenome' não preenchido!");
+        Header("Location: ../TelaFormularioCadastro.php?errorSN=Campo 'Sobrenome' não preenchido!!");
+        
         die;
     }
     if (isset($_POST['telefone']) && !empty($_POST['telefone'])){
         $Telefone = $_POST['telefone'];
     } else {
-        echo("Campo 'Telefone' não preenchido!");
+        Header("Location: ../TelaFormularioCadastro.php?errorT=Campo 'Telefone' não preenchido!!");
+       
         die;
     }
     if (isset($_POST['cpf']) && !empty($_POST['cpf'])){
@@ -59,7 +61,13 @@
     
     $sql = "INSERT INTO cliente(primeiro_nome,segundo_nome,data_nascimento,cpf,email,senha,telefone) VALUES ('$Nome','$Sobrenome','$Dt_Nasc','$Cpf','$Email','$Senha','$Telefone')";
     if (mysqli_query($conn,$sql)) {
-        print_r("Registro inserido com sucesso!! <br> <a href='../TelaFormularioLogin.php'>Voltar</a>");
+        echo "<script>
+            alert('Cadastro realizado com sucesso!');
+            window.location.href = '../TelaFormularioLogin.php';
+        </script>";
+
+        
+        
 
     }else {
         print_r("Erro ao inserir o registro!!" . mysqli_error($conn));
