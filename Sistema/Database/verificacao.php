@@ -1,29 +1,38 @@
 <?php
     include "conexao.php";
 
-    $email = $_POST['email'];   
-    $senha = $_POST['senha'];   
-    
+    if (isset($_POST['email']) && !empty($_POST['email'])){
+        $email = $_POST['email'];
+    } else {
+        Header("Location: ../TelaFormularioLogin.php?error=Usuário não encontrado!!");
+        die;
+    }
+    if (isset($_POST['senha']) && !empty($_POST['senha'])){
+        $senha = $_POST['senha'];
+    } else {
+        Header("Location: ../TelaFormularioLogin.php?error=Usuário não encontrado!!");
+        die;
+    } 
 
-    $sql = "SELECT * FROM cliente WHERE email = '$email' ";
-
+    #Buscar usuário certo no banco
+    $sql = "SELECT * FROM cliente WHERE email = '$email'";
     $result = mysqli_query($conn, $sql);
 
-    if (mysqli_num_rows($result) > 0 ) {
-
-        //Essa função serve para transformar o objeto de banco de dados em um objeto PHP para que possamos acessar os dados que estão dentro do Array.
-        $result = mysqli_fetch_assoc($result);
-
-        setcookie("email", $email); 
-
-        # verificação de senha com base no que retornou
-        Header("Location: ../AreaCliente/AcessoCliente.php");
+    #Verificar se existe esse email
+    if (mysqli_num_rows($result) > 0) {
+        $usuario = mysqli_fetch_assoc($result);
     }else {
-        
-        Header("Location: ../TelaFormularioLogin.php?error=Usuário não encontrado!!");
+        header("Location: ../TelaFormularioLogin.php?error=Usuário não encontrado!!");
+        die;
     }
 
 
-
+    if ($senha == $usuario['senha']) {
+        setcookie("id_cliente", $usuario['id_cliente'], time() + 3600, "/");
+        header("Location: ../AreaCliente/AcessoCliente.php");
+        exit;
+    }else {
+        print_r("Senha inválida!");
+    }
 
 ?>

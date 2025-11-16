@@ -80,7 +80,9 @@
 
     <section>
         <?php
-                $sql = "SELECT 
+            $id = $_COOKIE['id_cliente'];
+
+            $sql = "SELECT 
                 cl.id_cliente as IdCLiente,
                 cl.primeiro_nome AS Cliente,
                 cl.segundo_nome AS Sobrenome,
@@ -90,14 +92,16 @@
                 cl.telefone AS telefone,
                 en.cep AS Cep,
                 en.numero AS Numero
-                FROM 
-                    cliente AS cl
-                INNER JOIN
-                    endereco AS en ON cl.id_cliente = en.id_cliente
-                WHERE email = 'gabriella.ferreira@gmail.com';";
-                $result = mysqli_query($conn, $sql);
-                $result = mysqli_fetch_assoc($result);
-            ?> 
+            FROM 
+                cliente AS cl
+            LEFT JOIN
+             endereco AS en ON cl.id_cliente = en.id_cliente
+            WHERE cl.id_cliente = $id";
+            
+            $result = mysqli_query($conn, $sql);
+            $result = mysqli_fetch_assoc($result);
+        ?>
+
 
         <div class="containerSuperior">
             <div class="espaco">
@@ -177,8 +181,7 @@
                     titulo.textContent = 'Editar Perfil';
                     conteudo.innerHTML = `
                         <p>Aqui você poderá editar seus dados pessoais!</p>
-                        <form method="post" action="">
-
+                        <form method="post" action="AtualizarCliente.php">
                             <div class="caixaForm">
                                 <label for="nome">Nome:</label>
                                 <input type="text" id="nome" name="nome">
@@ -333,8 +336,11 @@
                 }
 
                 function confirmarExclusao() {
-                alert("Conta excluída com sucesso!");
-                fecharModal();
+                const form = document.createElement("form");
+                form.method = "POST";
+                form.action = "../Database/DeletarCliente.php";
+                document.body.appendChild(form);
+                form.submit();
                 }
             </script>
 
