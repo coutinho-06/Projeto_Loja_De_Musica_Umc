@@ -179,3 +179,50 @@ nav ul li:hover .sub-menu
 
 
 
+/* 1000px */
+@media (max-width: 1000px) {
+    .imagemLogo{
+        width: 15%; 
+    }
+    .linksNav{
+        width: 45%;
+        a{font-size: 0.8rem;}
+    }
+    .btnNav{
+        width: 30%;
+
+        .btndois{width: 6.5rem;}
+        button{
+            width: 8rem;
+        }
+    }
+}
+
+/* 890px */
+@media (max-width: 890px) {
+    .imagemLogo img{
+        width: 3rem;
+    }
+    .linksNav{
+        a{font-size: 0.7rem;}
+    }
+    .btnNav{
+        width: 30%;
+    }
+}
+
+@media (max-width: 610px) {
+    .imagemLogo{
+        width: 10%; 
+    }
+    .linksNav{
+        width: 50%;
+    }
+    .btnNav{
+        width: 38%;
+        
+        button{
+            font-size: 0.7rem;
+        }
+    }
+}
