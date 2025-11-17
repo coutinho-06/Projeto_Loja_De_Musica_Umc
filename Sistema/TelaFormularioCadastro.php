@@ -79,24 +79,48 @@
 
                 <label for="cpf">Cpf:</label>
                 <input type="text" max="15" id="cpf" name="cpf">
-                <?php if(isset($_GET['errorC']) && !empty($_GET['errorC'])){
+                <?php if(isset($_GET['errorCpf']) && !empty($_GET['errorCpf'])){
 
-                    $mensagem = $_GET['errorC'];
+                    $mensagem = $_GET['errorCpf'];
                     print_r("<span>$mensagem</span>");
 
                 }?>
 
                 <label for="Nasc">Nascimento:</label>
                 <input type="date" class="dt" id="Nasc" name="Nasc">
+                <?php if(isset($_GET['errorDt']) && !empty($_GET['errorDt'])){
+
+                    $mensagem = $_GET['errorDt'];
+                    print_r("<span>$mensagem</span>");
+
+                }?>
+
                 <label for="email">E-mail:</label>
                 <input type="text" id="email" name="email">
-               
+                <?php if(isset($_GET['errorEma']) && !empty($_GET['errorEma'])){
 
+                    $mensagem = $_GET['errorEma'];
+                    print_r("<span>$mensagem</span>");
+
+                }?>
+               
 
                 <label for="senha">Senha:</label>
                 <input type="password" id="senha" name="senha">
+                <?php if(isset($_GET['errorse']) && !empty($_GET['errorse'])){
+
+                    $mensagem = $_GET['errorse'];
+                    print_r("<span>$mensagem</span>");
+
+                }?>
                 <label for="confirSenha">Confirmar Senha:</label>
                 <input type="password" id="confirSenha" name="confirSenha">
+                <?php if(isset($_GET['errorseC']) && !empty($_GET['errorseC'])){
+
+                    $mensagem = $_GET['errorseC'];
+                    print_r("<span>$mensagem</span>");
+
+                }?>
             </div>
 
             <div class="caixabtn">

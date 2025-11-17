@@ -228,7 +228,8 @@ form{
 /* 1600px — tela da Gabriella */
 @media (max-width: 1600px) {
     form {
-        width: 55%;
+        width: 50%;
+        height: 80%;
        
     }
 
@@ -266,4 +267,66 @@ form{
     }
 
     .caixabtn a { font-size: 0.7rem; }
+}
+/* 1360px */
+@media (max-width: 1360px) {
+    form { width: 65%; }
+}
+
+/* 1000px */
+@media (max-width: 1000px) {
+    form { width: 60%; }
+
+    .caixaForm label { width: 45%; font-size: 0.9rem;}
+    .caixaForm input { width: 10rem; }
+    .caixaForm span { font-size: 1rem; }
+
+    button { width: 50%; }
+}
+
+/* 890px */
+@media (max-width: 890px) {
+    form { width: 70%;}
+    
+    .caixaForm label { width: 40%;}
+    .caixaForm input { width: 9rem; }
+
+    span {
+        font-size: 0.5rem; 
+        text-align: center;
+    }
+    button { width: 55%; }
+}
+
+@media (max-width: 610px) {
+    section{
+        height: 90rem;
+    }
+    form { 
+        display: flex;
+        flex-direction: column;
+        height: 80rem;}
+        .caixaForm{
+            flex-direction: column;
+            gap: 1.5rem;
+            flex-wrap: nowrap;
+        }
+
+    .caixaForm label { width: 65%; }
+    .caixaForm input { width: 12rem; }
+    .caixabtn button { width: 70%; }
+
+    .caixaTexto h1 { font-size: 2.5rem; }
+    .caixaTexto p { font-size: 0.7rem; }
+    
+}
+
+/* Telas extremamente pequenas (só por segurança) */
+@media (max-width: 480px) { 
+    form { 
+        width: 85%; 
+        height: 75%;}
+    .caixaForm label { width: 95%; }
+
+
 }

@@ -1,5 +1,5 @@
 <?php
-    include "conexao.php";
+    include "../Database/conexao.php";
 
     if ($_SERVER['REQUEST_METHOD'] != "POST") {
         print_r("Por uma questão de segurança, não foi possível fazer a exclusão da conta.");

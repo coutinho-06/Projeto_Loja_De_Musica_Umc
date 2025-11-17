@@ -27,35 +27,36 @@
     if (isset($_POST['cpf']) && !empty($_POST['cpf'])){
         $Cpf = $_POST['cpf'];
     } else {
-        echo("Campo 'CPF' não preenchido!");
+        Header("Location: ../TelaFormularioCadastro.php?errorCpf=Campo 'CPF' não preenchido!!");
         die;
     }
     if (isset($_POST['Nasc']) && !empty($_POST['Nasc'])){
         $Dt_Nasc = $_POST['Nasc'];
     } else {
-        echo("Campo 'Data de Nascimento' não preenchido!");
+        Header("Location: ../TelaFormularioCadastro.php?errorDt=Campo 'Data de Nascimento' não preenchido!!");
         die;
     }
     if (isset($_POST['email']) && !empty($_POST['email'])){
         $Email = $_POST['email'];
     } else {
-        echo("Campo 'email' não preenchido!");
+        Header("Location: ../TelaFormularioCadastro.php?errorEma=Campo 'email' não preenchido!!");
         die;
     }
     if (isset($_POST['senha']) && !empty($_POST['senha'])){
         $Senha = $_POST['senha'];
     } else {
-        echo("Campo 'senha' não preenchido!");
+        Header("Location: ../TelaFormularioCadastro.php?errorse=Campo 'senha' não preenchido!!");
         die;
     }
     if (isset($_POST['confirSenha']) && !empty($_POST['confirSenha'])){
         $Confir_Senha = $_POST['confirSenha'];
     } else {
-        echo("Campo 'Confirmar Senha' não preenchido!");
+        Header("Location: ../TelaFormularioCadastro.php?errorseC=Campo 'Confirmar Senha' não preenchido!!");
         die;
     }
 
     if ($Senha != $Confir_Senha) {
+        Header("Location: ../TelaFormularioCadastro.php?errorcon=Senhas não coincidentes!!");
         die("Senhas não coincidentes! " . mysqli_connect_error());
     }
     

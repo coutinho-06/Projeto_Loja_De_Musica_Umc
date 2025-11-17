@@ -215,7 +215,7 @@
                     conteudo.innerHTML = `
                         <form method="post" action="../Database/CadastrarEnderecoCliente.php">
 
-                        <label for="estado">Estado:</label>
+                        <label for="estado">Escolha um endereço para editar:</label>
                             <select id="enderecosCad" name="enderecosCad" required>
                                 <option value="" disabled selected>Selecione</option>
                                 <option value="primeiro_endereco">1° Endereço</option>
@@ -307,12 +307,21 @@
                     break;
 
                     case 'meuEndereco':
-                    titulo.textContent = 'Veja Seu Endereço Cadastrado!';
+                    titulo.textContent = 'Veja Seus Endereços Cadastrados!';
                     conteudo.innerHTML = `
                         <div id="modal-content">
+                            <label for="estado">Escolha o endereço que deseja ver:</label>
+                            <select id="enderecosCad" name="enderecosCad" required>
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="primeiro_endereco">1° Endereço</option>
+                                <option value="segundo_endereco">2° Endereço</option>
+                                <option value="terceiro_endereco">3° Endereço</option>
+                            </select>
+
                             <ul>
                                 <li>Número da residência: <?php print_r($result['Numero']); ?></li>
                                 <li>CEP: <?php print_r($result['Cep']); ?></li>
+                                
                             </ul>
                         </div>
 
