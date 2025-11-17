@@ -64,7 +64,7 @@
             </div>
             <div class="containerInferior">
                 <div class="caixaForm">
-                    <form action="">
+                    <form action="" method="POST" enctype="multipart/form-data">
                         <label for="">Nome do Produto:</label>
                         <input type="text">
                         <label for="">Categoria:</label>

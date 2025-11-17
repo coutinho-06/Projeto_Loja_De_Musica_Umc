@@ -1,3 +1,7 @@
+<?php
+    include "Database/conexao.php";
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -86,48 +90,40 @@
     </section>
     <!-- Primeira Sessão -->
 
+
+
     <!-- Segunda Sessão -->
+    <?php
+        $sql = "SELECT id_instrumento, nome_instrumento, valor, imagem_instrumento FROM instrumento";
+
+        $result = mysqli_query($conn, $sql);
+        
+    ?>
+
+
+
+
+
     <section class="SegundaSessao">
         <h1>Mais Vendidos</h1>
-        <div class="carrosselCard">
-            <div class="containerCard">
-                <div class="card">
-                    <img src="IMG/Home/tod10nGuitars.png" alt="">
-                </div>
-                <div class="cardText">
-                    <p>Tod 10n</p>
-                    <p>R$ 1560,00</p>
-                </div>
+
+        <div class="conteinerCard">
+
+        <?php while($linha = mysqli_fetch_assoc($result)) { ?>
+
+            <div class="card">
+                <img 
+                    src="<?= $linha['imagem_instrumento'] ?>"  
+                    alt="<?= $linha['nome_instrumento'] ?>"
+                >
+                <p><?= $linha['nome_instrumento'] ?></p>
+                <p>R$ <?= number_format($linha['valor'], 2, ',', '.') ?></p>
             </div>
-            <div class="containerCard">
-                <div class="card">
-                    <img src="IMG/Home/tod10nGuitars.png" alt="">
-                </div>
-                <div class="cardText">
-                    <p>Tod 10n</p>
-                    <p>R$ 1560,00</p>
-                </div>
-            </div>
-            <div class="containerCard">
-                <div class="card">
-                    <img src="IMG/Home/tod10nGuitars.png" alt="">
-                </div>
-                <div class="cardText">
-                    <p>Tod 10n</p>
-                    <p>R$ 1560,00</p>
-                </div>
-            </div>
-            <div class="containerCard">
-                <div class="card">
-                    <img src="IMG/Home/tod10nGuitars.png" alt="">
-                </div>
-                <div class="cardText">
-                    <p>Tod 10n</p>
-                    <p>R$ 1560,00</p>
-                </div>
-            </div>
-            
+
+        <?php } ?>
+
         </div>
+
     </section>
 
 
@@ -268,6 +264,32 @@
         </div>
 
     </footer>
+
+
+
+
+    <script>
+        const conteudo = document.querySelector(".conteinerCard");
+        const cards = document.querySelectorAll(".conteinerCard .card");
+        const voltar = document.getElementById("voltar");
+        const avancar = document.getElementById("avancar");
+
+        let index = 0;
+        const total = cards.length; 
+        const cardLargura = 300; // Ajuste se mudar o CSS
+
+        voltar.onclick = () => {
+            index = index > 0 ? index - 1 : total - 1;
+            conteudo.style.transform = `translateX(-${index * cardLargura}px)`;
+        };
+
+        avancar.onclick = () => {
+            index = index < total - 1 ? index + 1 : 0;
+            conteudo.style.transform = `translateX(-${index * cardLargura}px)`;
+        };
+
+    </script>
+
 
 
 

@@ -91,7 +91,8 @@
                 cl.email as Email,
                 cl.telefone AS telefone,
                 en.cep AS Cep,
-                en.numero AS Numero
+                en.numero AS Numero,
+                en.estado AS Estado
             FROM 
                 cliente AS cl
             LEFT JOIN
@@ -321,6 +322,7 @@
                             <ul>
                                 <li>Número da residência: <?php print_r($result['Numero']); ?></li>
                                 <li>CEP: <?php print_r($result['Cep']); ?></li>
+                                <li>Estado: <?php print_r($result['Estado']); ?></li>
                                 
                             </ul>
                         </div>
