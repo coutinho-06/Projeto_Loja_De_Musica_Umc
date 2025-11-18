@@ -349,7 +349,7 @@
                 function confirmarExclusao() {
                 const form = document.createElement("form");
                 form.method = "POST";
-                form.action = "../Database/DeletarCliente.php";
+                form.action = "DeletarCliente.php";
                 document.body.appendChild(form);
                 form.submit();
                 }
