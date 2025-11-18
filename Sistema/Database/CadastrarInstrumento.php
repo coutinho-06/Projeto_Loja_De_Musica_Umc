@@ -7,13 +7,13 @@ $categoria = $_POST["categoria"];
 $valor = $_POST["valor"];
 
 // Pasta onde a imagem será salva
-$pasta = "../IMG/Instrumentos/";
+$pasta = "../IMG/Produtos/";
 
 // Pegando o nome original do arquivo
 $nomeArquivo = basename($_FILES["imagem"]["name"]);
 
 // Caminho final que será salvo no banco (sem o ../)
-$caminhoBanco = "IMG/Instrumentos/" . $nomeArquivo;
+$caminhoBanco = "../IMG/Produtos/" . $nomeArquivo;
 
 // Caminho real para salvar no servidor
 $caminhoServidor = $pasta . $nomeArquivo;
@@ -22,8 +22,8 @@ $caminhoServidor = $pasta . $nomeArquivo;
 if (move_uploaded_file($_FILES["imagem"]["tmp_name"], $caminhoServidor)) {
 
     // Inserindo no banco
-    $sql = "INSERT INTO instrumento (nome_instrumento, valor, id_categoria, imagem_instrumento) 
-            VALUES ('$nome', '$valor', '$categoria', '$caminhoBanco')";
+   $sql = "INSERT INTO instrumento (nome_instrumento, valor, id_categoria, imagem_instrumento)
+        VALUES ('$nome', '$valor', '$categoria', '$caminhoBanco')";
 
     if (mysqli_query($conn, $sql)) {
         echo "<script>

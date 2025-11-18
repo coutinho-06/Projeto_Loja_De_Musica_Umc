@@ -66,13 +66,28 @@
                 <div class="caixaForm">
                     <form action="../Database/CadastrarInstrumento.php" method="POST" enctype="multipart/form-data">
                         <label for="">Nome do Produto:</label>
-                        <input type="text">
-                        <label for="">Categoria:</label>
-                        <input type="text">
+                        <input type="text" name="nome">
+
+                        <label>Categoria:</label>
+                        <select name="categoria" required>
+                            <option value="">Selecione uma categoria</option>
+
+                                <?php
+                                    include "../Database/conexao.php";
+                                    $sql = "SELECT * FROM categoria ORDER BY categoria ASC";
+                                    $result = mysqli_query($conn, $sql);
+
+                                    while ($cat = mysqli_fetch_assoc($result)) { ?>
+                                        <option value="<?= $cat['id_categoria'] ?>">
+                                            <?= $cat['categoria'] ?>
+                                        </option>
+                                <?php } ?>
+                        </select>
                         <label for="">Valor do Produto:</label>
-                        <input type="text" class="inpValor">
+                        <input type="text" class="inpValor" name="valor">
+
                         <label for="">Imagem do Produto:</label>
-                        < <input type="file" name="imagem" accept="image/*" required>
+                        <input type="file" name="imagem" accept="image/*" required>
                         
                         <button type="submit">Cadastrar</button>
                             
@@ -91,35 +106,23 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>hihi</td>
-                                <td>1</td>
-                                <td>hihi</td>
-                                <td>hihi</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>hihi</td>
-                                <td>1</td>
-                                <td>hihi</td>
-                                <td>1</td>
-                                
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>hihi</td>
-                                <td>1</td>
-                                <td>hihi</td>
-                                <td>hihi</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>hihi</td>
-                                <td>1</td>
-                                <td>hihi</td>
-                                <td>hihi</td>
-                            </tr>
+                            <?php 
+                                include "../Database/CadastrarInstrumento.php";
+
+                                $sql = "SELECT * FROM instrumento ORDER BY id_Instrumento DESC"; 
+                                $result = msqli_query($conn,$sql);
+
+                                while($cat = mysqli_fetch_assoc($result)) {
+                                    ?>
+                                    <tr>
+                                        <td><?= $cat['id_instrumento'] ?></td>
+                                        <td><?= $cat['nome_instrumento'] ?></td>
+                                        <td><?= $cat['id_categoria'] ?></td>
+                                        <td><?= $cat['valor'] ?></td>
+                                        <td><?= $cat['imagem_instrumento'] ?></td>
+                                    </tr>
+                            <?php } ?>
+                            
                         </tbody>
                     </table>
                 </div>
