@@ -41,6 +41,9 @@
     setcookie('id_cliente','',time()-3600,'/');
 
     #Redirecionando
-    header("Location: ../index.php?msg=Exclusão feita com sucesso!");
+    echo "<script>
+                alert('Sua conta foi excluida com sucesso!!');
+                window.location.href = '../index.php';
+            </script>";
     exit();
 ?>

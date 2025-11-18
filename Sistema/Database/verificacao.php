@@ -4,13 +4,13 @@
     if (isset($_POST['email']) && !empty($_POST['email'])){
         $email = $_POST['email'];
     } else {
-        Header("Location: ../TelaFormularioLogin.php?error=Usuário não encontrado!!");
+        Header("Location: ../TelaFormularioLogin.php?errorEmai=Campo 'E-mail' Inválido!");
         die;
     }
     if (isset($_POST['senha']) && !empty($_POST['senha'])){
         $senha = $_POST['senha'];
     } else {
-        Header("Location: ../TelaFormularioLogin.php?error=Usuário não encontrado!!");
+        Header("Location: ../TelaFormularioLogin.php?errorSenha=Campo 'Senha' Inválido!");
         die;
     } 
 
@@ -32,7 +32,7 @@
         header("Location: ../AreaCliente/AcessoCliente.php");
         exit;
     }else {
-        print_r("Senha inválida!");
+        header("Location: ../TelaFormularioLogin.php?errorSenha=Senha Inválida!");
     }
 
 ?>

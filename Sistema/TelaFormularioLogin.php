@@ -48,15 +48,16 @@
             <div class="caixaForm">
                 <label for="">E-mail:</label>
                 <input type="text" name="email">
-                <label for="">Senha:</label>
-                <input type="password" name="senha">
-
+                
                 <?php if(isset($_GET['errorEmail']) && !empty($_GET['errorEmail'])){
 
                     $mensagem = $_GET['errorEmail'];
                     print_r("<span>$mensagem</span>");
 
-                }?>
+                    }?>
+                <label for="">Senha:</label>
+                <input type="password" name="senha">
+
 
                 <?php if(isset($_GET['errorSenha']) && !empty($_GET['errorSenha'])){
 

@@ -95,36 +95,36 @@
 
                 </div>
                 <div class="caixaSelect">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th class="colId">Id</th>
-                                <th>Nome do Produto</th>
-                                <th>Categoria</th>
-                                <th>Valor do Produto</th>
-                                <th>Imagem do Produto</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php 
-                                include "../Database/CadastrarInstrumento.php";
+    <table>
+        <thead>
+            <tr>
+                <th class="colId">Id</th>
+                <th>Nome do Produto</th>
+                <th>Categoria</th>
+                <th>Valor do Produto</th>
+                <th>Imagem do Produto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php 
+                include "../Database/conexao.php";
 
-                                $sql = "SELECT * FROM instrumento ORDER BY id_Instrumento DESC"; 
-                                $result = msqli_query($conn,$sql);
+                $sql = "SELECT * FROM instrumento ORDER BY id_instrumento DESC"; 
+                $result = mysqli_query($conn, $sql);
 
-                                while($cat = mysqli_fetch_assoc($result)) {
-                                    ?>
-                                    <tr>
-                                        <td><?= $cat['id_instrumento'] ?></td>
-                                        <td><?= $cat['nome_instrumento'] ?></td>
-                                        <td><?= $cat['id_categoria'] ?></td>
-                                        <td><?= $cat['valor'] ?></td>
-                                        <td><?= $cat['imagem_instrumento'] ?></td>
-                                    </tr>
-                            <?php } ?>
-                            
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                while($p = mysqli_fetch_assoc($result)) { ?>
+                    <tr>
+                        <td><?= $p['id_instrumento'] ?></td>
+                        <td><?= $p['nome_instrumento'] ?></td>
+                        <td><?= $p['id_categoria'] ?></td>
+                        <td>R$ <?= number_format($p['valor'], 2, ',', '.') ?></td>
+                        <td>
+                            <img src="../<?= $p['imagem_instrumento'] ?>" width="80">
+                        </td>
+                    </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</div>
+
 
