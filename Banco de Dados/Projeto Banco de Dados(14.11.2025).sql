@@ -27,7 +27,7 @@ create table instrumento (
 
 create table cliente (
 	id_cliente int primary key auto_increment,
-    imagem_cliente mediumblob,
+    imagem_cliente varchar(250),
     primeiro_nome varchar(100) not null,
     segundo_nome varchar(100) not null,
     data_nascimento date not null,
