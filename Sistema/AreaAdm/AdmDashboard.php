@@ -1,3 +1,7 @@
+<?php
+    include '../Database/conexao.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -25,6 +29,19 @@
 
 </head>
 <body>
+
+    
+    <?php
+        $id_adm = $_COOKIE['id_admin'];
+        $sql = "SELECT id_admin FROM administrador WHERE id_admin = '$id_adm'";
+        $result = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($result) > 0) {
+            $administrador = mysqli_fetch_assoc($result);
+        }else {
+            print_r("Erro de validação de administrador.");
+            die;
+        }
+    ?>
 
 
     <section>
@@ -104,11 +121,6 @@
 
  <script src="https://kit.fontawesome.com/ef7e10212e.js" crossorigin="anonymous"></script>
 
-
-    <?php
-        $sql = "SELECT primeiro_nome FROM cliente";
-        $result = mysqli_query($conn, $sql);
-    ?>
     
 </body>
 </html>
