@@ -18,11 +18,11 @@
     
     if(isset($emailAdm) && isset($senhaAdm)) {
         if($emailAdm == $vddEmail && $senhaAdm == $vddSenha) {
+            setcookie("id_admin", 1, time() + 3600, "/");
             header("Location: ../AreaAdm/AdmDashboard.php");
             exit;
         } else {
            Header("Location: ../TelaLoginAdm.php?errorAdm=ADM não encontrado!!");
     }}
-    
-    
+
 ?>
