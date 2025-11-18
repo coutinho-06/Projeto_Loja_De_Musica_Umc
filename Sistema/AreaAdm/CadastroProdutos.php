@@ -64,7 +64,7 @@
             </div>
             <div class="containerInferior">
                 <div class="caixaForm">
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form action="../Database/CadastrarInstrumento.php" method="POST" enctype="multipart/form-data">
                         <label for="">Nome do Produto:</label>
                         <input type="text">
                         <label for="">Categoria:</label>
@@ -72,7 +72,7 @@
                         <label for="">Valor do Produto:</label>
                         <input type="text" class="inpValor">
                         <label for="">Imagem do Produto:</label>
-                        <input type="file" class="inpImg">
+                        < <input type="file" name="imagem" accept="image/*" required>
                         
                         <button type="submit">Cadastrar</button>
                             

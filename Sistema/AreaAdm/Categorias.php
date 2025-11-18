@@ -59,7 +59,7 @@
             </div>
             <div class="containerInferior">
                 <div class="caixaForm">
-                    <form action="">
+                    <form action="../Database/CadastrarCategoria.php" method="post">
                         <label for="">Nome da Categoria:</label>
                         <input type="text" name="categoria" id="categoria">
                         
@@ -77,14 +77,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>hihi</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>hihi</td>
-                            </tr>
+                            <?php
+                                include "../Database/conexao.php";
+
+                                $sql = "SELECT * FROM categoria ORDER BY id_categoria DESC";
+                                $result = mysqli_query($conn, $sql);
+
+                                while ($cat = mysqli_fetch_assoc($result)) {
+                                ?>
+                                    <tr>
+                                        <td><?= $cat['id_categoria'] ?></td>
+                                        <td><?= $cat['categoria'] ?></td>
+                                    </tr>
+                            <?php } ?>
+
                         </tbody>
                     </table>
                 </div>

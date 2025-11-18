@@ -108,7 +108,7 @@
     <?php
         $sql = "SELECT primeiro_nome FROM cliente";
         $result = mysqli_query($conn, $sql);
-
+    ?>
     
 </body>
 </html>
