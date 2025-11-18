@@ -70,6 +70,7 @@
 
                 <label for="telefone">Telefone:</label>
                 <input type="number" id="telefone" name="telefone">
+<<<<<<< Updated upstream
                 <?php if(isset($_GET['errorT']) && !empty($_GET['errorT'])){
 
                     $mensagem = $_GET['errorT'];
@@ -77,6 +78,8 @@
 
                 }?>
 
+=======
+>>>>>>> Stashed changes
                 <label for="cpf">Cpf:</label>
                 <input type="text" max="15" id="cpf" name="cpf">
                 <?php if(isset($_GET['errorCpf']) && !empty($_GET['errorCpf'])){
