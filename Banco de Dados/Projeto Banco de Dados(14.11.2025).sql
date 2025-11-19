@@ -17,7 +17,7 @@ create table categoria (
 
 create table instrumento (
 	id_instrumento int primary key auto_increment,
-    imagem_instrumento mediumblob,
+    imagem_instrumento varchar(250),
     nome_instrumento varchar(100),
     valor decimal(10,2),
     id_categoria int,
@@ -105,7 +105,6 @@ VALUES
 INSERT INTO cliente (primeiro_nome, segundo_nome, data_nascimento, cpf, email, senha, telefone)
 VALUES
 ('Gabriella', 'Ferreira', '2005-04-04', '12345678911', 'gabifofa123@gmail.com', '123123', '11959911849'), 
-('Miguel', 'Coutinho', '2006-10-14', '49150732897', 'miguelcoutotcc@gmail.com', '123321', '11954279324'),
 ('Larissa', 'Souza', '2004-09-22', '98765432100', 'larissasouza04@gmail.com', '456456', '11987451236'),
 ('Pedro', 'Almeida', '2003-12-05', '85236974122', 'pedroalmeida03@gmail.com', '789789', '11975321458'),
 ('Beatriz', 'Oliveira', '2005-02-18', '74125896333', 'beatriz.oli18@gmail.com', '321321', '11969874521'),
@@ -119,7 +118,8 @@ VALUES
 ('Débito', '2025-09-09', 3, 3), 
 ('Boleto', '2025-12-25', 4, 4), 
 ('Pix', '2025-06-14', 5, 5), 
-('Crédito', '2025-08-31', 6, 6);
+('Crédito', '2025-08-31', 5, 6);
+select * from cliente;
 
 # --- Itens de compra (ligados a compras e instrumentos) ---
 INSERT INTO item_compra (quantidade, valor_unitario, id_compra, id_instrumento)
@@ -139,7 +139,7 @@ VALUES
 ('Minas Gerais', '30140071', '789', 3),
 ('Paraná', '80010000', '245', 4),
 ('Bahia', '40020000', '67', 5),
-('Santa Catarina', '88010000', '392', 6);
+('Santa Catarina', '88010000', '392', 5);
 
 # --- Encomendas (ligadas a endereços e compras) ---
 INSERT INTO encomenda (data_encomenda, id_endereco, id_compra)

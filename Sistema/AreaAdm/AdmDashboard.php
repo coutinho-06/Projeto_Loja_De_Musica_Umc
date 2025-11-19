@@ -32,15 +32,18 @@
 
     
     <?php
+    if (!isset($_COOKIE['id_admin'])) {
+        die("Acesso negado. Administrador não autenticado.");
+    }
+
         $id_adm = $_COOKIE['id_admin'];
-        $sql = "SELECT id_admin FROM administrador WHERE id_admin = '$id_adm'";
-        $result = mysqli_query($conn, $sql);
-        if (mysqli_num_rows($result) > 0) {
-            $administrador = mysqli_fetch_assoc($result);
-        }else {
-            print_r("Erro de validação de administrador.");
-            die;
-        }
+
+
+    #Realizando os SELECTS
+    $total_de_produtos = "SELECT COUNT(*) FROM instrumento;";
+    $resultado = mysqli_query($conn, $total_de_produtos);
+    $resultado = mysqli_fetch_assoc($resultado);
+
     ?>
 
 
@@ -89,7 +92,7 @@
                             <p>Total de Produtos</p>
                         </div>
                         <div class="caixa">
-                             <h2>NUM</h2>  <!--colocar o dados aqui !! -->
+                             <h2><?php print_r($resultado['COUNT(*)']); ?></h2>  <!--colocar o dados aqui !! -->
                         </div>
                     </div>
                     <div class="cards">
