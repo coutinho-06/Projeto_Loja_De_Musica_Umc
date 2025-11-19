@@ -78,23 +78,37 @@ h1{
         font-size: 2.5rem;
         font-weight: 500;
 }
-
-div.carrosselCard{
-    margin-top: 5rem;
+.caixaCarrossel{
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    width: 90%;
-    height: 30rem;
-    gap: 2.5rem;
-}
-.conteinerCard{
-    display: flex;
-    width: 60%;
-    margin: 2rem 0rem;
+    max-width: 100%;
     gap: 2rem;
-    border: 2px solid #3f312e;
+
+    .btn{
+        color: var(--cor-primaria);
+        width: 5rem;
+        height: 3rem;
+    }
 }
+
+.carrossel {
+    display: flex;
+    align-items: center;
+    width: 60%;
+    position: relative;
+    overflow: hidden;
+    margin: 4rem 0rem;
+}
+
+.conteinerCard {
+    display: flex;
+    transition: transform 0.4s ease;
+    gap: 3rem;
+    width: max-content; /* ESSENCIAL */
+   
+}
+
+
 .card{
     display: flex;
     flex-direction: column;
@@ -103,15 +117,18 @@ div.carrosselCard{
     border: 1px solid var(--cor-primaria);
     border-radius: 0.4rem;
     box-shadow: 2px 2px 3px #6c0a0a9f;
-    height: 55%;
+    height: 22rem;
     width: 18rem;
+    
 
     img{
-        height: 80%;
+        height: 50%;
         object-fit: cover;
     }
 
 }
+
+
 
 .cardText{
     display: flex;

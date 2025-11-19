@@ -107,22 +107,31 @@
     <section class="SegundaSessao">
         <h1>Mais Vendidos</h1>
 
-        <div class="conteinerCard">
 
-        <?php while($linha = mysqli_fetch_assoc($result)) { ?>
+        <div class="caixaCarrossel">
+            <button class="btn" id="voltar"> < </button>
 
-            <div class="card">
-                <img 
-                    src="<?= $linha['imagem_instrumento'] ?>"  
-                    alt="<?= $linha['nome_instrumento'] ?>"
-                >
-                <p><?= $linha['nome_instrumento'] ?></p>
-                <p>R$ <?= number_format($linha['valor'], 2, ',', '.') ?></p>
+            <div class="carrossel">
+                
+
+                <div class="conteinerCard">
+                    <?php while($linha = mysqli_fetch_assoc($result)) { ?>
+                        <div class="card">
+                            <img src="<?= $linha['imagem_instrumento'] ?>" alt="<?= $linha['nome_instrumento'] ?>">
+                            <div class="cardText">
+                                <p><?= $linha['nome_instrumento'] ?></p>
+                                <p>R$ <?= number_format($linha['valor'], 2, ',', '.') ?></p>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+
+            
             </div>
 
-        <?php } ?>
-
+            <button class="btn" id="avancar">&#10095;</button>
         </div>
+
 
     </section>
 
@@ -275,8 +284,8 @@
         const avancar = document.getElementById("avancar");
 
         let index = 0;
-        const total = cards.length; 
-        const cardLargura = 300; // Ajuste se mudar o CSS
+        const cardLargura = 180 + 70; // largura + gap
+        const total = cards.length;
 
         voltar.onclick = () => {
             index = index > 0 ? index - 1 : total - 1;
@@ -287,6 +296,7 @@
             index = index < total - 1 ? index + 1 : 0;
             conteudo.style.transform = `translateX(-${index * cardLargura}px)`;
         };
+
 
     </script>
 
