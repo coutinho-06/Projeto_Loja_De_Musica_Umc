@@ -162,25 +162,28 @@
 
     <section class="SegundaSessao">
         <h1>Acessórios</h1>
+
+        <?php
+            $sql2 = "SELECT * FROM instrumento WHERE id_categoria = '14'";
+            $acessorios = mysqli_query($conn, $sql2);
+
+        ?>
         
         <div class="caixaCarrossel">
             <button class="btn" id="voltar"> < </button>
 
             <div class="carrossel">
-                
 
                 <div class="conteinerCard">
-                    <?php while($linha = mysqli_fetch_assoc($result)) { ?>
-                        <div class="card" data-id="<?= $linha['id_instrumento'] ?>">
-
-                            <img src="<?= $linha['imagem_instrumento'] ?>" alt="<?= $linha['nome_instrumento'] ?>">
-                            <div class="cardText">
-                                <p><?= $linha['nome_instrumento'] ?></p>
-                                <p>R$ <?= number_format($linha['valor'], 2, ',', '.') ?></p>
-                            </div>
-                        
+                    <?php while($linha = mysqli_fetch_assoc($acessorios)) { ?>
+                    <div class="card" data-id="<?= $linha['id_instrumento'] ?>">
+                        <img src="<?= $linha['imagem_instrumento'] ?>" alt="<?= $linha['nome_instrumento'] ?>">
+                        <div class="cardText">
+                            <p><?= $linha['nome_instrumento'] ?></p>
+                            <p>R$ <?= number_format($linha['valor'], 2, ',', '.') ?></p>
                         </div>
-                    <?php } ?>
+                        </div>
+                        <?php } ?>
                 </div>
 
             
