@@ -81,13 +81,24 @@ h1{
 .caixaCarrossel{
     display: flex;
     justify-content: center;
+    align-items: center;
     max-width: 100%;
     gap: 2rem;
 
     .btn{
+        background-color: #fff;
         color: var(--cor-primaria);
         width: 5rem;
         height: 3rem;
+        font-weight: bold;
+        font-size: 2rem;
+        transition: all 0.5s ease-in-out;
+
+        &:hover{
+            color: #420606;
+            transform: scale(1.1); 
+            transition: all 0.3s  ease-in-out;
+        }
     }
 }
 
@@ -97,7 +108,7 @@ h1{
     width: 60%;
     position: relative;
     overflow: hidden;
-    margin: 4rem 0rem;
+    margin: 8rem 0rem;
 }
 
 .conteinerCard {
@@ -122,7 +133,8 @@ h1{
     
 
     img{
-        height: 50%;
+        height: 70%;
+        width: 90%;
         object-fit: cover;
     }
 
@@ -132,12 +144,16 @@ h1{
 
 .cardText{
     display: flex;
+    margin-top: 0.5rem;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     
 }
 .cardText p{
         font-family: "Montagu Slab", serif;
-        font-size: 1.2rem;
+        font-size: 1rem;
         margin: 5px 0px 0px 5px;
     }
 
@@ -265,6 +281,17 @@ div.carrosselCardCategoria{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 .modal {
     display: none;
     position: fixed;
@@ -277,28 +304,96 @@ div.carrosselCardCategoria{
 
 .modal-content {
     background: #fff;
+    display: flex;
+    flex-direction: column;
     padding: 2rem;
-    width: 380px;
+    width: 500px;
+    height: 30rem;
     border-radius: 8px;
     text-align: center;
     font-family: "Montserrat", sans-serif;
+    border: 1px solid var(--cor-primaria);
+    border-radius: 0.2rem;
+    box-shadow: 2px 2px 3px #6c0a0a9f;
+
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+        gap: 1rem;
+        height: 70%;
+
+    }
+
+    .caixa-inp{
+        display: flex;
+        width: 100%;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+    input{
+        width: 5rem;
+        height: 2rem;
+        border: 1px solid var(--cor-primaria);
+        border-radius: 0.2rem;
+        box-shadow: 2px 2px 3px #6c0a0a9f;
+        background-color: #F7F6F3;
+        color: var(--cor-primaria);
+        outline: none; /* tirar borda padrão do input */
+      
+        text-align: center;
+    }
+
+    label{
+        font-weight: 500;
+        text-transform: uppercase;
+
+       
+
+    }
+    select{
+        width: 9.5rem;
+        text-align: center;
+        outline: none; /* tirar borda padrão do input */
+        height: 1.8rem;
+        border: 1px solid var(--cor-primaria);
+        border-radius: 0.2rem;
+        box-shadow: 2px 2px 3px #6c0a0a9f;
+        background-color: #F7F6F3;
+        color: var(--cor-primaria);
+    }
 }
 
 .modal-content img {
     width: 180px;
+    height: 70%;
     margin-bottom: 1rem;
 }
+.caixa-modal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    height: 90%;
+}
+
 
 .fechar {
     float: right;
-    font-size: 24px;
+    font-size: 35px;
     cursor: pointer;
+    margin-left: 25rem;
+    
 }
 
 .btnPedido {
-    margin-top: 1.2rem;
-    width: 100%;
-    height: 40px;
+    margin-top: 2rem;
+    width: 65%;
+    height: 3.5rem;
     background: #6C0A0A;
     border: none;
     color: #fff;
@@ -306,9 +401,30 @@ div.carrosselCardCategoria{
     cursor: pointer;
     border-radius: 5px;
     font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing:2px;
 }
 
 .btnPedido:hover {
     background: #420606;
+}
+
+.btnConfirmar{
+    margin-top: 2rem;
+    width: 60%;
+    height: 2.8rem;
+    background: #6C0A0A;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing:2px;
+}
+
+.btnConfirmar:hover {
+    background: #0e6b1e;
 }
 

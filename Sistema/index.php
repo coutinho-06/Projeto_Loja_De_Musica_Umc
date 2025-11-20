@@ -131,7 +131,7 @@
             
             </div>
 
-            <button class="btn" id="avancar">&#10095;</button>
+            <button class="btn" id="avancar">></button>
         </div>
 
 
@@ -162,44 +162,31 @@
 
     <section class="SegundaSessao">
         <h1>Acessórios</h1>
-        <div class="carrosselCard">
-            <div class="containerCard">
-                <div class="card">
-                    <img src="IMG/Home/tod10nGuitars.png" alt="">
+        
+        <div class="caixaCarrossel">
+            <button class="btn" id="voltar"> < </button>
+
+            <div class="carrossel">
+                
+
+                <div class="conteinerCard">
+                    <?php while($linha = mysqli_fetch_assoc($result)) { ?>
+                        <div class="card" data-id="<?= $linha['id_instrumento'] ?>">
+
+                            <img src="<?= $linha['imagem_instrumento'] ?>" alt="<?= $linha['nome_instrumento'] ?>">
+                            <div class="cardText">
+                                <p><?= $linha['nome_instrumento'] ?></p>
+                                <p>R$ <?= number_format($linha['valor'], 2, ',', '.') ?></p>
+                            </div>
+                        
+                        </div>
+                    <?php } ?>
                 </div>
-                <div class="cardText">
-                    <p>Tod 10n</p>
-                    <p>R$ 1560,00</p>
-                </div>
-            </div>
-            <div class="containerCard">
-                <div class="card">
-                    <img src="IMG/Home/tod10nGuitars.png" alt="">
-                </div>
-                <div class="cardText">
-                    <p>Tod 10n</p>
-                    <p>R$ 1560,00</p>
-                </div>
-            </div>
-            <div class="containerCard">
-                <div class="card">
-                    <img src="IMG/Home/tod10nGuitars.png" alt="">
-                </div>
-                <div class="cardText">
-                    <p>Tod 10n</p>
-                    <p>R$ 1560,00</p>
-                </div>
-            </div>
-            <div class="containerCard">
-                <div class="card">
-                    <img src="IMG/Home/tod10nGuitars.png" alt="">
-                </div>
-                <div class="cardText">
-                    <p>Tod 10n</p>
-                    <p>R$ 1560,00</p>
-                </div>
-            </div>
+
             
+            </div>
+
+            <button class="btn" id="avancar">></button>
         </div>
     </section>
 
@@ -281,13 +268,17 @@
         <!-- MODAL 1 — DETALHES DO PRODUTO -->
     <div id="modalDetalhes" class="modal">
         <div class="modal-content">
+
             <span class="fechar" onclick="fecharModais()">&times;</span>
 
-            <img id="modal-img" src="" alt="Produto">
-            <h2 id="modal-nome"></h2>
-            <p id="modal-valor"></p>
+            <div class="caixa-modal">
+                <img id="modal-img" src="" alt="Produto">
+                <h2 id="modal-nome"></h2>
+                <p id="modal-valor"></p>
+            
 
-            <button class="btnPedido" onclick="abrirModalPedido()">Fazer Pedido</button>
+                <button class="btnPedido" onclick="abrirModalPedido()">Fazer Pedido</button>
+            </div>
         </div>
     </div>
 
@@ -303,23 +294,29 @@
 
                 <input type="hidden" name="produto_id" id="pedido-id">
 
-                <label>Quantidade:</label>
-                <input type="number" name="quantidade" min="1" required>
+                <div class="caixa-inp">
+                    <label>Quantidade:</label>
+                    <input type="number" name="quantidade" min="1" required>
+                 </div>      
 
-                <label>Forma de Pagamento:</label>
-                <select name="pagamento" required>
-                    <option value="">Selecione</option>
-                    <option>Pix</option>
-                    <option>Cartão de Crédito</option>
-                    <option>Boleto</option>
-                </select>
+                <div class="caixa-inp">
+                    <label>Forma de Pagamento:</label>
+                    <select name="pagamento" required>
+                        <option value="">Selecione</option>
+                        <option>Pix</option>
+                        <option>Cartão de Crédito</option>
+                        <option>Boleto</option>
+                    </select>
+                </div>
 
-                <label>Endereço de Entrega:</label>
-                <select name="endereco" id="select-endereco" required>
-                    <option value="">Carregando...</option>
-                </select>
+                <div class="caixa-inp">
+                    <label>Endereço de Entrega:</label>
+                    <select name="endereco" id="select-endereco" required>
+                        <option value="">Carregando...</option>
+                    </select>
+                </div>
 
-                <button type="submit" class="btnPedido">Confirmar Pedido</button>
+                <button type="submit" class="btnConfirmar">Confirmar Pedido</button>
             </form>
 
         </div>
