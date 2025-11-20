@@ -197,7 +197,7 @@
     <!-- Sexta Sessão -->
 
     <section class="SextaSessao">
-        <h1>Visite nossas categorias!</h1>
+        <h1>Visite algumas de nossas categorias!</h1>
         <div class="carrosselCardCategoria">
             <div class="containerCardCategoria">
                 <div class="cardCategoria">
