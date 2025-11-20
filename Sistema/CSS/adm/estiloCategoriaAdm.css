@@ -113,8 +113,8 @@ button{
 
 
 .caixaSelect{
-    width: 50%;
-
+    width: 45%;
+    margin-left: 3rem;
     display: flex;
     justify-content:center;
     align-items: center;
@@ -126,11 +126,15 @@ table{
     border-radius: 0.1rem;
     border: 1px solid var(--cor-primaria); 
     height: 55%;
-    width: 80%;
+    width: 75%;
     
 }
+tr{&:hover{
+        background-color: #F7F6F3; 
+    }}
+
 th.colId{
-    width: 30%;
+    width: 20%;
     height: 2.5rem;
     
 }
@@ -139,7 +143,76 @@ th,td{
     border: 1px solid var(--cor-primaria); 
 }
 td{
-    height: 2.5rem;
+    height: 3rem;
     padding-left: 0.5rem;
+    cursor: pointer;
     
+}
+
+
+
+
+
+.tabela-scroll {
+    width: 100%;
+    height: 300px;  
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 0.2rem;
+}
+
+.tabela-scroll table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Deixar o header fixo */
+.tabela-scroll thead th {
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    z-index: 2;
+    border: 1px solid var(--cor-primaria);
+}
+
+
+
+
+
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 25rem;
+    box-shadow: 0 0 10px #000;
+    font-family: "Montserrat", sans-serif;
+}
+
+.modal-content button {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+}
+
+.btnExcluir {
+    background: #a30000;
+    color: white;
 }

@@ -69,30 +69,143 @@
 
                 </div>
                 <div class="caixaSelect">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th class="colId">Id</th>
-                                <th>Nome Categoria</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                                include "../Database/conexao.php";
+                    <div class="tabela-scroll">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="colId">Id</th>
+                                    <th>Nome Categoria</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    include "../Database/conexao.php";
 
-                                $sql = "SELECT * FROM categoria ORDER BY id_categoria DESC";
-                                $result = mysqli_query($conn, $sql);
+                                    $sql = "SELECT * FROM categoria ORDER BY id_categoria DESC";
+                                    $result = mysqli_query($conn, $sql);
 
-                                while ($cat = mysqli_fetch_assoc($result)) {
-                                ?>
-                                    <tr>
-                                        <td><?= $cat['id_categoria'] ?></td>
-                                        <td><?= $cat['categoria'] ?></td>
-                                    </tr>
-                            <?php } ?>
+                                    while ($cat = mysqli_fetch_assoc($result)) {
+                                    ?>
+                                        <tr class="linha-categoria"
+                                            data-id="<?= $cat['id_categoria'] ?>"
+                                            data-nome="<?= $cat['categoria'] ?>"
+                                            >
+                                            <td><?= $cat['id_categoria'] ?></td>
+                                            <td><?= $cat['categoria'] ?></td>
+                                            </tr>
 
-                        </tbody>
-                    </table>
+                                <?php } ?>
+
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
+
+
+
+            <div id="modalAcoes" class="modal">
+                <div class="modal-content">
+                    <h2 id="tituloCategoria"></h2>
+
+                    <button id="btnEditar">Editar</button>
+                    <button id="btnExcluir" class="btnExcluir">Excluir</button>
+                    <button onclick="fecharModais()">Fechar</button>
+                </div>
+            </div>
+
+
+            <div id="modalEditar" class="modal">
+                <div class="modal-content">
+                    <h2>Editar Categoria</h2>
+
+                    <form action="../Database/EditarCategoria.php" method="POST">
+                        <input type="hidden" id="edit-id" name="id">
+
+                        <label>Nome:</label>
+                        <input type="text" id="edit-nome" name="categoria">
+
+                        <button type="submit">Salvar</button>
+                        <button type="button" onclick="fecharModais()">Cancelar</button>
+                    </form>
+                </div>
+            </div>
+
+
+            <div id="modalExcluir" class="modal">
+                <div class="modal-content">
+                    <h2>Excluir Categoria</h2>
+
+                    <p>Tem certeza que deseja excluir <b id="excluirNome"></b>?</p>
+
+                    <form action="../Database/ExcluirCategoria.php" method="POST">
+                        <input type="hidden" id="excluir-id" name="id">
+
+                        <button type="submit" class="btnExcluir">Excluir</button>
+                        <button type="button" onclick="fecharModais()">Cancelar</button>
+                    </form>
+                </div>
+            </div>
+
+
+
+
+
+
+    <script>
+        const linhas = document.querySelectorAll(".linha-categoria");
+        const modalAcoes = document.getElementById("modalAcoes");
+        const modalEditar = document.getElementById("modalEditar");
+        const modalExcluir = document.getElementById("modalExcluir");
+
+        let categoriaSelecionada = null;
+
+        // Ao clicar na linha
+        linhas.forEach(linha => {
+            linha.addEventListener("click", () => {
+                categoriaSelecionada = linha;
+
+                document.getElementById("tituloCategoria").innerText =
+                    linha.dataset.nome;
+
+                modalAcoes.style.display = "flex";
+            });
+        });
+
+        // Editar
+        document.getElementById("btnEditar").onclick = () => {
+            modalAcoes.style.display = "none";
+
+            document.getElementById("edit-id").value = categoriaSelecionada.dataset.id;
+            document.getElementById("edit-nome").value = categoriaSelecionada.dataset.nome;
+
+            modalEditar.style.display = "flex";
+        };
+
+        // Excluir
+        document.getElementById("btnExcluir").onclick = () => {
+            modalAcoes.style.display = "none";
+
+            document.getElementById("excluir-id").value = categoriaSelecionada.dataset.id;
+            document.getElementById("excluirNome").innerText = categoriaSelecionada.dataset.nome;
+
+            modalExcluir.style.display = "flex";
+        };
+
+        function fecharModais() {
+            modalAcoes.style.display = "none";
+            modalEditar.style.display = "none";
+            modalExcluir.style.display = "none";
+        }
+    </script>
+
+
+
+
+
+
+</body>
+</html>
+
+
 
