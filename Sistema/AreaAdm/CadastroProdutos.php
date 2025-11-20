@@ -95,36 +95,174 @@
 
                 </div>
                 <div class="caixaSelect">
-    <table>
-        <thead>
-            <tr>
-                <th class="colId">Id</th>
-                <th>Nome do Produto</th>
-                <th>Categoria</th>
-                <th>Valor do Produto</th>
-                <th>Imagem do Produto</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php 
-                include "../Database/conexao.php";
+                    <div class="tabela-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="colId">Id</th>
+                                <th>Nome do Produto</th>
+                                <th>Categoria</th>
+                                <th>Valor do Produto</th>
+                                <th>Imagem do Produto</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php 
+                                include "../Database/conexao.php";
 
-                $sql = "SELECT * FROM instrumento ORDER BY id_instrumento DESC"; 
-                $result = mysqli_query($conn, $sql);
+                                $sql = "SELECT * FROM instrumento ORDER BY id_instrumento DESC"; 
+                                $result = mysqli_query($conn, $sql);
 
-                while($p = mysqli_fetch_assoc($result)) { ?>
-                    <tr>
-                        <td><?= $p['id_instrumento'] ?></td>
-                        <td><?= $p['nome_instrumento'] ?></td>
-                        <td><?= $p['id_categoria'] ?></td>
-                        <td>R$ <?= number_format($p['valor'], 2, ',', '.') ?></td>
-                        <td>
-                            <img src="../<?= $p['imagem_instrumento'] ?>" width="80">
-                        </td>
-                    </tr>
-            <?php } ?>
-        </tbody>
-    </table>
-</div>
+                                while($p = mysqli_fetch_assoc($result)) { ?>
 
+                                    <tr class="linha-produto"
+                                        data-id="<?= $p['id_instrumento'] ?>"
+                                        data-nome="<?= $p['nome_instrumento'] ?>"
+                                        data-categoria="<?= $p['id_categoria'] ?>"
+                                        data-valor="<?= $p['valor'] ?>"
+                                        data-imagem="<?= $p['imagem_instrumento'] ?>"
+                                    >
+                                        <td><?= $p['id_instrumento'] ?></td>
+                                        <td><?= $p['nome_instrumento'] ?></td>
+                                        <td><?= $p['id_categoria'] ?></td>
+                                        <td>R$ <?= number_format($p['valor'], 2, ',', '.') ?></td>
+                                        <td>
+                                            <img src="../<?= $p['imagem_instrumento'] ?>" width="80">
+                                        </td>
+                                    </tr>
+
+
+
+                                    <!-- <tr>
+                                        <td><?= $p['id_instrumento'] ?></td>
+                                        <td><?= $p['nome_instrumento'] ?></td>
+                                        <td><?= $p['id_categoria'] ?></td>
+                                        <td>R$ <?= number_format($p['valor'], 2, ',', '.') ?></td>
+                                        <td>
+                                            <img src="../<?= $p['imagem_instrumento'] ?>" width="80">
+                                        </td>
+                                    </tr> -->
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <div id="modalAcoes" class="modal">
+        <div class="modal-content">
+            <h2 id="tituloProduto"></h2>
+
+            <p>O que deseja fazer?</p>
+
+            <button id="btnEditar" class="btn-acao">Editar</button>
+            <button id="btnExcluir" class="btn-acao delete">Excluir</button>
+
+            <button class="fechar" onclick="fecharModais()">Fechar</button>
+        </div>
+    </div>
+
+
+    <div id="modalEditar" class="modal">
+        <div class="modal-content">
+            <h2>Editar Produto</h2>
+
+            <form id="formEditar" action="../Database/EditarInstrumento.php" method="POST" enctype="multipart/form-data">
+                
+                <input type="hidden" name="id" id="edit-id">
+
+                <label>Nome:</label>
+                <input type="text" name="nome" id="edit-nome">
+
+                <label>Valor:</label>
+                <input type="text" name="valor" id="edit-valor">
+
+                <label>Categoria:</label>
+                <input type="text" name="categoria" id="edit-categoria">
+
+                <label>Imagem:</label>
+                <input type="file" name="imagem">
+
+                <button type="submit">Salvar</button>
+                <button type="button" onclick="fecharModais()">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modalExcluir" class="modal">
+        <div class="modal-content">
+            <h2>Excluir Produto</h2>
+            <p>Tem certeza que deseja excluir <strong id="excluirNome"></strong>?</p>
+
+            <form action="../Database/ExcluirInstrumento.php" method="POST">
+                <input type="hidden" name="id" id="excluir-id">
+                <button type="submit" class="btn-acao delete">Excluir</button>
+                <button type="button" onclick="fecharModais()">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+<script>
+    const linhas = document.querySelectorAll(".linha-produto");
+    const modalAcoes = document.getElementById("modalAcoes");
+    const modalEditar = document.getElementById("modalEditar");
+    const modalExcluir = document.getElementById("modalExcluir");
+
+    let produtoSelecionado = null;
+
+    // Abrir modal ao clicar em uma linha
+    linhas.forEach(linha => {
+        linha.addEventListener("click", () => {
+            produtoSelecionado = linha;
+
+            document.getElementById("tituloProduto").innerText =
+                linha.dataset.nome;
+
+            modalAcoes.style.display = "flex";
+        });
+    });
+
+    // Botão editar
+    document.getElementById("btnEditar").onclick = () => {
+        modalAcoes.style.display = "none";
+
+        document.getElementById("edit-id").value = produtoSelecionado.dataset.id;
+        document.getElementById("edit-nome").value = produtoSelecionado.dataset.nome;
+        document.getElementById("edit-valor").value = produtoSelecionado.dataset.valor;
+        document.getElementById("edit-categoria").value = produtoSelecionado.dataset.categoria;
+
+        modalEditar.style.display = "flex";
+    };
+
+    // Botão excluir
+    document.getElementById("btnExcluir").onclick = () => {
+        modalAcoes.style.display = "none";
+
+        document.getElementById("excluir-id").value = produtoSelecionado.dataset.id;
+        document.getElementById("excluirNome").innerText = produtoSelecionado.dataset.nome;
+
+        modalExcluir.style.display = "flex";
+    };
+
+    // Fechar todos
+    function fecharModais() {
+        modalAcoes.style.display = "none";
+        modalEditar.style.display = "none";
+        modalExcluir.style.display = "none";
+    }
+
+</script>
+
+
+
+
+</body>
+</html>
 
