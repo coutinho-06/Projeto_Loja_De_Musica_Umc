@@ -116,12 +116,14 @@
 
                 <div class="conteinerCard">
                     <?php while($linha = mysqli_fetch_assoc($result)) { ?>
-                        <div class="card">
+                        <div class="card" data-id="<?= $linha['id_instrumento'] ?>">
+
                             <img src="<?= $linha['imagem_instrumento'] ?>" alt="<?= $linha['nome_instrumento'] ?>">
                             <div class="cardText">
                                 <p><?= $linha['nome_instrumento'] ?></p>
                                 <p>R$ <?= number_format($linha['valor'], 2, ',', '.') ?></p>
                             </div>
+                        
                         </div>
                     <?php } ?>
                 </div>
@@ -276,15 +278,124 @@
 
 
 
+        <!-- MODAL 1 — DETALHES DO PRODUTO -->
+    <div id="modalDetalhes" class="modal">
+        <div class="modal-content">
+            <span class="fechar" onclick="fecharModais()">&times;</span>
+
+            <img id="modal-img" src="" alt="Produto">
+            <h2 id="modal-nome"></h2>
+            <p id="modal-valor"></p>
+
+            <button class="btnPedido" onclick="abrirModalPedido()">Fazer Pedido</button>
+        </div>
+    </div>
+
+
+    <!-- MODAL 2 — PEDIDO -->
+    <div id="modalPedido" class="modal">
+        <div class="modal-content">
+            <span class="fechar" onclick="fecharModais()">&times;</span>
+
+            <h2>Finalizar Pedido</h2>
+
+            <form action="FinalizarPedido.php" method="POST">
+
+                <input type="hidden" name="produto_id" id="pedido-id">
+
+                <label>Quantidade:</label>
+                <input type="number" name="quantidade" min="1" required>
+
+                <label>Forma de Pagamento:</label>
+                <select name="pagamento" required>
+                    <option value="">Selecione</option>
+                    <option>Pix</option>
+                    <option>Cartão de Crédito</option>
+                    <option>Boleto</option>
+                </select>
+
+                <label>Endereço de Entrega:</label>
+                <select name="endereco" id="select-endereco" required>
+                    <option value="">Carregando...</option>
+                </select>
+
+                <button type="submit" class="btnPedido">Confirmar Pedido</button>
+            </form>
+
+        </div>
+    </div>
+
+
+
+
 
     <script>
+        const modalDetalhes = document.getElementById("modalDetalhes");
+        const modalPedido = document.getElementById("modalPedido");
+
+        const modalImg = document.getElementById("modal-img");
+        const modalNome = document.getElementById("modal-nome");
+        const modalValor = document.getElementById("modal-valor");
+        const pedidoId = document.getElementById("pedido-id");
+
+        // Quando clicar no card → abrir modal com informações
+        document.querySelectorAll(".card").forEach(card => {
+            card.addEventListener("click", () => {
+
+                let img = card.querySelector("img").src;
+                let nome = card.querySelector(".cardText p:nth-child(1)").innerText;
+                let valor = card.querySelector(".cardText p:nth-child(2)").innerText;
+
+                modalImg.src = img;
+                modalNome.innerText = nome;
+                modalValor.innerText = valor;
+
+                pedidoId.value = card.dataset.id; // O ID virá no data-atribute
+
+                modalDetalhes.style.display = "flex";
+            });
+        });
+
+        function abrirModalPedido() {
+            modalDetalhes.style.display = "none";
+            carregarEnderecos();
+            modalPedido.style.display = "flex";
+        }
+
+        function fecharModais() {
+            modalDetalhes.style.display = "none";
+            modalPedido.style.display = "none";
+        }
+
+        // Carregar endereços do usuário (AJAX)
+        function carregarEnderecos() {
+            fetch("Database/buscar_enderecos.php")
+            .then(r => r.json())
+            .then(dados => {
+                const select = document.getElementById("select-endereco");
+                select.innerHTML = "<option value=''>Selecione</option>";
+
+                dados.forEach(e => {
+                    select.innerHTML += `
+                        <option value="${e.id_endereco}">
+                            Nº ${e.numero} - ${e.cep} - ${e.estado}
+                        </option>`;
+                });
+            });
+        }
+
+
+
+
+
+
         const conteudo = document.querySelector(".conteinerCard");
         const cards = document.querySelectorAll(".conteinerCard .card");
         const voltar = document.getElementById("voltar");
         const avancar = document.getElementById("avancar");
 
         let index = 0;
-        const cardLargura = 180 + 70; // largura + gap
+        const cardLargura = 300 + 70; // largura + gap
         const total = cards.length;
 
         voltar.onclick = () => {
