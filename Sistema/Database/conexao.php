@@ -5,9 +5,10 @@ $username = "root";
 $password = "";
 $database = "groovesound";
 
-$conn = mysqli_connect($servername,$username,$password,$database);
+$conn = mysqli_connect($servername, $username, $password, $database);
 
 if (!$conn) {
-    die("A Conexão falhou! ".mysqli_connect_error());
+    die("A Conexão falhou! " . mysqli_connect_error());
 }
+
 ?>

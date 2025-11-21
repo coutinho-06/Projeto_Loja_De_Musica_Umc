@@ -97,7 +97,7 @@
                     </div>
                     <div class="cards">
                         <div class="titulo">
-                            <p>Total de Vendidos</p>
+                            <p>Total de Pedidos</p>
                         </div>
                         <div class="caixa">
                             <h2>NUM</h2>  <!--colocar o dados aqui !! -->
@@ -105,7 +105,7 @@
                     </div>
                     <div class="cards">
                         <div class="titulo">
-                            <p>Total de Pedidos</p>
+                            <p>Total de Atendidos</p>
                         </div>
                         <div class="caixa">
                             <h2>NUM</h2>  <!--colocar o dados aqui !! -->
