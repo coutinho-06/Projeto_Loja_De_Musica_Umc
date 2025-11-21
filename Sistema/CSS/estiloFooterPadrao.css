@@ -155,7 +155,6 @@ footer{
     height: 20%;
     width: 100%;
     
-
     
 }
 
@@ -195,3 +194,87 @@ footer{
     }
 }
 
+
+
+
+
+
+
+
+
+/* ========================================================== */
+/* ==================== RESPONSIVIDADE ====================== */
+/* ========================================================== */
+
+
+
+
+/* 1000px */
+@media (max-width: 1000px) {
+
+    .titFooter h2{
+        font-size: 2rem;
+    }
+
+
+    .atendimento h3, .pagamento h3, .redes h3{
+        font-size: 0.9rem;
+    }
+    .atendimento p, .pagamento p, .redes p{
+        font-size: 0.8rem;
+    }
+    .pagamento img{
+        height: 1.5rem;
+    }
+    .redes i {
+        font-size: 1.5rem;
+    }
+
+    .textCopy p {
+        font-size: 0.8rem;
+        padding-top: 0.8rem;
+    }
+
+    .linkAdm a{
+        font-size: 1.2rem;
+    }
+}
+
+
+
+/* 890px */
+@media (max-width: 890px) {
+    .containerInfo{
+        width: 99%;
+        gap: 3rem;
+
+}
+}
+
+
+
+@media (max-width: 610px) {
+    footer{
+        height: 50rem;
+    }
+    .containerInfo{
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        height: 90%;
+        margin-top: 0rem;
+        gap: 1rem;
+    }
+    .atendimento, .pagamento, .redes{
+        align-items: center;
+        width: 70%;
+        p{text-align: center;}
+    }
+
+    .autoriaECopy{
+        margin-top: 0rem;
+        a{
+            margin-top: 1.5rem;
+        }
+    }
+}
