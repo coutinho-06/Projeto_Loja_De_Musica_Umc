@@ -1,3 +1,8 @@
+<?php
+    include "../Database/conexao.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -73,50 +78,105 @@
                                 <th class="colId">Status</th>
                             </tr>
                         </thead>
+                        <?php
+
+                            $sql = "
+                                SELECT
+                                    c.id_compra,
+                                    cli.primeiro_nome AS cliente,
+                                    i.nome_instrumento,
+                                    cat.categoria AS nome_categoria,
+                                    i.valor,
+                                    it.quantidade,
+                                    i.imagem_instrumento,
+                                    c.forma_pagamento
+                                FROM compra c
+                                INNER JOIN cliente cli ON c.id_cliente = cli.id_cliente
+                                INNER JOIN instrumento i ON c.id_instrumento = i.id_instrumento
+                                INNER JOIN categoria cat ON i.id_categoria = cat.id_categoria
+                                INNER JOIN item_compra it ON it.id_compra = c.id_compra
+                                ORDER BY c.id_compra DESC
+                                ";
+
+                            $result = mysqli_query($conn, $sql);
+                            $result = mysqli_query($conn, $sql);
+
+                            if (!$result) {
+                                die("Erro na consulta SQL: " . mysqli_error($conn));
+                            }
+
+                        ?>
+
                         <tbody>
-                            <tr>
-                                
-                                <td>1</td>
-                                <td>hihi</td>
-                                <td>1</td>
-                                <td>hihi</td>
-                                <td>1</td>
-                                <td>hihi</td>
-                                <td>hihi</td>
-                                <td><button>Atender</button></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>hihi</td>
-                                <td>1</td>
-                                <td>hihi</td>
-                                <td>1</td>
-                                <td>hihi</td>
-                                <td>1</td>
-                                <td><button>Atender</button></td>
-                                
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>hihi</td>
-                                <td>1</td>
-                                <td>hihi</td>
-                                <td>1</td>
-                                <td>hihi</td>
-                                <td>hihi</td>
-                                <td><button>Atender</button></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>hihi</td>
-                                <td>1</td>
-                                <td>hihi</td>
-                                <td>1</td>
-                                <td>hihi</td>
-                                <td>hihi</td>
-                                <td><button>Atender</button></td>
-                            </tr>
+                            <?php while($row = mysqli_fetch_assoc($result)) { ?>
+                                <tr>
+                                    <td><?= $row["id_compra"] ?></td>
+                                    <td><?= $row["cliente"] ?></td>
+                                    <td><?= $row["nome_instrumento"] ?></td>
+                                    <td><?= $row["nome_categoria"] ?></td>
+                                    <td>R$ <?= number_format($row["valor"], 2, ',', '.') ?></td>
+                                    <td><?= $row["quantidade"] ?></td>
+                                    <td><img src="../<?= $row["imagem_instrumento"] ?>" width="60"></td>
+                                    <td><button class="btnAtender" data-id="<?= $row['id_compra'] ?>">Atender</button></td>
+
+                                </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
             </div>
+
+
+            <div id="modalConfirmar" class="modal">
+            <div class="modal-content">
+                <h2>Confirmar Atendimento</h2>
+                <p>Tem certeza de que deseja marcar este pedido como atendido?</p>
+
+                <div class="botoes">
+                    <button id="cancelarAtender">Cancelar</button>
+                    <button id="confirmarAtender">Confirmar</button>
+                </div>
+            </div>
+        </div>
+
+
+
+    <script>
+        let pedidoSelecionado = null;
+
+        // abrir modal
+        document.querySelectorAll(".btnAtender").forEach(btn => {
+            btn.addEventListener("click", () => {
+                pedidoSelecionado = btn.dataset.id;
+                document.getElementById("modalConfirmar").style.display = "flex";
+            });
+        });
+
+        // cancelar
+        document.getElementById("cancelarAtender").onclick = () => {
+            document.getElementById("modalConfirmar").style.display = "none";
+        };
+
+        // confirmar
+        document.getElementById("confirmarAtender").onclick = () => {
+
+            fetch("atender_pedido.php", {
+                method: "POST",
+                headers: {"Content-Type": "application/x-www-form-urlencoded"},
+                body: "id_pedido=" + pedidoSelecionado
+            })
+            .then(r => r.text())
+            .then(res => {
+                if(res === "ok"){
+                    // recarregar para sumir da lista
+                    location.reload();
+                } else {
+                    alert("Erro ao atender pedido.");
+                }
+            });
+        };
+    </script>
+
+
+</body>
+</html>
