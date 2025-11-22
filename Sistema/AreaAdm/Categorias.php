@@ -59,7 +59,7 @@
             </div>
             <div class="containerInferior">
                 <div class="caixaForm">
-                    <form action="../Database/CadastrarCategoria.php" method="post">
+                    <form action="CadastrarCategoria.php" method="post">
                         <label for="">Nome da Categoria:</label>
                         <input type="text" name="categoria" id="categoria">
                         
@@ -119,7 +119,7 @@
                 <div class="modal-content">
                     <h2>Editar Categoria</h2>
 
-                    <form action="../Database/EditarCategoria.php" method="POST">
+                    <form action="EditarCategoria.php" method="POST">
                         <input type="hidden" id="edit-id" name="id">
 
                         <label>Nome:</label>
@@ -138,7 +138,7 @@
 
                     <p>Tem certeza que deseja excluir <b id="excluirNome"></b>?</p>
 
-                    <form action="../Database/ExcluirCategoria.php" method="POST">
+                    <form action="ExcluirCategoria.php" method="POST">
                         <input type="hidden" id="excluir-id" name="id">
 
                         <button type="submit" class="btnExcluir">Excluir</button>
