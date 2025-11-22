@@ -1,5 +1,6 @@
 <?php
     include "../Database/conexao.php";
+    $id = $_COOKIE['id_cliente'];
 ?>
 
 <!DOCTYPE html>
@@ -80,7 +81,6 @@
 
     <section>
         <?php
-            $id = $_COOKIE['id_cliente'];
 
             $sql = "SELECT 
                 cl.id_cliente as IdCLiente,
@@ -101,6 +101,16 @@
             
             $result = mysqli_query($conn, $sql);
             $result = mysqli_fetch_assoc($result);
+
+        
+            $enderecos = [];
+
+            $sqlEnd = "SELECT * FROM endereco WHERE id_cliente = $id ORDER BY id_endereco ASC";
+            $resEnd = mysqli_query($conn, $sqlEnd);
+            while ($row = mysqli_fetch_assoc($resEnd)) {
+                $enderecos[] = $row;
+
+    }
         ?>
 
 
@@ -212,83 +222,70 @@
                     break;
 
                     case 'endereco':
-                    titulo.textContent = 'Cadastre seu novo endereço!';
-                    conteudo.innerHTML = `
-                        <form method="post" action="../Database/CadastrarEnderecoCliente.php">
+                        titulo.textContent = 'Cadastre seu novo endereço!';
+                        conteudo.innerHTML = `
+                            <form method="post" action="../Database/CadastrarEnderecoCliente.php">
+                                <input type="hidden" id="endIndex" name="endIndex">
 
-                        <label for="estado">Escolha um endereço para editar:</label>
-                            <select id="enderecosCad" name="enderecosCad" required>
-                                <option value="" disabled selected>Selecione</option>
-                                <option value="primeiro_endereco">1° Endereço</option>
-                                <option value="segundo_endereco">2° Endereço</option>
-                                <option value="terceiro_endereco">3° Endereço</option>
-                            </select>
-
-
-
-                            <div class="caixaForm">
-                                
-                                <label class="LnumR for="numR">Número da Residência:</label>
-                                <input type="number" class="numR" id="numR" name="numR">
-
-                                <label  class="Lcep" for="cep">CEP:</label>
-                                <input type="text"  max="15" id="cep" name="cep">
-
-                                <label for="estado">Estado:</label>
-                                <select id="estado" name="estado" required>
+                                <label for="enderecosCad">Escolha um endereço para editar:</label>
+                                <select id="enderecosCad" name="enderecosCad" required>
                                     <option value="" disabled selected>Selecione</option>
-                                    <option value="AC">AC</option>
-                                    <option value="AL">AL</option>
-                                    <option value="AP">AP</option>
-                                    <option value="AM">AM</option>
-                                    <option value="BA">BA</option>
-                                    <option value="CE">CE</option>
-                                    <option value="DF">DF</option>
-                                    <option value="ES">ES</option>
-                                    <option value="GO">GO</option>
-                                    <option value="MA">MA</option>
-                                    <option value="MT">MT</option>
-                                    <option value="MS">MS</option>
-                                    <option value="MG">MG</option>
-                                    <option value="PA">PA</option>
-                                    <option value="PB">PB</option>
-                                    <option value="PR">PR</option>
-                                    <option value="PE">PE</option>
-                                    <option value="PI">PI</option>
-                                    <option value="RJ">RJ</option>
-                                    <option value="RN">RN</option>
-                                    <option value="RS">RS</option>
-                                    <option value="RO">RO</option>
-                                    <option value="RR">RR</option>
-                                    <option value="SC">SC</option>
-                                    <option value="SP">SP</option>
-                                    <option value="SE">SE</option>
-                                    <option value="TO">TO</option>
+                                    <option value="primeiro_endereco">1° Endereço</option>
+                                    <option value="segundo_endereco">2° Endereço</option>
+                                    <option value="terceiro_endereco">3° Endereço</option>
                                 </select>
 
+                                <div class="caixaForm">
+                                    <label>Número da Residência:</label>
+                                    <input type="number" id="numR" name="numR">
 
+                                    <label>CEP:</label>
+                                    <input type="text" id="cep" name="cep">
 
+                                    <label>Estado:</label>
+                                    <select id="estado" name="estado">
+                                        <option value="" disabled selected>Selecione</option>
+                                        <option value="AC">AC</option>
+                                        <option value="AL">AL</option>
+                                        <option value="AP">AP</option>
+                                        <option value="AM">AM</option>
+                                        <option value="BA">BA</option>
+                                        <option value="CE">CE</option>
+                                        <option value="DF">DF</option>
+                                        <option value="ES">ES</option>
+                                        <option value="GO">GO</option>
+                                        <option value="MA">MA</option>
+                                        <option value="MT">MT</option>
+                                        <option value="MS">MS</option>
+                                        <option value="MG">MG</option>
+                                        <option value="PA">PA</option>
+                                        <option value="PB">PB</option>
+                                        <option value="PR">PR</option>
+                                        <option value="PE">PE</option>
+                                        <option value="PI">PI</option>
+                                        <option value="RJ">RJ</option>
+                                        <option value="RN">RN</option>
+                                        <option value="RS">RS</option>
+                                        <option value="RO">RO</option>
+                                        <option value="RR">RR</option>
+                                        <option value="SC">SC</option>
+                                        <option value="SP">SP</option>
+                                        <option value="SE">SE</option>
+                                        <option value="TO">TO</option>
+                                    </select>
+                                </div>
 
-                                <?php if(isset($_GET['errorR']) && !empty($_GET['errorR'])){
+                                <div class="caixabtn">
+                                    <button class="btnModalAtualizar" type="submit">ATUALIZAR</button>
+                                </div>
+                            </form>
 
-                                    $mensagem = $_GET['errorR'];
-                                    print_r("<span>$mensagem</span>");
-
-                                }?>
-                            </div>
-
-                            
-
-                            <div class="caixabtn">
-                                <button class="btnModalAtualizar" type="submit" onclick="" href="">ATUALIZAR</button>
-                            </div>
-                        </form>
-
-
-
-                        <button class="btnModalFechar" onclick="fecharModal()">Fechar</button>
-                    `;
+                            <button class="btnModalFechar" onclick="fecharModal()">Fechar</button>
+                            `;
+                        setTimeout(configurarEndereco, 50);
                     break;
+
+
 
                     case 'pedidos':
                     titulo.textContent = 'Seus Pedidos';
@@ -353,6 +350,33 @@
                 document.body.appendChild(form);
                 form.submit();
                 }
+
+                let enderecos = <?php echo json_encode($enderecos); ?>;
+
+                function configurarEndereco() {
+                    const select = document.getElementById('enderecosCad');
+
+                    if (!select) return; // select ainda não existe
+
+                    // garante que só adiciona UMA VEZ
+                    select.onchange = () => {
+                        let index = select.selectedIndex - 1; // pq primeira opção é "Selecione"
+                        document.getElementById('endIndex').value = index;
+
+                        if (enderecos[index]) {
+                            document.getElementById('numR').value = enderecos[index].numero;
+                            document.getElementById('cep').value = enderecos[index].cep;
+                            document.getElementById('estado').value = enderecos[index].estado;
+                        } else {
+                            document.getElementById('numR').value = "";
+                            document.getElementById('cep').value = "";
+                            document.getElementById('estado').value = "";
+                        }
+                    };
+                }
+
+
+
             </script>
 
 
