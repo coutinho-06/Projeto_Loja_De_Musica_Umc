@@ -44,6 +44,14 @@
     $resultado = mysqli_query($conn, $total_de_produtos);
     $resultado = mysqli_fetch_assoc($resultado);
 
+    $total_de_produtos_pendentes = "SELECT COUNT(*) FROM compra WHERE status_compra = 'pendente';";
+    $resultado_pendentes = mysqli_query($conn, $total_de_produtos_pendentes);
+    $resultado_pendentes = mysqli_fetch_assoc($resultado_pendentes);
+
+    $total_de_produtos_atendidos = "SELECT COUNT(*) FROM compra WHERE status_compra = 'atendido';";
+    $resultado_atendidos = mysqli_query($conn, $total_de_produtos_atendidos);
+    $resultado_atendidos = mysqli_fetch_assoc($resultado_atendidos);
+
     ?>
 
 
@@ -100,7 +108,7 @@
                             <p>Total de Pedidos</p>
                         </div>
                         <div class="caixa">
-                            <h2>NUM</h2>  <!--colocar o dados aqui !! -->
+                            <h2><?php print_r($resultado_pendentes['COUNT(*)']); ?></h2>  <!--colocar o dados aqui !! -->
                         </div>
                     </div>
                     <div class="cards">
@@ -108,7 +116,7 @@
                             <p>Total de Atendidos</p>
                         </div>
                         <div class="caixa">
-                            <h2>NUM</h2>  <!--colocar o dados aqui !! -->
+                            <h2><?php print_r($resultado_atendidos['COUNT(*)']); ?></h2>  <!--colocar o dados aqui !! -->
                         </div>
                     </div>
                 </div>

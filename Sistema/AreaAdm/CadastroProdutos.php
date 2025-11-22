@@ -64,23 +64,18 @@
             </div>
             <div class="containerInferior">
                 <div class="caixaForm">
-                    <form action="../Database/CadastrarInstrumento.php" method="POST" enctype="multipart/form-data">
+                    <form action="CadastrarInstrumento.php" method="POST" enctype="multipart/form-data">
                         <label for="">Nome do Produto:</label>
                         <input type="text" name="nome">
 
                         <label>Categoria:</label>
-                        <select name="categoria" required>
+                        <select name="categoria" id="edit-categoria" required>
                             <option value="">Selecione uma categoria</option>
-
                                 <?php
-                                    include "../Database/conexao.php";
-                                    $sql = "SELECT * FROM categoria ORDER BY categoria ASC";
-                                    $result = mysqli_query($conn, $sql);
-
-                                    while ($cat = mysqli_fetch_assoc($result)) { ?>
-                                        <option value="<?= $cat['id_categoria'] ?>">
-                                            <?= $cat['categoria'] ?>
-                                        </option>
+                                    $sqlCat = "SELECT * FROM categoria ORDER BY categoria ASC";
+                                    $resultCat = mysqli_query($conn, $sqlCat);
+                                    while($cat = mysqli_fetch_assoc($resultCat)) { ?>
+                                        <option value="<?= $cat['id_categoria'] ?>"><?= $cat['categoria'] ?></option>
                                 <?php } ?>
                         </select>
                         <label for="">Valor do Produto:</label>
@@ -108,7 +103,6 @@
                         </thead>
                         <tbody>
                             <?php 
-                                include "../Database/conexao.php";
 
                                 $sql = "SELECT * FROM instrumento ORDER BY id_instrumento DESC"; 
                                 $result = mysqli_query($conn, $sql);
@@ -170,7 +164,7 @@
         <div class="modal-content">
             <h2>Editar Produto</h2>
 
-            <form id="formEditar" action="../Database/EditarInstrumento.php" method="POST" enctype="multipart/form-data">
+            <form id="formEditar" action="EditarInstrumento.php" method="POST" enctype="multipart/form-data">
                 
                 <input type="hidden" name="id" id="edit-id">
 
@@ -181,7 +175,15 @@
                 <input type="text" name="valor" id="edit-valor">
 
                 <label>Categoria:</label>
-                <input type="text" name="categoria" id="edit-categoria">
+                <select name="categoria" id="edit-categoria" required>
+                    <option value="">Selecione uma categoria</option>
+                    <?php
+                        $sqlCat = "SELECT * FROM categoria ORDER BY categoria ASC";
+                        $resultCat = mysqli_query($conn, $sqlCat);
+                        while ($cat = mysqli_fetch_assoc($resultCat)) { ?>
+                            <option value="<?= $cat['id_categoria'] ?>"><?= $cat['categoria'] ?></option>
+                    <?php } ?>
+                </select>
 
                 <label>Imagem:</label>
                 <input type="file" name="imagem">
@@ -197,7 +199,7 @@
             <h2>Excluir Produto</h2>
             <p>Tem certeza que deseja excluir <strong id="excluirNome"></strong>?</p>
 
-            <form action="../Database/ExcluirInstrumento.php" method="POST">
+            <form action="ExcluirInstrumento.php" method="POST">
                 <input type="hidden" name="id" id="excluir-id">
                 <button type="submit" class="btn-acao delete">Excluir</button>
                 <button type="button" onclick="fecharModais()">Cancelar</button>
