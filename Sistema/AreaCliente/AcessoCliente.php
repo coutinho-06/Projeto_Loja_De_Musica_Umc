@@ -103,14 +103,49 @@
             $result = mysqli_fetch_assoc($result);
 
         
-            $enderecos = [];
 
-            $sqlEnd = "SELECT * FROM endereco WHERE id_cliente = $id ORDER BY id_endereco ASC";
+            $sqlEnd = "
+                SELECT * FROM endereco 
+                WHERE id_cliente = $id 
+                ORDER BY id_endereco ASC 
+                LIMIT 3
+            ";
+
             $resEnd = mysqli_query($conn, $sqlEnd);
+
+            $enderecos = [];
             while ($row = mysqli_fetch_assoc($resEnd)) {
                 $enderecos[] = $row;
+            }
 
-    }
+            /* Preenche posições vazias com NULL */
+            for ($i = 0; $i < 3; $i++) {
+                if (!isset($enderecos[$i])) {
+                    $enderecos[$i] = null;
+                }
+            }
+
+
+
+
+            // $enderecos = [];
+
+            // // pega TODOS os endereços do cliente
+            // $sqlEnd = "SELECT * FROM endereco WHERE id_cliente = $id ORDER BY id_endereco ASC LIMIT 3";
+            // $resEnd = mysqli_query($conn, $sqlEnd);
+
+            // while ($row = mysqli_fetch_assoc($resEnd)) {
+            //     $enderecos[] = $row;
+            // }
+
+            // // garante que existam 3 posições
+            // for ($i = 0; $i < 3; $i++) {
+            //     if (!isset($enderecos[$i])) {
+            //         $enderecos[$i] = null; // endereço vazio
+            //     }
+            // }
+
+                
         ?>
 
 
@@ -307,26 +342,24 @@
                     case 'meuEndereco':
                     titulo.textContent = 'Veja Seus Endereços Cadastrados!';
                     conteudo.innerHTML = `
-                        <div id="modal-content">
-                            <label for="estado">Escolha o endereço que deseja ver:</label>
-                            <select id="enderecosCad" name="enderecosCad" required>
-                                <option value="" disabled selected>Selecione</option>
-                                <option value="primeiro_endereco">1° Endereço</option>
-                                <option value="segundo_endereco">2° Endereço</option>
-                                <option value="terceiro_endereco">3° Endereço</option>
-                            </select>
+                        <label>Escolha o endereço que deseja ver:</label>
+                        <select id="selectVerEndereco">
+                            <option value="" disabled selected>Selecione</option>
+                            <option value="0">1° Endereço</option>
+                            <option value="1">2° Endereço</option>
+                            <option value="2">3° Endereço</option>
+                        </select>
 
-                            <ul>
-                                <li>Número da residência: <?php print_r($result['Numero']); ?></li>
-                                <li>CEP: <?php print_r($result['Cep']); ?></li>
-                                <li>Estado: <?php print_r($result['Estado']); ?></li>
-                                
-                            </ul>
-                        </div>
+                        <ul id="listaEndereco">
+                            <li>Selecione um endereço acima...</li>
+                        </ul>
 
                         <button class="btnModalFechar" onclick="fecharModal()">Fechar</button>
                     `;
+
+                    setTimeout(configurarVerEndereco, 50);
                     break;
+
 
                     default:
                     titulo.textContent = 'Informação';
@@ -351,22 +384,50 @@
                 form.submit();
                 }
 
+
+
+
+
+
+
+                function configurarVerEndereco() {
+                    const select = document.getElementById("selectVerEndereco");
+                    const lista = document.getElementById("listaEndereco");
+
+                    select.onchange = () => {
+                        let index = select.value;
+                        let end = enderecos[index];
+
+                        if (!end) {
+                            lista.innerHTML = "<li>Nenhum endereço cadastrado nesta posição.</li>";
+                        } else {
+                            lista.innerHTML = `
+                                <li>Número: ${end.numero}</li>
+                                <li>CEP: ${end.cep}</li>
+                                <li>Estado: ${end.estado}</li>
+                            `;
+                        }
+                    };
+                }
+
+
                 let enderecos = <?php echo json_encode($enderecos); ?>;
 
                 function configurarEndereco() {
                     const select = document.getElementById('enderecosCad');
+                    if (!select) return;
 
-                    if (!select) return; // select ainda não existe
-
-                    // garante que só adiciona UMA VEZ
                     select.onchange = () => {
-                        let index = select.selectedIndex - 1; // pq primeira opção é "Selecione"
+                        let index = select.selectedIndex - 1; // pois a primeira opção é 'Selecione'
+                        let endereco = enderecos[index];
+
+                        // Preenche inputs do modal EDITAR
                         document.getElementById('endIndex').value = index;
 
-                        if (enderecos[index]) {
-                            document.getElementById('numR').value = enderecos[index].numero;
-                            document.getElementById('cep').value = enderecos[index].cep;
-                            document.getElementById('estado').value = enderecos[index].estado;
+                        if (endereco) {
+                            document.getElementById('numR').value = endereco.numero;
+                            document.getElementById('cep').value = endereco.cep;
+                            document.getElementById('estado').value = endereco.estado;
                         } else {
                             document.getElementById('numR').value = "";
                             document.getElementById('cep').value = "";

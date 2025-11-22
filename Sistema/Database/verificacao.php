@@ -4,7 +4,7 @@
     if (isset($_POST['email']) && !empty($_POST['email'])){
         $email = $_POST['email'];
     } else {
-        Header("Location: ../TelaFormularioLogin.php?errorEmai=Campo 'E-mail' Inválido!");
+        Header("Location: ../TelaFormularioLogin.php?errorEmail=Campo 'E-mail' Inválido!");
         die;
     }
     if (isset($_POST['senha']) && !empty($_POST['senha'])){
