@@ -79,7 +79,6 @@
                             </tr>
                         </thead>
                         <?php
-
                             $sql = "
                                 SELECT
                                     c.id_compra,
@@ -89,14 +88,16 @@
                                     i.valor,
                                     it.quantidade,
                                     i.imagem_instrumento,
-                                    c.forma_pagamento
+                                    c.status_compra
                                 FROM compra c
                                 INNER JOIN cliente cli ON c.id_cliente = cli.id_cliente
                                 INNER JOIN instrumento i ON c.id_instrumento = i.id_instrumento
                                 INNER JOIN categoria cat ON i.id_categoria = cat.id_categoria
                                 INNER JOIN item_compra it ON it.id_compra = c.id_compra
+                                WHERE c.status_compra = 'pendente'
                                 ORDER BY c.id_compra DESC
-                                ";
+                            ";
+
 
                             $result = mysqli_query($conn, $sql);
                             $result = mysqli_query($conn, $sql);
@@ -160,7 +161,7 @@
         // confirmar
         document.getElementById("confirmarAtender").onclick = () => {
 
-            fetch("atender_pedido.php", {
+            fetch("AtenderPedido.php", {
                 method: "POST",
                 headers: {"Content-Type": "application/x-www-form-urlencoded"},
                 body: "id_pedido=" + pedidoSelecionado
