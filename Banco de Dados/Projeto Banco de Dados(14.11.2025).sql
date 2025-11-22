@@ -119,7 +119,7 @@ VALUES
 ('Boleto', '2025-12-25', 4, 4), 
 ('Pix', '2025-06-14', 5, 5), 
 ('Crédito', '2025-08-31', 5, 6);
-select * from cliente;
+#select * from cliente;
 
 # --- Itens de compra (ligados a compras e instrumentos) ---
 INSERT INTO item_compra (quantidade, valor_unitario, id_compra, id_instrumento)
@@ -568,5 +568,282 @@ BEGIN
 END $$
 DELIMITER ;
 
+#-------------------------K) procedimento para inserção de dados usando estrutura condicional--------------------
 
+#Inserir nova categoria com validação (não pode repetir nome)
+DELIMITER $$
+CREATE PROCEDURE inserir_categoria_condicional(
+	IN p_categoria VARCHAR(50)
+)
+BEGIN
+	START TRANSACTION;
+	-- Verifica se já existe
+	IF (SELECT COUNT(*) FROM categoria WHERE categoria = p_categoria) > 0 THEN
+		ROLLBACK;
+		SELECT 'Erro: Categoria já cadastrada.' AS Mensagem;
+	ELSE
+		INSERT INTO categoria (categoria)
+		VALUES (p_categoria);
+		COMMIT;
+		SELECT 'Categoria inserida com sucesso!' AS Mensagem;
+	END IF;
+END $$
+DELIMITER ;
 
+#2) Inserir instrumento garantindo que a categoria existe
+DELIMITER $$
+CREATE PROCEDURE inserir_instrumento_condicional(
+	IN p_nome VARCHAR(100),
+	IN p_valor DECIMAL(10,2),
+	IN p_id_categoria INT
+)
+BEGIN
+	START TRANSACTION;
+	IF (SELECT COUNT(*) FROM categoria WHERE id_categoria = p_id_categoria) = 0 THEN
+		ROLLBACK;
+		SELECT 'Erro: Categoria não encontrada.' AS Mensagem;
+	ELSE
+		INSERT INTO instrumento (nome_instrumento, valor, id_categoria)
+		VALUES (p_nome, p_valor, p_id_categoria);
+		COMMIT;
+		SELECT 'Instrumento inserido com sucesso!' AS Mensagem;
+	END IF;
+END $$
+DELIMITER ;
+
+#3) Inserir cliente verificando duplicidade de CPF
+DELIMITER $$
+CREATE PROCEDURE inserir_cliente_condicional(
+	IN p_primeiro VARCHAR(100),
+	IN p_segundo VARCHAR(100),
+	IN p_nasc DATE,
+	IN p_cpf CHAR(11),
+	IN p_email VARCHAR(50),
+	IN p_senha VARCHAR(8),
+	IN p_telefone CHAR(11)
+)
+BEGIN
+	START TRANSACTION;
+
+	IF (SELECT COUNT(*) FROM cliente WHERE cpf = p_cpf) > 0 THEN
+		ROLLBACK;
+		SELECT 'Erro: CPF já cadastrado.' AS Mensagem;
+	ELSE
+		INSERT INTO cliente (primeiro_nome, segundo_nome, data_nascimento, cpf, email, senha, telefone)
+		VALUES (p_primeiro, p_segundo, p_nasc, p_cpf, p_email, p_senha, p_telefone);
+		COMMIT;
+		SELECT 'Cliente inserido com sucesso!' AS Mensagem;
+	END IF;
+END $$
+DELIMITER ;
+
+#4) Inserir compra garantindo que cliente e instrumento existem
+DELIMITER $$
+CREATE PROCEDURE inserir_compra_condicional(
+	IN p_forma ENUM('Crédito','Débito','Pix','Boleto'),
+	IN p_data DATETIME,
+	IN p_id_cliente INT,
+	IN p_id_instrumento INT
+)
+BEGIN
+	START TRANSACTION;
+	IF (SELECT COUNT(*) FROM cliente WHERE id_cliente = p_id_cliente) = 0 THEN
+		ROLLBACK;
+		SELECT 'Erro: Cliente não encontrado.' AS Mensagem;
+	ELSEIF (SELECT COUNT(*) FROM instrumento WHERE id_instrumento = p_id_instrumento) = 0 THEN
+		ROLLBACK;
+		SELECT 'Erro: Instrumento não encontrado.' AS Mensagem;
+	ELSE
+		INSERT INTO compra (forma_pagamento, data_compra, id_cliente, id_instrumento)
+		VALUES (p_forma, p_data, p_id_cliente, p_id_instrumento);
+		COMMIT;
+		SELECT 'Compra registrada com sucesso!' AS Mensagem;
+	END IF;
+END $$
+DELIMITER ;
+
+#5) Inserir item de compra validando compra existente
+DELIMITER $$
+
+CREATE PROCEDURE inserir_item_compra_condicional(
+	IN p_qtd INT,
+	IN p_valor DECIMAL(10,2),
+	IN p_id_compra INT,
+	IN p_id_instrumento INT
+)
+BEGIN
+	START TRANSACTION;
+	IF (SELECT COUNT(*) FROM compra WHERE id_compra = p_id_compra) = 0 THEN
+		ROLLBACK;
+		SELECT 'Erro: Compra inexistente.' AS Mensagem;
+	ELSEIF (SELECT COUNT(*) FROM instrumento WHERE id_instrumento = p_id_instrumento) = 0 THEN
+		ROLLBACK;
+		SELECT 'Erro: Instrumento inexistente.' AS Mensagem;
+	ELSE
+		INSERT INTO item_compra (quantidade, valor_unitario, id_compra, id_instrumento)
+		VALUES (p_qtd, p_valor, p_id_compra, p_id_instrumento);
+		COMMIT;
+		SELECT 'Item adicionado com sucesso!' AS Mensagem;
+	END IF;
+END $$
+DELIMITER ;
+
+#-------------------------------------------L) CRIANDO TRIGGERS---------------------------------------------------
+#1)Impedir instrumento com valor negativo
+DELIMITER $$
+CREATE TRIGGER trg_instrumento_valor_check
+BEFORE INSERT ON instrumento
+FOR EACH ROW
+BEGIN
+    IF NEW.valor < 0 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Erro: O valor do instrumento não pode ser negativo.';
+    END IF;
+END $$
+DELIMITER ;
+
+#2) tualizar automaticamente o valor_unitário no item_compra
+DELIMITER $$
+CREATE TRIGGER trg_item_compra_preco_auto
+BEFORE INSERT ON item_compra
+FOR EACH ROW
+BEGIN
+    IF NEW.valor_unitario IS NULL THEN
+        SET NEW.valor_unitario = (
+            SELECT valor FROM instrumento 
+            WHERE id_instrumento = NEW.id_instrumento
+        );
+    END IF;
+END $$
+DELIMITER ;
+
+#3) Impedir duplicação de CPF no cliente (proteção extra)
+DELIMITER $$
+CREATE TRIGGER trg_cliente_cpf_unico
+BEFORE INSERT ON cliente
+FOR EACH ROW
+BEGIN
+    IF (SELECT COUNT(*) FROM cliente WHERE cpf = NEW.cpf) > 0 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Erro: CPF já cadastrado.';
+    END IF;
+END $$
+DELIMITER ;
+
+#4) Criar uma encomenda automaticamente ao registrar uma compra
+DELIMITER $$
+CREATE TRIGGER trg_criar_encomenda_auto
+AFTER INSERT ON compra
+FOR EACH ROW
+BEGIN
+    INSERT INTO encomenda (data_encomenda, id_endereco, id_compra)
+    VALUES (
+        NOW(),
+        (SELECT id_endereco FROM endereco 
+         WHERE id_cliente = NEW.id_cliente 
+         ORDER BY id_endereco DESC LIMIT 1),
+        NEW.id_compra
+    );
+END $$
+DELIMITER ;
+
+#5) Impedir duas compras iguais no mesmo dia pelo mesmo cliente
+DELIMITER $$
+CREATE TRIGGER trg_compra_mesmo_dia
+BEFORE INSERT ON compra
+FOR EACH ROW
+BEGIN
+    IF (
+        SELECT COUNT(*) 
+        FROM compra 
+        WHERE id_cliente = NEW.id_cliente
+          AND DATE(data_compra) = DATE(NEW.data_compra)
+          AND forma_pagamento = NEW.forma_pagamento
+    ) > 0 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Erro: Este cliente já fez uma compra com essa forma de pagamento hoje.';
+    END IF;
+END $$
+DELIMITER ;
+
+#------------------------------------M) SELECTS QUE USAM SUBSELECTS------------------------------------------------
+
+#1) Mostrar clientes que já gastaram mais de R$1000
+SELECT primeiro_nome, segundo_nome, cpf
+FROM cliente
+WHERE id_cliente IN (
+    SELECT id_cliente
+    FROM compra
+    WHERE id_compra IN (
+        SELECT id_compra
+        FROM item_compra
+        GROUP BY id_compra
+        HAVING SUM(quantidade * valor_unitario) > 1000
+    )
+);
+
+#2) Mostrar instrumentos mais caros que a média da categoria
+SELECT nome_instrumento, valor, id_categoria
+FROM instrumento
+WHERE valor > (
+    SELECT AVG(valor)
+    FROM instrumento AS i2
+    WHERE i2.id_categoria = instrumento.id_categoria
+);
+
+#3) Mostrar clientes que nunca compraram
+SELECT primeiro_nome, segundo_nome, email
+FROM cliente
+WHERE id_cliente NOT IN (
+    SELECT DISTINCT id_cliente
+    FROM compra
+);
+
+#4) Mostrar última compra de cada cliente
+SELECT primeiro_nome, segundo_nome, 
+       (SELECT MAX(data_compra) 
+        FROM compra 
+        WHERE id_cliente = cliente.id_cliente) AS ultima_compra
+FROM cliente;
+
+#5) Mostrar encomendas com valor total maior que R$500
+SELECT id_encomenda, id_compra, data_encomenda
+FROM encomenda
+WHERE id_compra IN (
+    SELECT id_compra
+    FROM item_compra
+    GROUP BY id_compra
+    HAVING SUM(quantidade * valor_unitario) > 500
+);
+
+#--------------------------------------------N) CRIANDO ÍNDICES----------------------------------------------------
+
+#1 Tabela cliente – Índice em nome e cpf
+-- Índice para CPF (único, mas melhora performance de busca)
+CREATE INDEX idx_cliente_cpf ON cliente(cpf);
+
+-- Índice para primeiro_nome e segundo_nome (pesquisa por nome completo)
+CREATE INDEX idx_cliente_nome ON cliente(primeiro_nome, segundo_nome);
+
+#2) Tabela categoria – Índice em categoria
+CREATE INDEX idx_categoria_nome ON categoria(categoria);
+
+#3) Tabela instrumento – Índice em nome_instrumento e id_categoria
+CREATE INDEX idx_instrumento_nome ON instrumento(nome_instrumento);
+CREATE INDEX idx_instrumento_categoria ON instrumento(id_categoria);
+
+#4) Tabela compra – Índice em id_cliente e data_compra
+CREATE INDEX idx_compra_cliente ON compra(id_cliente);
+CREATE INDEX idx_compra_data ON compra(data_compra);
+
+#5) Tabela item_compra – Índice em id_compra e id_instrumento
+CREATE INDEX idx_item_compra_compra ON item_compra(id_compra);
+CREATE INDEX idx_item_compra_instrumento ON item_compra(id_instrumento);
+
+#6) Tabela endereco – Índice em id_cliente e cep
+CREATE INDEX idx_endereco_cliente ON endereco(id_cliente);
+CREATE INDEX idx_endereco_cep ON endereco(cep);
+
+#7) Tabela encomenda – Índice em id_compra e id_endereco
+CREATE INDEX idx_encomenda_compra ON encomenda(id_compra);
+CREATE INDEX idx_encomenda_endereco ON encomenda(id_endereco);
