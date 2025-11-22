@@ -369,7 +369,7 @@
 
         // Carregar endereços do usuário (AJAX)
         function carregarEnderecos() {
-            fetch("Database/buscar_enderecos.php")
+            fetch("Database/buscarEnderecos.php")
             .then(r => r.json())
             .then(dados => {
                 const select = document.getElementById("select-endereco");

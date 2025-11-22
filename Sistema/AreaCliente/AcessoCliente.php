@@ -388,8 +388,6 @@
 
 
 
-
-
                 function configurarVerEndereco() {
                     const select = document.getElementById("selectVerEndereco");
                     const lista = document.getElementById("listaEndereco");

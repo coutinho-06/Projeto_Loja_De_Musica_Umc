@@ -375,7 +375,7 @@ div.carrosselCardCategoria{
 
     }
     select{
-        width: 9.5rem;
+        width: 11.5rem;
         text-align: center;
         outline: none; /* tirar borda padrão do input */
         height: 1.8rem;
