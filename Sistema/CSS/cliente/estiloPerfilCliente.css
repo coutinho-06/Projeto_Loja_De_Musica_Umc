@@ -409,10 +409,8 @@ form{
 
 /* 1560px */
 @media (max-width: 1450px) {
-    .caixaInfo{background-color: #3f312e;}
-
+    
     .containerSuperior .nomeCliente{
-        background-color: var(--cor-terciaria);
         margin-left: 2rem;
     }
 
@@ -424,10 +422,8 @@ form{
 
 /* 1000px */
 @media (max-width: 1168px) {
-    .caixaInfo{background-color: var(--cor-terciaria)}
-
+   
     .containerSuperior .nomeCliente{
-        background-color: var(--cor-terciaria);
         margin-left: 2.5rem;
     }
     .caixaInfo{
@@ -486,7 +482,6 @@ form{
 /* 890px */
 @media (max-width: 890px) {
     .containerSuperior .nomeCliente{
-        background-color: var(--cor-primaria);
         margin-left: 4rem;
     }
     .linhaBtns{ 
@@ -503,7 +498,6 @@ form{
 
 @media (max-width: 760px) {
     .containerSuperior .nomeCliente{
-        background-color: pink;
         margin-left: 5rem;
     }
 
@@ -512,13 +506,13 @@ form{
         height: 98%;
     }
        
-    }
+    
 
     .linhaBtns{ 
         gap: 1.5rem;
     }
     .btn{
-        gap: 0.8rem;
+       
         height: 60%;
 
         
@@ -545,4 +539,31 @@ form{
             
         }
     }
+}
 
+
+@media (max-width: 610px) {
+    .containerSuperior .nomeCliente{
+        margin-left: 6rem;
+    }
+
+    section{
+        height: 70rem;
+    }
+    .caixaInfo{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 30rem;
+    }
+    .infosClientes{
+        justify-content: center;
+        height: 60%;
+        width: 95%;
+        padding-top: 1rem;
+    }
+    .espacoendereco{
+        height: 40%;
+        padding-top: 1rem;
+    }
+}
