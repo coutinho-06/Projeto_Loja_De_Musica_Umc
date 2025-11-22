@@ -57,6 +57,7 @@ CREATE TABLE IF NOT EXISTS compra (
     data_compra DATETIME,
     id_instrumento INT,
     id_cliente INT,
+    status_compra ENUM('pendente','atendido') NOT NULL DEFAULT 'pendente',
     CONSTRAINT fk_compra_instrumento FOREIGN KEY (id_instrumento) REFERENCES instrumento(id_instrumento)
         ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_compra_cliente FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente)
