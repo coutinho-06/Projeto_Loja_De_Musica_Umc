@@ -1,84 +1,92 @@
-#CRIANDO O BANCO DE DADOS
+#---------------------------------------------
+# CRIANDO O BANCO DE DADOS
+#---------------------------------------------
+CREATE DATABASE IF NOT EXISTS groovesound;
+USE groovesound;
+#DROP DATABASE groovesound;
 
-create database groovesound;
+#---------------------------------------------
+# TABELAS
+#---------------------------------------------
 
-#USANDO O BANCO DE DADOS
-use groovesound;
-
-#APAGAGANDO O BANCO DE DADOS
-#drop database groovesound;
-
-#CRIANDO, ALTERANDO E APAGANDO TABELAS
-create table categoria (
-	id_categoria int primary key auto_increment,
-    categoria varchar(50)
+# --- Categoria ---
+CREATE TABLE IF NOT EXISTS categoria (
+    id_categoria INT PRIMARY KEY AUTO_INCREMENT,
+    categoria VARCHAR(50)
 );
-#drop table categoria;
 
-create table instrumento (
-	id_instrumento int primary key auto_increment,
-    imagem_instrumento varchar(250),
-    nome_instrumento varchar(100),
-    valor decimal(10,2),
-    id_categoria int,
-    constraint fk_id_categoria foreign key (id_categoria) references categoria (id_categoria)
+# --- Instrumento ---
+CREATE TABLE IF NOT EXISTS instrumento (
+    id_instrumento INT PRIMARY KEY AUTO_INCREMENT,
+    imagem_instrumento VARCHAR(250),
+    nome_instrumento VARCHAR(100),
+    valor DECIMAL(10,2),
+    id_categoria INT,
+    CONSTRAINT fk_instrumento_categoria FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria)
+        ON DELETE CASCADE ON UPDATE CASCADE
 );
-#drop table instrumento;
 
-create table cliente (
-	id_cliente int primary key auto_increment,
-    imagem_cliente varchar(250),
-    primeiro_nome varchar(100) not null,
-    segundo_nome varchar(100) not null,
-    data_nascimento date not null,
-    cpf varchar(11) not null unique,
-    email varchar(50) not null unique,
-    senha varchar(8) not null,
-    telefone varchar(11) not null unique
+# --- Cliente ---
+CREATE TABLE IF NOT EXISTS cliente (
+    id_cliente INT PRIMARY KEY AUTO_INCREMENT,
+    imagem_cliente VARCHAR(250),
+    primeiro_nome VARCHAR(100) NOT NULL,
+    segundo_nome VARCHAR(100) NOT NULL,
+    data_nascimento DATE NOT NULL,
+    cpf VARCHAR(11) NOT NULL UNIQUE,
+    email VARCHAR(50) NOT NULL UNIQUE,
+    senha VARCHAR(8) NOT NULL,
+    telefone VARCHAR(11) NOT NULL UNIQUE
 );
-#drop table cliente;
 
-create table compra (
-	id_compra int primary key auto_increment,
-    forma_pagamento enum('Crédito', 'Débito', 'Pix', 'Boleto'),
-    data_compra datetime,
-    id_instrumento int,
-    id_cliente int,
-    constraint fk_id_instrumento foreign key (id_instrumento) references instrumento (id_instrumento),
-    constraint fk_id_cliente foreign key (id_cliente) references cliente (id_cliente)
+# --- Endereço ---
+CREATE TABLE IF NOT EXISTS endereco (
+    id_endereco INT PRIMARY KEY AUTO_INCREMENT,
+    estado VARCHAR(30),
+    cep CHAR(8),
+    numero VARCHAR(6),
+    id_cliente INT,
+    CONSTRAINT fk_endereco_cliente FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente)
+        ON DELETE CASCADE ON UPDATE CASCADE
 );
-#drop table compra;
 
-create table item_compra (
-	id_item int primary key auto_increment,
-    quantidade int not null,
-    valor_unitario decimal(10,2) not null,
-    id_compra int,
-    id_instrumento int,
-    constraint fk_id_compra foreign key (id_compra) references compra (id_compra),
-    constraint fk_id_instrumento_item foreign key (id_instrumento) references instrumento (id_instrumento)
+# --- Compra ---
+CREATE TABLE IF NOT EXISTS compra (
+    id_compra INT PRIMARY KEY AUTO_INCREMENT,
+    forma_pagamento ENUM('Crédito','Débito','Pix','Boleto'),
+    data_compra DATETIME,
+    id_instrumento INT,
+    id_cliente INT,
+    CONSTRAINT fk_compra_instrumento FOREIGN KEY (id_instrumento) REFERENCES instrumento(id_instrumento)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_compra_cliente FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente)
+        ON DELETE CASCADE ON UPDATE CASCADE
 );
-#drop table item_compra;
 
-create table endereco (
-	id_endereco int primary key auto_increment,
-    estado varchar(30),
-    cep char(8),
-    numero varchar(6),
-    id_cliente int,
-    constraint fk_id_cliente_endereco foreign key (id_cliente) references cliente (id_cliente)
+# --- Item de Compra ---
+CREATE TABLE IF NOT EXISTS item_compra (
+    id_item INT PRIMARY KEY AUTO_INCREMENT,
+    quantidade INT NOT NULL,
+    valor_unitario DECIMAL(10,2) NOT NULL,
+    id_compra INT,
+    id_instrumento INT,
+    CONSTRAINT fk_item_compra_compra FOREIGN KEY (id_compra) REFERENCES compra(id_compra)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_item_compra_instrumento FOREIGN KEY (id_instrumento) REFERENCES instrumento(id_instrumento)
+        ON DELETE CASCADE ON UPDATE CASCADE
 );
-#drop table endereco;
 
-create table encomenda (
-	id_encomenda int primary key auto_increment,
-    data_encomenda datetime,
-    id_endereco int,
-    id_compra int,
-    constraint fk_id_endereco foreign key (id_endereco) references endereco (id_endereco),
-    constraint fk_id_compra_encomenda foreign key (id_compra) references compra (id_compra)
+# --- Encomenda ---
+CREATE TABLE IF NOT EXISTS encomenda (
+    id_encomenda INT PRIMARY KEY AUTO_INCREMENT,
+    data_encomenda DATETIME,
+    id_endereco INT,
+    id_compra INT,
+    CONSTRAINT fk_encomenda_endereco FOREIGN KEY (id_endereco) REFERENCES endereco(id_endereco)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_encomenda_compra FOREIGN KEY (id_compra) REFERENCES compra(id_compra)
+        ON DELETE CASCADE ON UPDATE CASCADE
 );
-#drop table encomenda;
 
 #INSERINDO DADOS
 # --- Categorias ---
@@ -847,3 +855,5 @@ CREATE INDEX idx_endereco_cep ON endereco(cep);
 #7) Tabela encomenda – Índice em id_compra e id_endereco
 CREATE INDEX idx_encomenda_compra ON encomenda(id_compra);
 CREATE INDEX idx_encomenda_endereco ON encomenda(id_endereco);
+
+
