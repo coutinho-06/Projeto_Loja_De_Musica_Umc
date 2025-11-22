@@ -47,6 +47,10 @@ section{
             border: 3px solid var(--cor-primaria);
             z-index: 2; /* Esta div estará sobre a imagem */
             transform: translate(20%, 25%);
+            &:hover{
+                cursor: pointer;
+                
+            }
         }
         
     }
@@ -404,8 +408,141 @@ form{
 
 
 /* 1560px */
-@media (max-width: 1560px) {
-    
+@media (max-width: 1450px) {
+    .caixaInfo{background-color: #3f312e;}
+
+    .containerSuperior .nomeCliente{
+        background-color: var(--cor-terciaria);
+        margin-left: 2rem;
+    }
+
+    .caixaInfo{
+        width: 60%;
+    }
+
 }
 
+/* 1000px */
+@media (max-width: 1168px) {
+    .caixaInfo{background-color: var(--cor-terciaria)}
+
+    .containerSuperior .nomeCliente{
+        background-color: var(--cor-terciaria);
+        margin-left: 2.5rem;
+    }
+    .caixaInfo{
+        width: 65%;
+    }
+
+
+        
+    .linhaBtns{ 
+        gap: 4rem;
+    }
+    .btn{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+        height: 50%;
+
+    }
+}
+
+
+/* 1000px */
+@media (max-width: 1000px) {
+    
+    .containerSuperior{
+        justify-content: flex-start;
+    }
+        
+    .containerSuperior .nomeCliente{
+        margin-left: 4rem;
+        width: 35%;
+        align-items: center;
+    }
+    .caixaInfo{
+        width: 80%;
+    }
+
+    .infosClientes{
+        margin-left: 3rem;
+    }
+    
+
+    .imgPerfil{
+        align-items: center;
+        width: 30%; 
+        img{
+            width: 180px;
+            height: 180px;
+        }
+    }
+
+}
+
+
+/* 890px */
+@media (max-width: 890px) {
+    .containerSuperior .nomeCliente{
+        background-color: var(--cor-primaria);
+        margin-left: 4rem;
+    }
+    .linhaBtns{ 
+        gap: 2rem;
+    }
+    .btn{
+        gap: 0.8rem;
+        height: 50%;
+
+    }
+}
+
+
+
+@media (max-width: 760px) {
+    .containerSuperior .nomeCliente{
+        background-color: pink;
+        margin-left: 5rem;
+    }
+
+    .caixaInfo{
+        width: 90%;
+        height: 98%;
+    }
+       
+    }
+
+    .linhaBtns{ 
+        gap: 1.5rem;
+    }
+    .btn{
+        gap: 0.8rem;
+        height: 60%;
+
+        
+        button{
+            width: 3.8rem;
+            height: 3.1rem;
+            border-radius: 0.5rem;
+            border: 2px solid var(--cor-primaria);
+            box-shadow: 2px 2px 2px #6c0a0a9f;
+            background-color: #fff;
+            cursor: pointer;
+
+        }
+        i{
+            font-size: 1.2rem;    
+
+        }
+        p{
+            text-align: center;
+            font-family: "Montserrat", sans-serif;
+            color: var(--cor-primaria);
+            font-size: 0.8rem;
+            font-weight: 500;
+            
+        }
+    }
 
