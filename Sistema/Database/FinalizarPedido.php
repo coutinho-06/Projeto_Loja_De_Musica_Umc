@@ -1,5 +1,6 @@
 <?php
     include "conexao.php";
+    include "Classes/Pedido.php";
 
     $id_cliente = $_COOKIE["id_cliente"];
     $id_instrumento = $_POST["produto_id"];
@@ -7,6 +8,14 @@
     $pagamento = $_POST["pagamento"];
     $id_endereco = $_POST["endereco"];
     $data = date("Y-m-d H:i:s");
+
+    $pedido = new Pedido($id_instrumento, $quantidade, $pagamento, $id_endereco);
+
+    $id_instrumento = $pedido->getIdInstrumento();
+    $quantidade = $pedido->getQuantidade();
+    $pagamento = $pedido->getFormaPagamento();
+    $id_endereco = $pedido->getIdEndereco();
+
 
     // 1 — PEGAR VALOR DO PRODUTO
     $sqlValor = "SELECT valor FROM instrumento WHERE id_instrumento = $id_instrumento";
