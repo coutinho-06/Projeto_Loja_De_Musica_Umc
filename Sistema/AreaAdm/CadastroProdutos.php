@@ -54,7 +54,10 @@
                 </ul>
             </div>
             <div class="saidaAdm">
-                <a href="../TelaLoginAdm.php">SAIR</a>
+                <a href="../TelaLoginAdm.php">
+                    <i class="fa-solid fa-door-closed" style="color: #ffffff;"></i>
+                    SAIR
+                </a>
             </div>
         </nav>
 
@@ -263,7 +266,7 @@
 </script>
 
 
-
+<script src="https://kit.fontawesome.com/ef7e10212e.js" crossorigin="anonymous"></script>
 
 </body>
 </html>

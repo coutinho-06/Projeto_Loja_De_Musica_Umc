@@ -58,8 +58,11 @@ if (!$result) {
             </ul>
         </div>
         <div class="saidaAdm">
-            <a href="../TelaLoginAdm.php">SAIR</a>
-        </div>
+                <a href="../TelaLoginAdm.php">
+                    <i class="fa-solid fa-door-closed" style="color: #ffffff;"></i>
+                    SAIR
+                </a>
+            </div>
     </nav>
 
     <div class="containerParteDados">
@@ -128,5 +131,8 @@ document.querySelectorAll(".btnOk").forEach(btn => {
     });
 });
 </script>
+
+
+<script src="https://kit.fontawesome.com/ef7e10212e.js" crossorigin="anonymous"></script>
 </body>
 </html>

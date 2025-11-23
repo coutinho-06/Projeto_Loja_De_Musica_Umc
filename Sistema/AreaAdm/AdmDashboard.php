@@ -44,6 +44,15 @@
     $resultado = mysqli_query($conn, $total_de_produtos);
     $resultado = mysqli_fetch_assoc($resultado);
 
+    $total_de_categorias = "SELECT COUNT(*) FROM categoria;";
+    $resultado_categoria = mysqli_query($conn, $total_de_categorias);
+    $resultado_categoria = mysqli_fetch_assoc($resultado_categoria);
+
+    
+    $total_de_cliente = "SELECT COUNT(*) FROM cliente;";
+    $resultado_cliente = mysqli_query($conn,  $total_de_cliente);
+    $resultado_cliente = mysqli_fetch_assoc( $resultado_cliente);
+
     $total_de_produtos_pendentes = "SELECT COUNT(*) FROM compra WHERE status_compra = 'pendente';";
     $resultado_pendentes = mysqli_query($conn, $total_de_produtos_pendentes);
     $resultado_pendentes = mysqli_fetch_assoc($resultado_pendentes);
@@ -105,6 +114,22 @@
                     </div>
                     <div class="cards">
                         <div class="titulo">
+                            <p>Total de Categorias</p>
+                        </div>
+                        <div class="caixa">
+                            <h2><?php print_r($resultado_categoria['COUNT(*)']); ?></h2>  <!--colocar o dados aqui !! -->
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="titulo">
+                            <p>Total de Clientes</p>
+                        </div>
+                        <div class="caixa">
+                            <h2><?php print_r($resultado_cliente['COUNT(*)']); ?></h2>  <!--colocar o dados aqui !! -->
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="titulo">
                             <p>Total de Pedidos</p>
                         </div>
                         <div class="caixa">
@@ -119,6 +144,7 @@
                             <h2><?php print_r($resultado_atendidos['COUNT(*)']); ?></h2>  <!--colocar o dados aqui !! -->
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>

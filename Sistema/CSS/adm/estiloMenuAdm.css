@@ -9,6 +9,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 section{
@@ -25,8 +26,8 @@ nav{
     justify-content: center;
     height: 100%;
     width: 25%;
-    
     background-color: #6C0A0A;
+    
 }
 .saudacaoAdm{
     display: flex;
@@ -121,4 +122,151 @@ a:hover
 
 
 
+/* ========================================================== */
+/* ==================== RESPONSIVIDADE ====================== */
+/* ========================================================== */
+
+
+
+/* 1360px */
+@media (max-width: 1360px) {
+
+    .containerLinksNavegacao{
+        font-size: 1.2rem;
+    }
+
+}
+
+
+
+/* 1000px */
+@media (max-width: 990px) {
+    section{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .saudacaoAdm{
+        height: 100%;
+        padding-left: 0;
+        justify-content: flex-start;
+        width: 10%;
+
+       h1{
+            font-size: 1rem;
+            width: 100%;
+       }
+
+    }
+    nav{
+        transition: all 0.3s  ease;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 90%; 
+        height: 9%;
+        border-radius: 0.3rem;
+        border: 2px solid var(--cor-primaria);
+        margin-bottom: 1rem;
+    }
+    .containerLinksNavegacao{
+        flex-direction: row;
+        font-size: 0.9rem;
+        width: 65%;
+        height: 100%;
+        
+    
+   
+        ul{
+            height: 100%;
+            width: 100%;
+        
+            
+        }
+        li{
+            height: 100%;
+            flex-direction: row;
+            justify-content: center;
+           
+            
+            
+        }
+        a{
+            height: auto;
+            padding: 1.3rem 0.6rem 0rem 0.6rem;
+            
+        
+        }
+    }
+
+    .saidaAdm{
+        height: 3rem;
+        width: 15%;
+
+        a{
+            padding: 0;
+            font-size: 1rem;
+            height: 2rem;
+            text-align: center;
+        }
+    }
+
+}
+
+
+/* 890px */
+@media (max-width: 890px) {
+    nav{
+        width: 95%;
+    }
+    .saudacaoAdm{
+        display: none;
+    }
+    .containerLinksNavegacao{
+        width: 75%;
+   
+    }
+
+
+}
+
+
+@media (max-width: 710px) {
+    nav{
+        width: 100%;
+        border-radius: 0;
+    }
+    .containerLinksNavegacao{
+        width: 90%;
+        font-size: 0.8rem;
+    }
+    .saidaAdm a{
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 610px) {
+    nav{
+        margin: 0;
+        padding: 0;
+
+    }
+    .containerLinksNavegacao{
+        width: 85%;
+        font-size: 0.6rem;
+
+        a{
+             padding: 1.3rem 0.4rem 0rem 0.4rem;
+        }
+    }
+    .saidaAdm{
+        padding-top: 0.6rem;
+        align-items: center;
+        height: 100%;
+        width: 10%;
+
+       a{
+        width: 100%;
+       }
+    }
+}
 
