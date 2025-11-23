@@ -126,25 +126,6 @@
             }
 
 
-
-
-            // $enderecos = [];
-
-            // // pega TODOS os endereços do cliente
-            // $sqlEnd = "SELECT * FROM endereco WHERE id_cliente = $id ORDER BY id_endereco ASC LIMIT 3";
-            // $resEnd = mysqli_query($conn, $sqlEnd);
-
-            // while ($row = mysqli_fetch_assoc($resEnd)) {
-            //     $enderecos[] = $row;
-            // }
-
-            // // garante que existam 3 posições
-            // for ($i = 0; $i < 3; $i++) {
-            //     if (!isset($enderecos[$i])) {
-            //         $enderecos[$i] = null; // endereço vazio
-            //     }
-            // }
-
                 
         ?>
 
@@ -154,7 +135,7 @@
 
             </div>
             <div class="imgPerfil">
-                <img src="../IMG/cleinte.png" alt="">
+                <img src="../IMG/Logos/logo-img-vinho.png" alt="">
             </div>
             <div class="nomeCliente">
                 <h2><?php print_r($result['Cliente'] . " " . $result['Sobrenome']); ?></h2>
@@ -247,6 +228,12 @@
                                 <input type="password" id="confirSenha" name="confirSenha">
                             </div>
 
+                            <?php  
+                                if (isset($_GET['erroMsg'])) {
+                                    echo "<div class='erroMsg'>" . $_GET['erroMsg'] . "</div>";
+                                }
+                            ?>
+
                             <div class="caixabtn">
                                 <button class="btnModalAtualizar" type="submit" onclick="" href="">ATUALIZAR</button>
                             </div>
@@ -270,7 +257,7 @@
                                     <option value="terceiro_endereco">3° Endereço</option>
                                 </select>
 
-                                <div class="caixaForm">
+                                <div class="caixaForm-e">
                                     <label>Número da Residência:</label>
                                     <input type="number" id="numR" name="numR">
 
@@ -278,7 +265,7 @@
                                     <input type="text" id="cep" name="cep">
 
                                     <label>Estado:</label>
-                                    <select id="estado" name="estado">
+                                    <select id="estado" name="estado" required>
                                         <option value="" disabled selected>Selecione</option>
                                         <option value="AC">AC</option>
                                         <option value="AL">AL</option>
@@ -310,6 +297,11 @@
                                     </select>
                                 </div>
 
+                                <?php  
+                                    if (isset($_GET['erroMsg'])) {
+                                        echo "<div class='erroMsg'>" . $_GET['erroMsg'] . "</div>";
+                                    }
+                                ?>
                                 <div class="caixabtn">
                                     <button class="btnModalAtualizar" type="submit">ATUALIZAR</button>
                                 </div>
@@ -325,7 +317,7 @@
                     case 'pedidos':
                         titulo.textContent = 'Seus Pedidos';
                         conteudo.innerHTML = `
-                            <div id="listaPedidos" style="text-align:left; padding: 20px;"></div>
+                            <div id="listaPedidos"></div>
                             <button class="btnModalFechar" onclick="fecharModal()">Fechar</button>
                         `;
 
@@ -465,6 +457,25 @@
                         });
                 }
 
+
+
+
+
+
+
+                    
+            document.addEventListener("DOMContentLoaded", function() {
+                const urlParams = new URLSearchParams(window.location.search);
+
+                if (urlParams.has("erroMsg")) {
+                    // abre diretamente o modal de perfil
+                    abrirModal("perfil");
+
+                    // remove erroMsg da URL sem recarregar a página
+                    const novaURL = window.location.pathname;
+                    window.history.replaceState({}, document.title, novaURL);
+                }
+            });
 
 
             </script>

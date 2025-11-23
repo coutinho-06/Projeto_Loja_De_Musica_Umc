@@ -66,8 +66,6 @@
             alert('Cadastro realizado com sucesso!');
             window.location.href = '../TelaFormularioLogin.php';
         </script>";
-
-        
         
 
     }else {

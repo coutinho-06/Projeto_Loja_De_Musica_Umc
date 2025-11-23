@@ -41,42 +41,43 @@
         $campos[] = "email = '$email'";
     }
 
-    #Validação de senha
+
+    # Validação de senha
     $senha = $_POST['senha'] ?? "";
     $confSenha = $_POST['confirSenha'] ?? "";
 
     if (!empty($senha) || !empty($confSenha)) {
 
-        # Se um dos dois está vazio: erro
         if (empty($senha) || empty($confSenha)) {
-            die("Preencha senha e confirmação.");
+            header("Location: ../AreaCliente/AcessoCliente.php?erroMsg=Preencha senha e confirmação");
+            exit;
         }
 
-        # Se são diferentes
         if ($senha !== $confSenha) {
-            die("Senhas não coincidem.");
+            header("Location: ../AreaCliente/AcessoCliente.php?erroMsg=Senhas não coincidem");
+            exit;
         }
 
         $campos[] = "senha = '$senha'";
     }
 
-    #Verificando se algum campo foi alterado
+    #Nenhum campo foi alterado
     if (count($campos) == 0) {
-        die("Nenhum campo foi alterado.");
+        header("Location: ../AreaCliente/AcessoCliente.php?erroMsg=Nenhum campo alterado");
+        exit;
     }
 
-    #Preparando os dados pra enviar pro SQL
     $set = implode(", ", $campos);
 
-    #Update Dinâmico
     $sql = "UPDATE cliente SET $set WHERE id_cliente = $id";
 
     if (mysqli_query($conn, $sql)) {
         echo "<script>
-            alert('Alteração realizada com sucesso!');
-            window.location.href = 'AcessoCliente.php';
-        </script>";
+                alert('Alteração realizada com sucesso!');
+                window.location.href = '../AreaCliente/AcessoCliente.php';
+            </script>";
     } else {
-        die("Erro ao atualizar: " . mysqli_error($conn));
+        header("Location: ../AreaCliente/AcessoCliente.php?erroMsg=Erro ao atualizar: " . mysqli_error($conn));
+        exit;
     }
 ?>
