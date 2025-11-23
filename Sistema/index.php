@@ -293,7 +293,7 @@
 
             <h2>Finalizar Pedido</h2>
 
-            <form action="FinalizarPedido.php" method="POST">
+            <form action="Database/FinalizarPedido.php" method="POST">
 
                 <input type="hidden" name="produto_id" id="pedido-id">
 
@@ -306,9 +306,11 @@
                     <label>Forma de Pagamento:</label>
                     <select name="pagamento" required>
                         <option value="">Selecione</option>
-                        <option>Pix</option>
-                        <option>Cartão de Crédito</option>
-                        <option>Boleto</option>
+                        <option value="Pix">Pix</option>
+                        <option value="Crédito">Crédito</option>
+                        <option value="Débito">Débito</option>
+                        <option value="Boleto">Boleto</option>
+
                     </select>
                 </div>
 
@@ -320,6 +322,11 @@
                 </div>
 
                 <button type="submit" class="btnConfirmar">Confirmar Pedido</button>
+                <?php if (isset($_GET['pedido']) && $_GET['pedido'] === 'sucesso'): ?>
+                    <script>
+                        alert("Pedido finalizado com sucesso!");
+                    </script>
+                <?php endif; ?>
             </form>
 
         </div>

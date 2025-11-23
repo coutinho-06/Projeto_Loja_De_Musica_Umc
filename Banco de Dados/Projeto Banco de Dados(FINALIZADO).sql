@@ -53,14 +53,23 @@ CREATE TABLE IF NOT EXISTS endereco (
 # --- Compra ---
 CREATE TABLE IF NOT EXISTS compra (
     id_compra INT PRIMARY KEY AUTO_INCREMENT,
-    forma_pagamento ENUM('Crédito','Débito','Pix','Boleto'),
-    data_compra DATETIME,
-    id_instrumento INT,
-    id_cliente INT,
+    forma_pagamento ENUM('Crédito','Débito','Pix','Boleto') NOT NULL,
+    data_compra DATETIME DEFAULT CURRENT_TIMESTAMP,
+    id_instrumento INT NOT NULL,
+    id_cliente INT NOT NULL,
+    id_endereco INT NOT NULL,
     status_compra ENUM('pendente','atendido') NOT NULL DEFAULT 'pendente',
-    CONSTRAINT fk_compra_instrumento FOREIGN KEY (id_instrumento) REFERENCES instrumento(id_instrumento)
+
+    CONSTRAINT fk_compra_instrumento FOREIGN KEY (id_instrumento)
+        REFERENCES instrumento(id_instrumento)
         ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT fk_compra_cliente FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente)
+
+    CONSTRAINT fk_compra_cliente FOREIGN KEY (id_cliente)
+        REFERENCES cliente(id_cliente)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+
+    CONSTRAINT fk_compra_endereco FOREIGN KEY (id_endereco)
+        REFERENCES endereco(id_endereco)
         ON DELETE CASCADE ON UPDATE CASCADE
 );
 

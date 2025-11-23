@@ -323,11 +323,13 @@
 
 
                     case 'pedidos':
-                    titulo.textContent = 'Seus Pedidos';
-                    conteudo.innerHTML = `
-                        <p>Histórico de compras do cliente...</p>
-                        <button class="btnModalFechar" onclick="fecharModal()">Fechar</button>
-                    `;
+                        titulo.textContent = 'Seus Pedidos';
+                        conteudo.innerHTML = `
+                            <div id="listaPedidos" style="text-align:left; padding: 20px;"></div>
+                            <button class="btnModalFechar" onclick="fecharModal()">Fechar</button>
+                        `;
+
+                        setTimeout(carregarPedidos, 50); // 🔥 ADICIONA ISSO
                     break;
 
                     case 'deletar':
@@ -432,6 +434,35 @@
                             document.getElementById('estado').value = "";
                         }
                     };
+                }
+
+                function carregarPedidos() {
+                    fetch("buscarPedidos.php")
+                        .then(res => res.json())
+                        .then(pedidos => {
+                            let div = document.getElementById("listaPedidos");
+                            div.innerHTML = "";
+
+                            if (pedidos.length === 0) {
+                                div.innerHTML = "<p>Nenhum pedido encontrado.</p>";
+                                return;
+                            }
+
+                            pedidos.forEach(p => {
+                                div.innerHTML += `
+                                    <div class="pedido-item">
+                                        <h3>Pedido #${p.id_compra}</h3>
+                                        <p><b>Produto:</b> ${p.nome_instrumento}</p>
+                                        <p><b>Quantidade:</b> ${p.quantidade}</p>
+                                        <p><b>Valor unitário:</b> R$ ${p.valor_unitario}</p>
+                                        <p><b>Pagamento:</b> ${p.forma_pagamento}</p>
+                                        <p><b>Status:</b> ${p.status_compra}</p>
+                                        <p><b>Data:</b> ${p.data_compra}</p>
+                                        <hr>
+                                    </div>
+                                `;
+                            });
+                        });
                 }
 
 

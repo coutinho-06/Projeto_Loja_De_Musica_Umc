@@ -1,5 +1,5 @@
 <?php
-    include "Database/conexao.php";
+    include "conexao.php";
 
     $id_cliente = $_COOKIE["id_cliente"];
     $id_instrumento = $_POST["produto_id"];
@@ -16,8 +16,8 @@
 
     // 2 — INSERIR NA TABELA COMPRA
     $sqlCompra = "
-        INSERT INTO compra (forma_pagamento, data_compra, id_instrumento, id_cliente)
-        VALUES ('$pagamento', '$data', $id_instrumento, $id_cliente)
+        INSERT INTO compra (forma_pagamento, data_compra, id_instrumento, id_cliente, id_endereco)
+        VALUES ('$pagamento', '$data', $id_instrumento, $id_cliente, $id_endereco)
     ";
 
     mysqli_query($conn, $sqlCompra);
@@ -28,13 +28,13 @@
     // 3 — INSERIR NA TABELA ITEM_COMPRA
     $sqlItem = "
         INSERT INTO item_compra (quantidade, valor_unitario, id_compra, id_instrumento)
-        VALUES ($quantidade, $valor_unitario, $id_compra, $id_instrumento)
+        VALUES ($quantidade, '$valor_unitario', $id_compra, $id_instrumento)
     ";
 
     mysqli_query($conn, $sqlItem);
 
     // redirecionar
-    header("Location: Cliente/AcessoCliente.php?pedido=sucesso");
+    header("Location: ../index.php?pedido=sucesso");
     exit;
 
 ?>

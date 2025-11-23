@@ -241,36 +241,6 @@ section{
 } 
 
 
-#modal-content
-{
-    display: flex;
-    flex-direction: column;
-    width: 50rem;
-    justify-content: center;
-    align-items: center;
-    gap: 2.5rem;
-
-    color: var(--cor-primaria);
-    font-family: "Montserrat", sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-
-    p{
-    
-        font-size: 1.4rem;
-        color: var(--cor-primaria);
-        font-variant: small-caps;
-        text-align: center ;
-        padding: 1rem;
-        font-family: "Montserrat", sans-serif;
-    }
-
-
-
-}
-
-
-
 .btnModalFechar{
     border-radius: 0.2rem;
     border: 2px solid var(--cor-primaria);
@@ -566,4 +536,44 @@ form{
         height: 40%;
         padding-top: 1rem;
     }
+}
+
+.pedido-item {
+    background: #f1f1f1;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-left: 4px solid #6c0a0a;
+    border-radius: 6px;
+}
+
+.pedido-item h3 {
+    margin: 0 0 8px;
+}
+
+#listaPedidos hr {
+    margin: 12px 0;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+#modal {
+    width: 450px !important;        /* deixa bem mais estreito */
+    max-height: 70vh !important;    /* impede de ficar gigante */
+    overflow-y: auto !important;    /* adiciona rolagem dentro do modal */
+    padding: 20px;
+}
+
+#modal-content {
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    max-width: 380px !important;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+
+    color: var(--cor-primaria);
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
 }
