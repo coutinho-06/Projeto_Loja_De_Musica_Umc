@@ -111,8 +111,10 @@
                 <div class="modal-content">
                     <h2 id="tituloCategoria"></h2>
 
-                    <button id="btnEditar">Editar</button>
-                    <button id="btnExcluir" class="btnExcluir">Excluir</button>
+                    <div class="bts">
+                        <button id="btnEditar">Editar</button>
+                        <button id="btnExcluir" class="btnExcluir">Excluir</button>
+                    </div>
                     <button onclick="fecharModais()">Fechar</button>
                 </div>
             </div>
@@ -145,8 +147,10 @@
                         <input type="hidden" id="excluir-id" name="id">
 
                         <button type="submit" class="btnExcluir">Excluir</button>
-                        <button type="button" onclick="fecharModais()">Cancelar</button>
+
                     </form>
+                    <button type="button" onclick="fecharModais()">Cancelar</button>
+                
                 </div>
             </div>
 
