@@ -89,3 +89,128 @@ td button{
     transition: all 0.5s ease-in-out;
 
 }
+
+
+
+
+
+/* ========================================================== */
+/* ==================== RESPONSIVIDADE ====================== */
+/* ========================================================== */
+
+
+/* 1360px */
+@media (max-width: 1500px) {
+    .containerSuperior h1{
+        font-size: 3rem;
+    }
+
+    .containerInferior{
+        margin-left: 1rem;
+    }
+}
+
+/* 1360px */
+@media (max-width: 1360px) {
+    .containerSuperior h1{
+        font-size: 2.8rem;
+    }
+
+    .caixaForm{
+        width: 45%;
+
+    }
+    
+    form{
+        width: 90%;
+        label{
+        width: 70%;
+        }
+        input{
+        width: 14rem;
+        }
+    }
+    .caixaSelect{
+        width: 55%;
+    }
+
+    button{
+        width: 55%;
+    }
+}
+
+@media (max-width: 990px) {
+    .containerSuperior {
+        justify-content: center;
+        h1{
+            font-size: 2.6rem;
+        }
+    }
+    .caixaSelect{
+        margin-left: 1.5rem;
+    }
+
+    table{
+        width: 50%;
+    }
+    .tabela-scroll{
+        width: 90%;
+    }
+        
+    th.colId{
+        width: 15%;
+        height: 2.5rem;
+        
+    }
+}
+@media (max-width: 780px) {
+    .containerSuperior {
+        justify-content: center;
+        margin-left: 2.5rem;
+        h1{
+            font-size: 2rem;
+        }
+    }
+    .containerInferior{
+        flex-direction: column;
+        height: 90%;
+    }
+    .caixaForm{
+        height: 30%;
+        width: 95%;
+    }
+    .caixaSelect{
+        height: 60%;
+        width: 90%;
+    }
+
+    form{
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        padding: 0.5rem;
+        height: 40%;
+
+        label{
+            font-size: 0.9rem;
+            width: 25%;
+            text-align: center;
+            background-color: #F7F6F3;
+        }
+        input{
+            width: 15rem;
+            margin: 0;
+            
+        }
+    }
+
+    button{
+        margin: 0rem 0rem 0rem 1rem;
+        width: 25%;
+        
+        font-size: 0.7rem;
+    }
+}
+
