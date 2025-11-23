@@ -22,7 +22,6 @@ nav{
     display: flex;
     flex-direction: column;
     justify-content: center;
-
     height: 100%;
     width: 25%;
     
@@ -80,8 +79,7 @@ a{
 }
 a:hover
 {
-    transform: scale(1.1); 
-    transition: all 0.3s  ease-in-out;
+    transition: all 0.3s  ease;
     background-color: var(--cor-terciaria);
     color: var(--cor-primaria);
 
@@ -94,3 +92,49 @@ a:hover
     padding-left: 2rem;
 }
 
+
+
+/* BOTÃO DO MENU */
+.btnMenu{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: var(--cor-primaria);
+    color: #fff;
+    border: none;
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: none; /* some em telas grandes */
+    z-index: 2000;
+}
+
+/* NAV recolhida */
+nav.nav-fechada{
+    width: 0;
+    overflow: hidden;
+}
+/* Quando a tela for pequena */
+@media (max-width: 1000px) {
+
+    nav{
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 250px;
+        transition: all 0.3s ease;
+        z-index: 1500;
+    }
+
+    /* ESTADO RECOLHIDO — AGORA FUNCIONA! */
+    nav.nav-fechada{
+        width: 0 !important;
+    }
+
+    .btnMenu{
+        display: block;
+    }
+}
