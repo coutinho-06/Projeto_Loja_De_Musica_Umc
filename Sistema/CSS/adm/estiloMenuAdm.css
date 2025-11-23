@@ -15,7 +15,8 @@ section{
     display: flex;
     width: 100%;
     height: 100vh;
-    
+    position: relative;
+    z-index: 1;
 }
 
 nav{
@@ -88,53 +89,36 @@ a:hover
 .saidaAdm{
     display: flex;
     height: 15%;
-    align-items: center;
-    padding-left: 2rem;
-}
+    width: 100%;
+    justify-content: flex-end;
+    align-items: end;
+    text-align: center;
 
-
-
-/* BOTÃO DO MENU */
-.btnMenu{
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    background-color: var(--cor-primaria);
-    color: #fff;
-    border: none;
-    font-size: 2rem;
-    width: 50px;
-    height: 50px;
-    border-radius: 8px;
-    cursor: pointer;
-    display: none; /* some em telas grandes */
-    z-index: 2000;
-}
-
-/* NAV recolhida */
-nav.nav-fechada{
-    width: 0;
-    overflow: hidden;
-}
-/* Quando a tela for pequena */
-@media (max-width: 1000px) {
-
-    nav{
-        position: fixed;
-        left: 0;
-        top: 0;
-        height: 100vh;
-        width: 250px;
-        transition: all 0.3s ease;
-        z-index: 1500;
+    
+    a{
+        padding-top: 1.5rem;
+        text-decoration: none;
+        font-size: 1.5rem;
+        color: #fff;
+        height: 6rem;
+        text-align: start;
+        width: 100%;
+    }
+    a:hover
+    {
+        transition: all 0.3s  ease;
+        background-color: var(--cor-primaria);
+        color: var(--cor-terciaria);
     }
 
-    /* ESTADO RECOLHIDO — AGORA FUNCIONA! */
-    nav.nav-fechada{
-        width: 0 !important;
-    }
+    i{
+        color: #fff;
 
-    .btnMenu{
-        display: block;
     }
+    
+
 }
+
+
+
+

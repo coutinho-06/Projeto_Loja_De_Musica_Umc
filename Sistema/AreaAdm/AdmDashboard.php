@@ -56,9 +56,11 @@
 
 
     <section>
-        <button id="btnMenu" class="btnMenu">☰</button>
+       
+
 
         <nav>
+             <!-- <button id="btnMenu" class="btnMenu">☰</button> -->
             <div class="saudacaoAdm">
                 <h1>Olá, Adm!</h1> 
             </div>
@@ -79,9 +81,13 @@
                 </ul>
             </div>
             <div class="saidaAdm">
-                <a href="../TelaLoginAdm.php">SAIR</a>
+                <a href="../TelaLoginAdm.php">
+                    <i class="fa-solid fa-door-closed" style="color: #ffffff;"></i>
+                    SAIR
+                </a>
             </div>
         </nav>
+        
 
         <div class="containerParteDados">
             <div class="containerSuperior">
@@ -120,34 +126,9 @@
 
 
 
-    <script>
-        
-        const nav = document.querySelector("nav");
-        const btn = document.getElementById("btnMenu");
 
-        // Função para abrir/fechar
-        btn.addEventListener("click", () => {
-            nav.classList.toggle("nav-fechada");
-        });
-
-        // Quando a tela for menor que 1000px, começa fechado
-        function verificarTamanho(){
-            if(window.innerWidth < 1000){
-                nav.classList.add("nav-fechada");
-            } else {
-                nav.classList.remove("nav-fechada");
-            }
-        }
-
-        verificarTamanho();
-
-        window.onresize = verificarTamanho;
-    </script>
-
-
-
-
- <script src="https://kit.fontawesome.com/ef7e10212e.js" crossorigin="anonymous"></script>
+    <script src="../JS/menu.js"></script>
+    <script src="https://kit.fontawesome.com/ef7e10212e.js" crossorigin="anonymous"></script>
 
     
 </body>
