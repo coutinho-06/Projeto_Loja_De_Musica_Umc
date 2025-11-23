@@ -56,6 +56,8 @@
 
 
     <section>
+        <button id="btnMenu" class="btnMenu">☰</button>
+
         <nav>
             <div class="saudacaoAdm">
                 <h1>Olá, Adm!</h1> 
@@ -86,14 +88,6 @@
                 <h1>Dashboard da Groove Sound</h1>
             </div>
             <div class="containerInferior">
-                <div class="caixaGrafico">
-                        <div class="titulo">
-                            <p>Categoria Mais Procurada </p>
-                        </div>
-                        <div class="grafico">
-
-                        </div>
-                </div>
                 <div class="caixaCards">
                     <div class="cards">
                         <div class="titulo">
@@ -126,6 +120,29 @@
 
 
 
+    <script>
+        
+        const nav = document.querySelector("nav");
+        const btn = document.getElementById("btnMenu");
+
+        // Função para abrir/fechar
+        btn.addEventListener("click", () => {
+            nav.classList.toggle("nav-fechada");
+        });
+
+        // Quando a tela for menor que 1000px, começa fechado
+        function verificarTamanho(){
+            if(window.innerWidth < 1000){
+                nav.classList.add("nav-fechada");
+            } else {
+                nav.classList.remove("nav-fechada");
+            }
+        }
+
+        verificarTamanho();
+
+        window.onresize = verificarTamanho;
+    </script>
 
 
 

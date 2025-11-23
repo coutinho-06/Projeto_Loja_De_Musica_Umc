@@ -509,6 +509,17 @@ form{
             
         }
     }
+
+    form { 
+        display: flex;
+        flex-direction: column;
+        height: 80rem;
+    }
+    .caixaForm{
+        flex-direction: column;
+        gap: 1.5rem;
+        flex-wrap: nowrap;
+    }
 }
 
 
