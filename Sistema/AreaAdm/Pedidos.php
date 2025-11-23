@@ -133,7 +133,7 @@
 
             <div id="modalConfirmar" class="modal">
             <div class="modal-content">
-                <h2>Confirmar Atendimento</h2>
+                <h2>Confirmar Atendimento?</h2>
                 <p>Tem certeza de que deseja marcar este pedido como atendido?</p>
 
                 <div class="botoes">

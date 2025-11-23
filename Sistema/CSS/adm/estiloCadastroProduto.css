@@ -78,6 +78,19 @@ form{
 
     }
 
+    select{
+        margin-top: 1rem;
+        margin-left: 6rem;
+        border: 1px solid var(--cor-primaria);
+        border-radius: 0.2rem;
+        box-shadow: 2px 2px 3px #6c0a0a9f;
+        background-color: #F7F6F3;
+        height: 1.6rem;
+        width: 13rem;
+        outline: none;
+        color: var(--cor-primaria);
+    }
+
     input{
         border: 1px solid var(--cor-primaria);
         border-radius: 0.2rem;
@@ -136,9 +149,9 @@ button{
 
 
 
+
 .caixaSelect{
     width: 50%;
-
     display: flex;
     justify-content:center;
     align-items: center;
@@ -149,7 +162,7 @@ table{
     box-shadow: 2px 2px 2px var(--cor-primaria);
     border-radius: 0.1rem;
     border: 1px solid var(--cor-primaria); 
-    height: 95%;
+    height: 100%;
     width: 95%;
     
 }
@@ -171,8 +184,6 @@ td{
     padding-left: 0.5rem;
     cursor: pointer;
 
-    
-    
 }
 
 
@@ -181,13 +192,13 @@ td{
     height: 450px;  
     overflow-y: auto;
     overflow-x: hidden;
-
     border-radius: 0.2rem;
 }
 
 .tabela-scroll table {
     width: 100%;
     border-collapse: collapse;
+    border: 1px solid var(--cor-primaria);
 }
 
 /* Deixar o header fixo */
@@ -254,8 +265,39 @@ td{
     cursor: pointer;
 }
 
-.btn-acao.delete {
-    background: #b30000;
+
+.modal-content button {
+    
+    width: 70%; 
+    border-radius: 0.3rem;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    &:hover{
+        border: 1px solid var(--cor-primaria); 
+    }
+}
+
+.bts{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    width: 100%;
+    height: 60%;
+    gap: 1rem;
+    
+}
+#btnEditar{
+    background: var(--cor-terciaria);
+    width: 50%; 
+}
+#btnExcluir {
+    background: #a30000;
+    width: 50%; 
+    color: white;
+    
+    
 }
 
 .fechar {
@@ -265,3 +307,256 @@ td{
     padding: 8px;
     border-radius: 6px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================================================== */
+/* ==================== RESPONSIVIDADE ====================== */
+/* ========================================================== */
+
+
+/* 1360px */
+@media (max-width: 1500px) {
+    .containerSuperior h1{
+        font-size: 3rem;
+    }
+
+    .containerInferior{
+        margin-left: 1rem;
+    }
+}
+
+/* 1360px */
+@media (max-width: 1360px) {
+    .containerSuperior h1{
+        font-size: 2.8rem;
+    }
+    .containerInferior{
+        margin-left: 1rem;
+    }
+
+    .caixaForm{
+        width: 45%;
+
+    }
+    
+    form{
+        width: 85%;
+        label{
+            width: 70%;
+            margin-left: 4.5rem;
+            font-size: 0.9rem;
+        }
+        input{
+            width: 11rem;
+            margin-left: 4.5rem;
+
+        }
+        select{
+            margin-left: 4.5rem;
+            width: 10rem;
+        }
+    }
+        
+    input.inpValor{
+        width: 9rem;
+    }
+    input.inpImg{
+        width: 6.5rem;
+        
+    }
+    .caixaSelect{
+        width: 55%;
+    }
+
+    button{
+        width: 55%;
+        margin-left: 4.5rem;
+    }
+}
+
+
+@media (max-width: 990px) {
+    .containerSuperior {
+        justify-content: center;
+        h1{
+            font-size: 2.6rem;
+        }
+    }
+    .containerInferior{
+        margin-left: 0rem;
+    }
+    .caixaSelect{
+        margin-left: 1.5rem;
+        width: 70%;
+    }
+
+    table{
+        width: 70%;
+    }
+    .tabela-scroll{
+        width: 95%;
+    }
+        
+    th.colId{
+        width: 10%;
+        height: 2.5rem;
+        
+    }
+    .caixaForm{
+        width: 38%;
+    }
+
+    form{
+        width: 80%;
+        label{
+            width: 70%;
+            margin-left: 3rem;
+            font-size: 0.9rem;
+        }
+        input{
+            width: 11rem;
+            margin-left: 3rem;
+
+        }
+        select{
+            margin-left: 3rem;
+            width: 10rem;
+        }
+    }
+        
+    input.inpValor{
+        width: 9rem;
+    }
+    input.inpImg{
+        width: 6.5rem;
+        
+    }
+    .caixaSelect{
+        width: 62%;
+    }
+
+    button{
+        width: 60%;
+        font-size: 0.9rem;
+        margin-left: 3rem;
+    }
+}
+
+
+@media (max-width: 830px) {
+    .containerParteDados{
+        gap: 0.5rem;
+    }
+    .containerSuperior {
+        justify-content: center;
+        margin-left: 2.5rem;
+        h1{
+            
+            font-size: 2rem;
+        }
+    }
+    .containerInferior{
+        flex-direction: column;
+        height: 90%;
+        gap:0.8rem;
+    }
+    .caixaForm{
+        height: 50%;
+        width: 95%;
+        justify-content: center;
+        align-items: center;
+    }
+    .caixaSelect{
+        height: 40%;
+        width: 99%;
+
+      
+    }
+        
+      
+    table{
+        height: 100%;
+        font-size: 0.9rem;
+    }
+    th.colId{
+        width: 5%;
+        height: 1.8rem;
+        
+    }
+        
+    .tabela-scroll {
+        width: 100%;
+        height: 210px;  
+        overflow-y: auto;
+        overflow-x: hidden;
+        border-radius: 0.2rem;
+    }
+
+    form{
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 90%;
+        gap: 0.4rem;
+        padding: 1rem;
+        height: 95%;
+
+        label{
+            font-size: 0.9rem;
+            width: 30%;
+            text-align: left;
+            background-color: #F7F6F3;
+        }
+        
+        input{
+            width: 10rem;
+            margin: 0;
+            margin-left: 3rem;
+            
+        }
+        
+    input.inpValor{
+        width: 6rem;
+    }
+    input.inpImg{
+        width: 8rem;
+    
+    }
+    select{
+        width: 8rem;
+    }
+    }
+    
+
+    button{
+        margin: 2rem 0rem 0rem 3rem;
+        width: 25%;
+        
+        font-size: 0.7rem;
+    }
+}
+
+
+@media (max-width: 780px) {
+
+    .containerSuperior {
+         align-items: end;
+    }
+    .caixaForm{
+        width: 99%;
+        margin-left: 0.9rem;
+    }
+    form{
+        width: 99%;
+    }
+}
+

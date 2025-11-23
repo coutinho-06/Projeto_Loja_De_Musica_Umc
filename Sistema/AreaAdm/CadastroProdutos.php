@@ -85,7 +85,7 @@
                         <input type="text" class="inpValor" name="valor">
 
                         <label for="">Imagem do Produto:</label>
-                        <input type="file" name="imagem" accept="image/*" required>
+                        <input type="file" name="imagem" class="inpImg" accept="image/*" required>
                         
                         <button type="submit">Cadastrar</button>
                             
@@ -155,9 +155,10 @@
 
             <p>O que deseja fazer?</p>
 
-            <button id="btnEditar" class="btn-acao">Editar</button>
-            <button id="btnExcluir" class="btn-acao delete">Excluir</button>
-
+            <div class="bts">
+                <button id="btnEditar" class="btn-acao">Editar</button>
+                <button id="btnExcluir" class="btn-acao delete">Excluir</button>
+            </div>
             <button class="fechar" onclick="fecharModais()">Fechar</button>
         </div>
     </div>

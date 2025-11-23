@@ -89,3 +89,53 @@ td button{
     transition: all 0.5s ease-in-out;
 
 }
+
+
+
+
+
+/* ========================================================== */
+/* ==================== RESPONSIVIDADE ====================== */
+/* ========================================================== */
+
+
+/* 1360px */
+@media (max-width: 1500px) {
+    .containerSuperior h1{
+        font-size: 3rem;
+    }
+
+    .containerInferior{
+        margin-left: 1rem;
+    }
+}
+
+/* 1360px */
+@media (max-width: 1360px) {
+    .containerSuperior h1{
+        font-size: 2.8rem;
+    }
+
+}
+
+@media (max-width: 990px) {
+    .containerSuperior {
+        justify-content: center;
+        h1{
+            font-size: 2.6rem;
+        }
+    }
+
+}
+@media (max-width: 780px) {
+    .containerSuperior {
+        justify-content: center;
+        margin-left: 2.5rem;
+        h1{
+            font-size: 2rem;
+        }
+    }
+
+
+}
+
