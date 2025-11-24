@@ -126,17 +126,28 @@ VALUES
 ('Larissa', 'Souza', '2004-09-22', '98765432100', 'larissasouza04@gmail.com', '456456', '11987451236'),
 ('Pedro', 'Almeida', '2003-12-05', '85236974122', 'pedroalmeida03@gmail.com', '789789', '11975321458'),
 ('Beatriz', 'Oliveira', '2005-02-18', '74125896333', 'beatriz.oli18@gmail.com', '321321', '11969874521'),
-('Lucas', 'Santos', '2006-07-30', '96385274144', 'lucassantos06@gmail.com', '654654', '11987451247');
+('Lucas', 'Santos', '2006-07-30', '96385274144', 'lucassantos06@gmail.com', '654654', '11987451247'),
+('Pedro', 'Igor', '2006-07-30', '11111111111', 'igorpedro06@gmail.com', '123321', '11987654321');
+
+# --- Endereços ---
+INSERT INTO endereco (estado, cep, numero, id_cliente)
+VALUES
+('São Paulo', '08744030', '136', 1),
+('Rio de Janeiro', '22041001', '52', 2),
+('Minas Gerais', '30140071', '789', 3),
+('Paraná', '80010000', '245', 4),
+('Bahia', '40020000', '67', 5),
+('Santa Catarina', '88010000', '392', 5);
 
 # --- Compras (ligadas a clientes e instrumentos) ---
-INSERT INTO compra (forma_pagamento, data_compra, id_cliente, id_instrumento)
+INSERT INTO compra (forma_pagamento, data_compra, id_cliente, id_instrumento, id_endereco)
 VALUES
-('Pix', '2025-10-20', 1, 1), 
-('Crédito', '2025-02-10', 2, 2), 
-('Débito', '2025-09-09', 3, 3), 
-('Boleto', '2025-12-25', 4, 4), 
-('Pix', '2025-06-14', 5, 5), 
-('Crédito', '2025-08-31', 5, 6);
+('Pix', '2025-10-20', 1, 1, 1), 
+('Crédito', '2025-02-10', 2, 2, 2), 
+('Débito', '2025-09-09', 3, 3, 3), 
+('Boleto', '2025-12-25', 4, 4, 4), 
+('Pix', '2025-06-14', 5, 5, 5), 
+('Crédito', '2025-08-31', 5, 6, 6);
 #select * from cliente;
 
 # --- Itens de compra (ligados a compras e instrumentos) ---
@@ -148,16 +159,6 @@ VALUES
 (1, 2290.00, 4, 4),
 (1, 579.90, 5, 5),
 (2, 559.90, 6, 6);
-
-# --- Endereços ---
-INSERT INTO endereco (estado, cep, numero, id_cliente)
-VALUES
-('São Paulo', '08744030', '136', 1),
-('Rio de Janeiro', '22041001', '52', 2),
-('Minas Gerais', '30140071', '789', 3),
-('Paraná', '80010000', '245', 4),
-('Bahia', '40020000', '67', 5),
-('Santa Catarina', '88010000', '392', 5);
 
 # --- Encomendas (ligadas a endereços e compras) ---
 INSERT INTO encomenda (data_encomenda, id_endereco, id_compra)
