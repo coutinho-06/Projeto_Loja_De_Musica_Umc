@@ -164,7 +164,7 @@
         <h1>Acessórios</h1>
 
         <?php
-            $sql2 = "SELECT * FROM instrumento WHERE id_categoria = '14'";
+            $sql2 = "SELECT * FROM instrumento WHERE id_categoria = '7'";
             $acessorios = mysqli_query($conn, $sql2);
 
         ?>
